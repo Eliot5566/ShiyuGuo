@@ -127,7 +127,7 @@ function Product(props) {
   // };
 
   const { _id } = useParams();
-  const [data, setData] = useState(null); // 修改为 null
+  const [data, setData] = useState(null); // 修改為 null
 
   useEffect(() => {
     async function fetchProduct() {
@@ -137,7 +137,7 @@ function Product(props) {
           //這裡的5000是後端的port number
           `http://localhost:5000/api/products/${_id}`
         );
-        setData(response.data); // 将数据保存到data中
+        setData(response.data); // 將數據保存到data中
       } catch (error) {
         console.error('Error fetching product:', error);
       }
@@ -178,7 +178,7 @@ function Product(props) {
 
   return (
     <>
-      {data && ( // 添加条件渲染以确保data已加载
+      {data && ( // 添加條件渲染以確保data已加载
         <div
           key={data._id}
           className="container"
