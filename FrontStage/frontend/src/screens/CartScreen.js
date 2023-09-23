@@ -203,7 +203,8 @@ export default function CartScreen() {
         <Helmet>
           <title>購物車內容</title>
         </Helmet>
-        <h1 className="mt-5 mb-4 fw-bold">購物車內容</h1>
+        <h1 className="mt-5 mb-4 fw-bold" style={{color:'rgb(78,78,78)' }}>購物車內容</h1>
+        
 
         <Row>
           <Col md={8} className="border-0">
@@ -261,7 +262,7 @@ export default function CartScreen() {
                         >
                           -
                         </Button>
-                        <span className="p-2">{item.quantity}</span>
+                        <span className="fs-5 p-2">{item.quantity}</span>
                         <Button
                           onClick={() => plus(item)}
                           className="fw-bolder rounded-circle fs-5 p-0 border-0"
