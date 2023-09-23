@@ -203,8 +203,9 @@ export default function CartScreen() {
         <Helmet>
           <title>購物車內容</title>
         </Helmet>
-        <h1 className="mt-5 mb-4 fw-bold" style={{color:'rgb(78,78,78)' }}>購物車內容</h1>
-        
+        <h1 className="mt-5 mb-4 fw-bold" style={{ color: 'rgb(78,78,78)' }}>
+          購物車內容
+        </h1>
 
         <Row>
           <Col md={8} className="border-0">
@@ -243,7 +244,7 @@ export default function CartScreen() {
                         <Link
                           to={`/product/${item._id}`}
                           className="text-decoration-none fw-bold"
-                          style={{ fontSize: '1.5rem', color:'rgb(78,78,78)' }}
+                          style={{ fontSize: '1.5rem', color: 'rgb(78,78,78)' }}
                         >
                           {item.name}
                         </Link>
@@ -256,7 +257,7 @@ export default function CartScreen() {
                             width: '2rem',
                             height: '2rem',
                             lineHeight: '0.5rem',
-                            backgroundColor:'#9a2540'
+                            backgroundColor: '#9a2540',
                           }}
                           disabled={item.quantity === 1}
                         >
@@ -270,7 +271,7 @@ export default function CartScreen() {
                             width: '2rem',
                             height: '2rem',
                             lineHeight: '0.5rem',
-                            backgroundColor:'#9a2540'
+                            backgroundColor: '#9a2540',
                           }}
                           disabled={item.quantity === item.countInStock}
                         >
@@ -343,7 +344,10 @@ export default function CartScreen() {
               <Card.Body>
                 <ListGroup variant="flush">
                   <ListGroup.Item>
-                    <h3 className="text-center fw-bold" style={{color:"rgb(78,78,78)"}}>
+                    <h3
+                      className="text-center fw-bold"
+                      style={{ color: 'rgb(78,78,78)' }}
+                    >
                       商品數量 ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
                       件) : NT$&nbsp;
                       {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
@@ -359,6 +363,7 @@ export default function CartScreen() {
                         }}
                         type="button"
                         variant="primary"
+                        style={{ backgroundColor: '#9a2540' }}
                         disabled={cartItems.length === 0}
                       >
                         前往結帳
