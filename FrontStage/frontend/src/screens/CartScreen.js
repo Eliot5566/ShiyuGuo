@@ -1,10 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { Store } from '../Store';
 import { Helmet } from 'react-helmet-async';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './rabbit.css';
-import { Container, Row, Col, ListGroup, Button, Card } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import swal from 'sweetalert';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -193,12 +198,12 @@ export default function CartScreen() {
   const max = 20;
 
   return (
-    <div className="cartstyle mt-3">
+    <div className="cartstyle">
       <Container>
         <Helmet>
           <title>購物車內容</title>
         </Helmet>
-        <h1 className="mb-4 fw-bold">購物車內容</h1>
+        <h1 className="mt-5 mb-4 fw-bold">購物車內容</h1>
 
         <Row>
           <Col md={8} className="border-0">
@@ -208,7 +213,7 @@ export default function CartScreen() {
                 <div className="rabbit"></div>
                 <br />
                 <div className="carp fs-4 fw-bold">
-                  購物車目前空空的，快點去挑選喜歡的產品吧~
+                  購物車目前空空的，快點去挑選喜歡的產品
                 </div>
               </div>
             ) : (
@@ -236,8 +241,8 @@ export default function CartScreen() {
                       <Col md={4}>
                         <Link
                           to={`/product/${item._id}`}
-                          className="text-decoration-none text-black"
-                          style={{ fontSize: '1.5rem' }}
+                          className="text-decoration-none fw-bold"
+                          style={{ fontSize: '1.5rem', color:'rgb(78,78,78)' }}
                         >
                           {item.name}
                         </Link>
@@ -245,12 +250,12 @@ export default function CartScreen() {
                       <Col md={2}>
                         <Button
                           onClick={() => minus(item)}
-                          className="btn fw-bolder rounded-circle fs-5 p-0 border-0"
+                          className="fw-bolder rounded-circle fs-5 p-0 border-0"
                           style={{
                             width: '2rem',
                             height: '2rem',
                             lineHeight: '0.5rem',
-                            backgroundColor: '#9a2540',
+                            backgroundColor:'#9a2540'
                           }}
                           disabled={item.quantity === 1}
                         >
@@ -259,12 +264,12 @@ export default function CartScreen() {
                         <span className="p-2">{item.quantity}</span>
                         <Button
                           onClick={() => plus(item)}
-                          className="btn fw-bolder rounded-circle fs-5 p-0 border-0"
+                          className="fw-bolder rounded-circle fs-5 p-0 border-0"
                           style={{
                             width: '2rem',
                             height: '2rem',
                             lineHeight: '0.5rem',
-                            backgroundColor: '#9a2540',
+                            backgroundColor:'#9a2540'
                           }}
                           disabled={item.quantity === item.countInStock}
                         >
@@ -281,7 +286,7 @@ export default function CartScreen() {
                           variant="none"
                         >
                           <i
-                            className="fas fa-trash-alt"
+                            className="fas fa-trash-alt btn-color"
                             style={{ fontSize: '1.5rem', color: '#9a2540' }}
                           ></i>
                         </Button>
@@ -290,7 +295,7 @@ export default function CartScreen() {
                     {item.isGiftBox && expandedProduct === item._id && (
                       <div>
                         <div className=" ">
-                          {/* 渲染選定的商品訊息 */}
+                          {/* 渲染选定的商品信息 */}
                           {(() => {
                             const productCounts =
                               selectedGiftBoxType === '4'
@@ -337,7 +342,7 @@ export default function CartScreen() {
               <Card.Body>
                 <ListGroup variant="flush">
                   <ListGroup.Item>
-                    <h3>
+                    <h3 className="text-center fw-bold" style={{color:"rgb(78,78,78)"}}>
                       商品數量 ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
                       件) : NT$&nbsp;
                       {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
@@ -346,20 +351,13 @@ export default function CartScreen() {
                   <ListGroup.Item>
                     <div className="d-grid">
                       <Button
-                        // style={{ backgroundColor: '#9a2540' }}
-                        className="text-white border-0 fs-4 btn-color"
+                        className="text-white fs-4 btn-color mt-2"
                         onClick={() => {
                           checkoutHandler();
-                          handleSubmit(); // 調用 handleSubmit 函數
+                          handleSubmit(); // 调用 handleSubmit 函数
                         }}
                         type="button"
-                        // variant="primary"
-                        onMouseOver={(e) => {
-                          e.target.style.backgroundColor = '#b33f5a';
-                        }}
-                        onMouseOut={(e) => {
-                          e.target.style.backgroundColor = '#9a2540';
-                        }}
+                        variant="primary"
                         disabled={cartItems.length === 0}
                       >
                         前往結帳
