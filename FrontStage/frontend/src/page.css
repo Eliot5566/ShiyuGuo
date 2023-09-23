@@ -1,18 +1,23 @@
 .handmade {
-  /* box-shadow: rgb(154, 37, 64) 0px 54px 55px,rgb(154, 37, 64) -12px 30px, rgb(154, 37, 64) 0px 4px 6px,rgb(154, 37, 64) 0px 12px 13px, rgb(154, 37, 64) 0px -3px 5px; */
   box-shadow: 0 0 10px rgb(255, 255, 255); /* 调整10px以更改模糊程度和颜色 */
+  min-width: 30%;
+  position: relative;
+  bottom: -300px;
+}
 
-  width: 100%;
-  height: 100%;
+@media screen and (max-width: 768px) {
+  .handmade {
+    position: relative;
+    bottom: -400px;
+  }
 }
 
 .background {
   background-image: url('./images/背景1.png');
   width: 100%;
   height: 100%;
-
-  /* background: linear-gradient(to bottom, rgba(0,36,0,0) 0%,rgba(0,255,42,0.3) 30%,rgba(0,255,42,1) 100%); */
-  /* background-color: #ffffff;  */
+  background-color: #ffffff;
+  position: relative;
 }
 
 .background2 {
@@ -20,7 +25,6 @@
   /* width: 100%;*/
 
   background-color: #feb7c9;
-  /* 红色背景 */
 }
 
 .background3 {
@@ -136,11 +140,13 @@ body {
 }
 .flex-container {
   position: absolute;
+  left: 15%;
   height: 100vh;
-  width: 100%;
+  width: 70%;
   display: -webkit-flex; /* Safari */
   display: flex;
   overflow: hidden;
+
   @media screen and (max-width: 768px) {
     flex-direction: column;
   }
@@ -217,8 +223,8 @@ body {
   flex-grow: 3;
 }
 .home {
-  height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.13), rgba(0, 0, 0, 0.5)),
+  height: 90vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(./images/專題2/procduct/月兔饅頭.png);
   background-size: cover;
   background-position: center center;
@@ -227,6 +233,13 @@ body {
     /* animation: aboutFlexSlide $defaultSeconds 1; */
     animation-delay: 0s;
   }
+}
+.home:hover {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(123, 123, 123, 0.138)),
+    url(./images/專題2/procduct/月兔饅頭.png);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 @keyframes aboutFlexSlide {
@@ -291,7 +304,15 @@ body {
 }
 
 .about {
+  height: 95vh;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(./images/專題2/procduct/大福.png);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+.about:hover {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(123, 123, 123, 0.138)),
     url(./images/專題2/procduct/大福.png);
   background-size: cover;
   background-position: center center;
@@ -307,14 +328,32 @@ textarea {
   width: 100%;
 }
 .contact {
+  height: 90vh;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(./images/專題2/procduct/羊羹.png);
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
 }
+.contact:hover {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(123, 123, 123, 0.138)),
+    url(./images/專題2/procduct/羊羹.png);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
 .work {
+  height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(./images/專題2/procduct/水饅頭.png);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.work:hover {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(123, 123, 123, 0.138)),
     url(./images/專題2/procduct/水饅頭.png);
   background-size: cover;
   background-position: center center;
@@ -323,6 +362,14 @@ textarea {
 
 .work2 {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(./images/專題2/procduct/風味抹茶1入.png);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.work2:hover {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(123, 123, 123, 0.138)),
     url(./images/專題2/procduct/風味抹茶1入.png);
   background-size: cover;
   background-position: center center;
@@ -340,4 +387,25 @@ Preloader .spinner {
   margin-top: 0;
   color: #fff;
   font-size: 1em;
+}
+.VerticalText {
+  writing-mode: vertical-lr; /* 從上到下，從左到右 */
+}
+
+@media (max-width: 768px) {
+  .VerticalText {
+    writing-mode: horizontal-tb;
+  }
+}
+
+.aaa {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .aaa {
+    display: block;
+    align-items: initial;
+  }
 }

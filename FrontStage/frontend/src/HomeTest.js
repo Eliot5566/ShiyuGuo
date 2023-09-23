@@ -1,9 +1,13 @@
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+
 import Page from './page';
 import Page2 from './page2';
 import Page3 from './page3';
 import Page4 from './page4';
+import Try from './Try';
 import './nav.css';
+import Test2 from './screens/Test2';
+
 import './start.css';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -11,18 +15,15 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Badge from 'react-bootstrap/Badge';
-// import Nav from 'react-bootstrap/Nav';
+import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useContext } from 'react';
 import { Store } from './Store';
-import Test2 from './screens/Test2';
-import Try from './screens/Try';
-import Nav from './screens/Nav';
-import ScrollToTopButton from './components/ScrollToTopButton';
 
 // import Transition from './components/Transition';
+import main1 from './images/專題2/品牌2.png';
 
 function HomeTest() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -36,7 +37,7 @@ function HomeTest() {
       0
     );
 
-    // 設定購物車數
+    // 設定購物車數量
     setCartItemCount(itemCount);
   }, [cart, giftBoxQuantity]);
   const signoutHandler = () => {
@@ -49,43 +50,17 @@ function HomeTest() {
     window.location.href = '/signin';
   };
 
-  //920修改
-
-  //   const useRWD= ()=>{
-  //     const [device,setDevice]=useState("mobile");
-
-  //     const handleRWD=()=>{
-  //         if(window.innerWidth>600)
-  //             setDevice("PC");
-
-  //         else setDevice("mobile");
-  //     }
-
-  //         useEffect(()=>{
-  //             window.addEventListener('resize',handleRWD);
-  //             return(()=>{
-  //                 window.removeEventListener('resize',handleRWD);
-  //             })
-  //         },[]);
-
-  //     return device;
-  // }
-
-  // const device = useRWD(); // Get the device type using the useRWD hook
-
-  //920
   return (
     // pages 等於總和頁數
     //offest
 
-    // <div className="App my-background" style={{ width: '100%', height: '200%', background: '#253237' }}>
-    <div style={{ width: '100%', height: '100vh' }}>
-      <Parallax pages={7} style={{ top: '0', left: '0' }} className="animation">
+    <div className="App my-background">
+      <Parallax pages={6} style={{ top: '0', left: '0' }} className="animation">
         <ParallaxLayer offset={0} speed={0}>
           <div className="animation_layer parallax" id="block"></div>
         </ParallaxLayer>
         {/* --------------------------------------------------------------- */}
-        <ParallaxLayer offset={0} speed={-0.25}>
+        <ParallaxLayer offset={0} speed={0}>
           <div className="animation_layer parallax" id="bg"></div>
           <div className="vertical-text text-wrap fs-2 fw-bold h-100 ">
             <div>每</div>
@@ -116,11 +91,12 @@ function HomeTest() {
             <div>い</div>
           </div>
         </ParallaxLayer>
-
-        {/* <ParallaxLayer offset={0} speed={0.55}>
+        {/* --------------------------------------------------------------- */}
+        <ParallaxLayer offset={0} speed={0.7}>
           <div className="animation_layer parallax" id="cloud"></div>
-        </ParallaxLayer> */}
+        </ParallaxLayer>
 
+        {/* 雲 */}
         {/* --------------------------------------------------------------- */}
 
         <ParallaxLayer offset={0} speed={0.7}>
@@ -153,15 +129,18 @@ function HomeTest() {
         {/* 鳥居 */}
         {/* --------------------------------------------------------------- */}
 
-        <ParallaxLayer offset={0} speed={0}>
+        <ParallaxLayer offset={0} speed={-0.2}>
           <div className="animation_layer parallax" id="Cherryblossoms"></div>
         </ParallaxLayer>
         {/* 櫻花 */}
 
         {/* --------------------------------------------------------------- */}
 
-        <ParallaxLayer offset={0} speed={0}>
-          <div className="animation_layer parallax" id="Mountain"></div>
+        <ParallaxLayer offset={0} speed={-0.3}>
+          <div
+            className="animation_layer parallax shake-vertical"
+            id="Mountain"
+          ></div>
         </ParallaxLayer>
         {/* 富士山 */}
         {/* --------------------------------------------------------------- */}
@@ -185,98 +164,44 @@ function HomeTest() {
           </div>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={1} speed={0}>
+        <ParallaxLayer offset={1}>
           <Page />
         </ParallaxLayer>
 
+        <ParallaxLayer offset={1} speed={0.2}>
+          <div>
+            <h1 className=" text-center fw-bold animate__animated animate__bounce  ">
+              關於我們的故事
+            </h1>
+
+            <h2 className="text-center fw-bold ">「拾月菓」</h2>
+            <br></br>
+            <h4 className=" animate__fadeInDown  mx-5 fw-bold lh-3 ">
+              日式菓子專賣店創辦於2023年資策會前端班，
+              「十月」是我們學習了半年要結訓發表的月份，
+              我們的團隊熱愛日本文化，於是決定創建日式點心為主題的網站，
+              傳達品牌承襲日本文化、嚴選天然頂級原料的理念秉持著文化精髓中「不懈不怠、嚴謹專注」的職人精神。
+            </h4>
+          </div>
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={2.2} speed={0.2}>
+          <div className="background2  h-50 "></div>
+        </ParallaxLayer>
         <ParallaxLayer offset={2}>
           <Page2 />
         </ParallaxLayer>
 
-        <ParallaxLayer offset={3}>
+        <ParallaxLayer offset={3.1}>
           <Page3 />
         </ParallaxLayer>
 
-        <ParallaxLayer offset={4} id="page1">
-          <Try />
-          <ScrollToTopButton />
+        <ParallaxLayer offset={4.3}>
+          <Page4 />
         </ParallaxLayer>
-
-        <ParallaxLayer offset={5} className="flyrabbit">
-          <div className="animation_layer parallax bg-yellow" id="flyrabbit">
-            <ScrollToTopButton />
-          </div>
-          <Try />
-          {/* 兔子 */}
-        </ParallaxLayer>
-        {/* 建立新頁面 可以占滿整個畫面 而不是只有一部分 */}
-
-        <ParallaxLayer offset={6} className="flyrabbit">
-          <div
-            className="animation_layer parallax bg-yellow"
-            id="flyrabbit"
-          ></div>
-          <Try />
-        </ParallaxLayer>
-        {/* speed={-1} */}
 
         <ParallaxLayer>
-          {/* <Navbar
-            className="fixed-top  animate__animated animate__fadeIn animate__delay-3s "
-            bg="none"
-            variant=""
-          >
-            <Container>
-              <LinkContainer to="/">
-                <Navbar.Brand>首頁</Navbar.Brand>
-              </LinkContainer>
-              <Nav className="me-auto">
-                <Link to="/cart" className="nav-link">
-                  購物車
-                  {cartItemCount > 0 && (
-                    <Badge pill bg="danger">
-                      {cartItemCount}
-                    </Badge>
-                  )}
-                </Link>
-                <Link className="nav-link " to="giftbox">
-                  客製禮盒
-                </Link>
-
-                <Link className="nav-link ms-auto" to="faq">
-                  常見問題
-                </Link>
-                <Link className="nav-link ms-auto" to="category">
-                  最新商品
-                </Link>
-                {userInfo ? (
-                  <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
-                    <LinkContainer to="/profile">
-                      <NavDropdown.Item>使用者資料</NavDropdown.Item>
-                    </LinkContainer>
-                    <LinkContainer to="/orderhistory">
-                      <NavDropdown.Item>歷史訂單</NavDropdown.Item>
-                    </LinkContainer>
-                    <NavDropdown.Divider />
-                    <Link
-                      className="dropdown-item"
-                      to="#signout"
-                      onClick={signoutHandler}
-                    >
-                      登出
-                    </Link>
-                  </NavDropdown>
-                ) : (
-                  <Link className="nav-link" to="/signin">
-                    登入
-                  </Link>
-                )}
-              </Nav>
-            </Container>
-          </Navbar> */}
-
           <Test2 />
-          {/* <Nav /> */}
         </ParallaxLayer>
       </Parallax>
     </div>

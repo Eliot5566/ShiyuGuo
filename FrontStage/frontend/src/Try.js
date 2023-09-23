@@ -1,9 +1,6 @@
 import React from 'react';
 import './Try.css';
-import a from './images/最新消息1.png';
-import b from './images/包裝圖片.png';
-import c from './images/最新消息3.png';
-function page2() {
+function Try() {
   return (
     <>
       <div className="container ">
@@ -23,8 +20,8 @@ function page2() {
               <h1 className="text-with-shadow fw-bold">最新活動</h1>
             </div>
             <br />
-            <div className="section-obj ">
-              <img className="border border-5 " src={a} />
+            <div className="section-obj">
+              <img src="https://cl.ly/qPkG/section1.png" />
             </div>
             <div className="section-content">
               <h3 className="">
@@ -44,7 +41,7 @@ function page2() {
         <section className="os">
           <div className="inner set-right">
             <div className="section-obj">
-              <img className="border border-5" src={b} />
+              <img src="https://cl.ly/qPWj/section2.png" />
             </div>
             <div className="section-content">
               <h3 className="">禮盒服務快來製作自己喜歡禮盒組合吧~</h3>
@@ -59,7 +56,7 @@ function page2() {
         <section className="os">
           <div className="inner set-left">
             <div className="section-obj">
-              <img src={c} />
+              <img src="https://cl.ly/qR5L/section3.png" />
             </div>
             <div className="section-content">
               <h3 className="">最新門市開幕喽</h3>
@@ -76,4 +73,4 @@ function page2() {
   );
 }
 
-export default page2;
+export default Try;

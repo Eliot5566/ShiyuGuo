@@ -5,7 +5,7 @@ body {
 .ldoor {
   width: 50%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.455);
+  /* background-color: rgba(0, 0, 0, 0.455);	 */
   position: absolute;
   left: 0px;
   animation: ldoor 6s ease forwards;
@@ -19,10 +19,10 @@ body {
   width: 50%;
   height: 100%;
   /* background-color: rgb(0, 255, 0); */
-  /* background-color: rgba(0, 0, 0, 0.455); */
+  /* background-color: rgba(0, 0, 0, 0.455);	 */
   position: absolute;
   right: 0px;
-  animation: rdoor 6s ease forwards;
+  animation: rdoor 7s ease forwards;
   /* background-repeat: no-repeat; */
 }
 .pagesContainer {
@@ -74,13 +74,13 @@ body {
 .vertical-text {
   position: fixed;
   top: 10%;
-  left: 65%;
+  left: 75%;
 }
 
 .vertical-text2 {
   position: fixed;
-  top: 10%;
-  left: 35%;
+  top: 15%;
+  left: 65%;
 }
 
 .vertical-text div {
@@ -95,12 +95,12 @@ body {
 
 @keyframes verticalFade {
 0% {
-  opacity: 0;
-  transform: translateY(-100%);
+opacity: 0;
+transform: translateY(-100%);
 }
 80% {
-  opacity: 1;
-  transform: translateY(0);
+opacity: 1;
+transform: translateY(0);
 }
 100% {
 opacity: 1;
@@ -131,25 +131,65 @@ transform: translateY(0);
   }
 }
 /* -------------------------------------------------- */
-/* 兔子消失效果 */
-/* .enlarge { */
+.shake-vertical {
+  -webkit-animation: shake-vertical 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    both;
+  animation: shake-vertical 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
 
-/* background-color: rgb(0, 0, 0);
-animation: scaleAndFade 3s ease-in-out forwards;
-animation-delay: 2s; /* 延遲動畫 
-} */
-
-/* @keyframes scaleAndFade {
-0% {
-transform: scale(1);
-opacity: 1;
+@-webkit-keyframes shake-vertical {
+  0%,
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+  }
+  80% {
+    -webkit-transform: translateY(6.4px);
+    transform: translateY(6.4px);
+  }
+  90% {
+    -webkit-transform: translateY(-6.4px);
+    transform: translateY(-6.4px);
+  }
 }
-50% {
-transform: scale(1.5);
-opacity: 1;
+@keyframes shake-vertical {
+  0%,
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+  }
+  80% {
+    -webkit-transform: translateY(6.4px);
+    transform: translateY(6.4px);
+  }
+  90% {
+    -webkit-transform: translateY(-6.4px);
+    transform: translateY(-6.4px);
+  }
 }
-100% {
-transform: scale(2);
-opacity: 0;
-}
-} */

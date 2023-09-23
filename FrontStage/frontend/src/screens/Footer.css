@@ -1,24 +1,22 @@
 footer {
-  /* margin-bottom: 0; */
-  /* margin-top: 10vh; */
   background-color: rgba(255, 255, 255, 0.3);
-  /* background-color: #c97689; */
-  /* background-color: #daaeb8; */
-  color: #e08685;
-  padding-top: 25px;
 
-  /* position: fixed;
-  bottom: 0;
-  width: 100%; */
+  color: rgb(224, 134, 133);
+  padding-top: 25px;
 }
 
 .footer-item ul {
-  /* margin: 10px 40px; */
   text-align: left;
+}
+.icon {
+  display: flex;
+}
+.icons {
+  margin: 20px;
 }
 .footer-item ul a {
   text-decoration: none;
-  color: inherit; /*字的顏色繼承父層*/
+  color: inherit;
 }
 .footer-item ul h5 {
   border-bottom: 2px solid #e08685;
@@ -33,16 +31,8 @@ footer {
 }
 
 .conpyright {
-  /* background-color: #5b1e2c; */
   background-color: #e08685;
   color: white;
   text-align: center;
   font-size: 0.8rem;
 }
-
-/* 改改改 */
-/* 改改改 */
-/* 改改改 */
-/* .footermt {
-  margin-top: 150px;
-} */
