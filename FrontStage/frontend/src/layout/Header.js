@@ -357,7 +357,7 @@ function Header() {
 
   return (
     <Navbar
-      className="fixed-top HeaderNav"
+      className=" HeaderNav"
       bg="none"
       // style={{ backgroundColor: '#ffffff29' }}
       // variant="light"
