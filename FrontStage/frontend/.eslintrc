@@ -1,0 +1,8 @@
+//停用 未使用變數的eslint警告
+{
+    "extends": "react-app",
+    "rules": {
+      "no-unused-vars": "off"
+    }
+  }
+  

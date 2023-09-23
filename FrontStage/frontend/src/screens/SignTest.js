@@ -1,0 +1,332 @@
+import React, { useState } from 'react';
+import './SignTest.css';
+import signimg from '../images/sign1.jpg';
+import signimg2 from '../images/sign2.jpg';
+import Axios from 'axios';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import { Helmet } from 'react-helmet-async';
+import { useContext, useEffect } from 'react';
+import { Store } from '../Store';
+import { toast } from 'react-toastify';
+import swal from 'sweetalert';
+
+export default function SignTest() {
+  const [isSignIn, setIsSignIn] = useState(true);
+  const [isNameValid, setIsNameValid] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState(false);
+  const [isPwdValid, setIsPwdValid] = useState(false);
+  const [isConfirmPwdValid, setIsConfirmPwdValid] = useState(false);
+
+  const toggleForm = () => {
+    setIsSignIn(!isSignIn);
+  };
+  const navigate = useNavigate();
+  const { search } = useLocation();
+  const redirectInUrl = new URLSearchParams(search).get('redirect');
+  const redirect = redirectInUrl ? redirectInUrl : '/';
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [pwd, setPwd] = useState('');
+  const [confirmpwd, setConfirmPwd] = useState('');
+
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { userInfo } = state;
+
+  const validatePassword = (password) => {
+    // 檢查密碼是否包含大小寫字母並且至少 6 個字符長
+    return /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password);
+  };
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  const handleNameChange = (value) => {
+    setName(value);
+    setIsNameValid(value.length >= 4);
+  };
+
+  const handleEmailChange = (value) => {
+    setEmail(value);
+    setIsEmailValid(validateEmail(value));
+  };
+
+  const handlePwdChange = (value) => {
+    setPwd(value);
+    setIsPwdValid(validatePassword(value));
+  };
+
+  const handleConfirmPwdChange = (value) => {
+    setConfirmPwd(value);
+    setIsConfirmPwdValid(value === pwd);
+  };
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    // if (!isNameValid || !isEmailValid || !isPwdValid || !isConfirmPwdValid) {
+    //   swal('請檢查您的資料', '確認是否正確', 'error');
+    //   // 如果任何一個驗證失敗，不執行提交
+    //   return;
+    // }
+    // 定義用於顯示錯誤的變數
+    let errorMessage = '';
+
+    if (!isNameValid) {
+      errorMessage = '用戶名稱必須至少4個字元';
+    } else if (!isEmailValid) {
+      errorMessage = '請輸入有效的帳號 (信箱)';
+    } else if (!isPwdValid) {
+      errorMessage = `密碼必須包含大小寫字母，
+      至少一個數字，
+        且長度至少為 8 個字符`;
+    } else if (!isConfirmPwdValid) {
+      errorMessage = '確認密碼與密碼不一致';
+    } else if (pwd !== confirmpwd) {
+      errorMessage = '密碼不一致';
+    } else if (pwd !== confirmpwd) {
+      errorMessage = '密碼不一致';
+    }
+
+    if (errorMessage) {
+      // 如果有錯誤，顯示錯誤訊息
+      swal('請檢查您的資料', errorMessage, 'error');
+      return;
+    }
+
+    const submitHandler = async (e) => {
+      e.preventDefault();
+      if (pwd !== confirmpwd) {
+        swal('請檢查您的密碼', '密碼不一致', 'error');
+        // toast.error('密碼不一致');
+        return;
+      }
+
+      try {
+        // 此處放置註冊的 Axios 請求
+      } catch (err) {
+        console.error(err.response.data.message);
+      }
+    };
+
+    // 驗證密碼是否符合要求
+
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    const isPasswordValid = passwordRegex.test(pwd);
+
+    if (!isPasswordValid) {
+      toast.error(
+        '密碼必須包含大小寫字母，至少一個數字，且長度至少為 8 個字符'
+      );
+      return;
+    }
+
+    try {
+      const { data } = await Axios.post('/api/users/signup', {
+        name,
+        email,
+        pwd,
+      });
+
+      localStorage.setItem('userInfo', JSON.stringify(data));
+
+      // ctxDispatch 是 Store.js 中的 dispatch 函数
+      // 用来更新 Store.js 中的 state userInfo
+      ctxDispatch({ type: 'USER_SIGNIN', payload: data });
+
+      //ctxDispatch是Store.js裡的dispatch function
+      //用來更新Store.js裡的state userInfo
+      ctxDispatch({ type: 'USER_SIGNIN', payload: data });
+      localStorage.setItem('userInfo', JSON.stringify(data));
+      navigate(redirect || '/');
+    } catch (err) {
+      console.log(err.response.data.message);
+    }
+  };
+
+  const submitHandlerSignIn = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await Axios.post('/api/users/signin', {
+        email,
+        pwd,
+      });
+      ctxDispatch({ type: 'USER_SIGNIN', payload: data });
+      localStorage.setItem('userInfo', JSON.stringify(data));
+
+      navigate(redirect || '/');
+    } catch (err) {
+      console.log(err.response.data.message);
+    }
+  };
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, redirect, userInfo]);
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+      // 如果userInfo有值就導向redirect (redirect是一個字串)
+    }
+  }, [navigate, redirect, userInfo]);
+  return (
+    <>
+      <div className="signcontainer ">
+        <div className="welcome">
+          <div
+            className="pinkbox"
+            style={{
+              transform: isSignIn ? 'translateX(0%)' : 'translateX(80%)',
+            }}
+          >
+            {isSignIn ? (
+              <div className="signin">
+                <h1 className="signh1">登入</h1>
+                <form
+                  className="more-padding signform"
+                  autoComplete="off"
+                  onClick={submitHandlerSignIn}
+                >
+                  {/* 驗證符號 */}
+                  <input
+                    className="signinput"
+                    type="email"
+                    required
+                    placeholder="帳號"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+
+                  <input
+                    className="signinput"
+                    type="password"
+                    required
+                    onChange={(e) => setPwd(e.target.value)}
+                    placeholder="密碼"
+                  />
+                  {/* <div className="checkbox">
+                  <input className="signinput" type="checkbox" id="remember" />
+                  <label htmlFor="remember">remember me</label>
+                </div> */}
+                  <button className="signbutton " type="submit">
+                    確認
+                  </button>
+                </form>
+              </div>
+            ) : (
+              <div className="signup">
+                <h1 className="signh1">註冊</h1>
+                <form
+                  className="signform"
+                  autoComplete="off"
+                  onSubmit={submitHandler}
+                >
+                  <input
+                    className="signinput placeholder-text"
+                    type="text"
+                    placeholder="用戶名稱 至少4個字元"
+                    required
+                    onChange={(e) => handleNameChange(e.target.value)}
+                  />
+                  {isNameValid ? (
+                    <span className="validation-check">&#10004;</span>
+                  ) : (
+                    <span className="validation-cross">&#10008;</span>
+                  )}
+
+                  <input
+                    className="signinput placeholder-text"
+                    type="email"
+                    placeholder="帳號 (信箱)"
+                    required
+                    onChange={(e) => handleEmailChange(e.target.value)}
+                  />
+                  {isEmailValid ? (
+                    <span className="validation-check">&#10004;</span>
+                  ) : (
+                    <span className="validation-cross">&#10008;</span>
+                  )}
+
+                  <input
+                    className="signinput placeholder-text"
+                    type="password"
+                    placeholder="密碼至少8個字元 包含大小寫字母和數字"
+                    required
+                    onChange={(e) => handlePwdChange(e.target.value)}
+                  />
+                  {isPwdValid ? (
+                    <span className="validation-check">&#10004;</span>
+                  ) : (
+                    <span className="validation-cross">&#10008;</span>
+                  )}
+
+                  <input
+                    className="signinput placeholder-text"
+                    type="password"
+                    placeholder="確認密碼"
+                    required
+                    onChange={(e) => handleConfirmPwdChange(e.target.value)}
+                  />
+                  {isConfirmPwdValid ? (
+                    <span className="validation-check">&#10004;</span>
+                  ) : (
+                    <span className="validation-cross">&#10008;</span>
+                  )}
+
+                  <button className="signbutton signsubmit" type="submit">
+                    確認
+                  </button>
+                </form>
+              </div>
+            )}
+          </div>
+          <div className="leftbox">
+            <h2 className="signtitle">
+              <span className="signspan">Japanes</span>&amp;
+              <br />
+              Sweets
+            </h2>
+            <p id="signp" className="signdesc">
+              Satisfy your <span className="signspan">taste buds</span>
+            </p>
+            <img
+              className="flower smaller"
+              src={signimg}
+              alt="1357d638624297b"
+              border={0}
+            />
+            <p id="signp" className="signaccount">
+              已經有帳號了嗎?
+            </p>
+            <button className="signbutton" onClick={toggleForm}>
+              {isSignIn ? '登入' : '登入'}
+            </button>
+          </div>
+          <div className="rightbox">
+            <h2 className="signtitle">
+              <span className="signspan">Japanes</span>&amp;
+              <br />
+              Sweets
+            </h2>
+            <p id="signp" className="signdesc">
+              {' '}
+              Satisfy your <span className="signspan">taste buds</span>
+            </p>
+            <img className="flower" src={signimg2} alt="" />
+            <p id="signp" className="signaccount">
+              還沒有帳號嗎?
+            </p>
+            <button className="signbutton" onClick={toggleForm}>
+              {isSignIn ? '註冊' : '註冊'}
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}

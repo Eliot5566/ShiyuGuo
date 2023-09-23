@@ -1,0 +1,155 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.ldoor {
+  width: 50%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.455);
+  position: absolute;
+  left: 0px;
+  animation: ldoor 6s ease forwards;
+
+  /* infinite */
+  /* ease-in forwards */
+  /* background-repeat: no-repeat; */
+  background-size: 100% 100%;
+}
+.rdoor {
+  width: 50%;
+  height: 100%;
+  /* background-color: rgb(0, 255, 0); */
+  /* background-color: rgba(0, 0, 0, 0.455); */
+  position: absolute;
+  right: 0px;
+  animation: rdoor 6s ease forwards;
+  /* background-repeat: no-repeat; */
+}
+.pagesContainer {
+  /* background-color: rgb(131, 131, 131);	影響到了品牌故事 */
+  position: absolute;
+  /* /* width: 10%; */
+  /* justify-content: center; */
+  overflow: hidden;
+  min-width: 100%;
+  /* 解決了bootstrap右側白邊問題 8/19 */
+
+  /* background-image:url('./images/bg.png'); */
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+.pagesContainer .aa {
+  /* height: 100%; */
+  position: absolute;
+
+  /* background-color: rgb(255, 0, 0); */
+  left: 0;
+}
+
+@keyframes ldoor {
+  0% {
+    left: 0;
+  }
+  45% {
+    left: -45%;
+  }
+  100% {
+    left: -50%;
+  }
+}
+@keyframes rdoor {
+  0% {
+    right: 0;
+  }
+  45% {
+    right: -45%;
+  }
+  100% {
+    right: -50%;
+  }
+}
+
+/* ---------------------------------垂直文字 */
+.vertical-text {
+  position: fixed;
+  top: 10%;
+  left: 65%;
+}
+
+.vertical-text2 {
+  position: fixed;
+  top: 10%;
+  left: 35%;
+}
+
+.vertical-text div {
+  display: block;
+  opacity: 1;
+  white-space: pre-line; /* 允许换行 */
+  animation: verticalFade 4s forwards;
+}
+
+/* animation-delay: 0.5s; /* 延遲動畫 
+}
+
+@keyframes verticalFade {
+0% {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+80% {
+  opacity: 1;
+  transform: translateY(0);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+}
+} */
+
+.vertical-text2 div {
+  display: block;
+  opacity: 0;
+
+  animation: verticalFade 5s forwards;
+  animation-delay: 2s; /* 延遲動畫 */
+}
+
+@keyframes verticalFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* -------------------------------------------------- */
+/* 兔子消失效果 */
+/* .enlarge { */
+
+/* background-color: rgb(0, 0, 0);
+animation: scaleAndFade 3s ease-in-out forwards;
+animation-delay: 2s; /* 延遲動畫 
+} */
+
+/* @keyframes scaleAndFade {
+0% {
+transform: scale(1);
+opacity: 1;
+}
+50% {
+transform: scale(1.5);
+opacity: 1;
+}
+100% {
+transform: scale(2);
+opacity: 0;
+}
+} */

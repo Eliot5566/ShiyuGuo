@@ -1,0 +1,95 @@
+/* ShippingAddress.css */
+
+/* Container styles */
+.shippingAddress {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* Page title */
+.shippingAddress h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form styles */
+.shippingAddress form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Form input styles */
+.shippingAddress .form-group {
+  margin-bottom: 20px;
+}
+
+.shippingAddress .form-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.shippingAddress .form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Submit button styles */
+.shippingAddress .mb-3 .btn-primary {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+.shippingAddress .mb-3 .btn-primary:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+/* Checkout steps styles */
+.shippingAddress .checkout-steps {
+  margin-bottom: 20px;
+}
+
+.shippingAddress .checkout-steps li {
+  list-style-type: none;
+  display: inline;
+  margin-right: 10px;
+}
+
+.shippingAddress .checkout-steps .active {
+  font-weight: bold;
+  color: #333;
+}
+
+.shippingAddress .checkout-steps .inactive {
+  color: #999;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .shippingAddress {
+    padding: 10px;
+  }
+
+  .shippingAddress .form {
+    padding: 10px;
+  }
+
+  .shippingAddress h1 {
+    font-size: 20px;
+  }
+
+  .shippingAddress .form-control {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,71 @@
+/* PaymentMethod.css */
+
+/* Container styles */
+.container.small-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* Page title */
+.container.small-container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form styles */
+.container.small-container form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Radio button styles */
+.container.small-container .mb-3 .form-check {
+  margin-bottom: 20px;
+}
+
+.container.small-container .mb-3 .form-check label {
+  font-weight: bold;
+  color: #333;
+}
+
+.container.small-container .mb-3 .form-check input[type='radio'] {
+  margin-right: 10px;
+}
+
+/* Submit button styles */
+.container.small-container .mb-3 button[type='submit'] {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+.container.small-container .mb-3 button[type='submit']:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container.small-container {
+    padding: 10px;
+  }
+
+  .container.small-container h1 {
+    font-size: 20px;
+  }
+
+  .container.small-container .form {
+    padding: 10px;
+  }
+}
+
+.paycon{
+  margin-bottom: 22.5vh;
+}

@@ -1,0 +1,659 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* height: 100%; */
+}
+
+.home {
+  margin: 1rem;
+}
+header {
+  /* background-color: #9a2540; */
+  background-color: #c97689;
+  color: #fff;
+  padding: 1rem;
+}
+header a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+.headerLink a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+.headerLink a:hover {
+  color: #feb7c9;
+  /* scale: 1.2; */
+  transition: all 0.5s ease-in-out;
+}
+#basic-nav-dropdown {
+  color: #000000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.dropdown-menu a {
+  color: #000000;
+}
+
+/* ////////////// */
+main {
+  flex: 1;
+}
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.product {
+  border: 1px solid #000000;
+  /* border-radius: 5px; */
+  height: 400px;
+  width: 243px;
+  margin: 1rem;
+}
+.product-info {
+  padding: 1rem;
+}
+.product img {
+  height: 250px;
+  width: 240px;
+  object-fit: cover;
+}
+
+.site-container {
+  min-height: 100vh;
+}
+
+.rating span {
+  color: #ffc110;
+}
+
+.img-large {
+  height: 400px;
+  object-fit: cover;
+}
+
+.img-thumbnail {
+  height: 80px;
+}
+
+.small-container {
+  max-width: 600px;
+  opacity: 0.8;
+}
+
+.checkout-steps > div {
+  border-bottom: 0.2rem solid #a0a0a0;
+  color: #a0a0a0;
+}
+
+.checkout-steps > div.active {
+  border-bottom: 0.2rem solid rgb(224, 128, 33);
+  color: rgb(252, 73, 8);
+}
+
+/* categoryPage -start */
+
+/* 分類標題-start */
+.CATtitle {
+  writing-mode: vertical-lr;
+  letter-spacing: 1rem;
+  animation: verticalFade 2s forwards;
+}
+
+@media screen and (max-width: 760px) {
+  .CATtitle {
+    writing-mode: horizontal-tb;
+    text-align: center;
+    /* background-color: rgba(230, 100, 101, 0.2); */
+  }
+}
+
+@keyframes verticalFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+/* 分類標題-end */
+
+/* 動態導覽列-start */
+/* @import url("https://fonts.googleapis.com/css?family=DM+Sans:500,700&display=swap"); */
+
+/* * {
+  box-sizing: border-box;
+} */
+
+#nav {
+  text-align: center;
+  /* display: inline-flex; */
+  height: 30vh;
+  width: 100%;
+  /* justify-content: center; */
+  align-items: center;
+  margin-top: 5%;
+  /* padding: 0 20px; */
+}
+
+.nav {
+  display: inline-flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  background-color: #fff;
+  padding: 0 20px;
+  border-radius: 40px;
+  box-shadow: 0 10px 40px rgba(159, 162, 177, 0.8);
+}
+
+.nav-item {
+  color: #83818c;
+  padding: 20px;
+  text-decoration: none;
+  transition: 0.3s;
+  margin: 0 6px;
+  z-index: 1;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-item:before {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #fcdde2;
+  border-radius: 8px 8px 0 0;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.nav-item:not(.is-active):hover:before {
+  opacity: 1;
+  bottom: 0;
+}
+
+.nav-item:not(.is-active):hover {
+  /* color: #b95151; */
+  cursor: pointer;
+}
+
+.nav-indicator {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  transition: 0.4s;
+  height: 5px;
+  z-index: 1;
+  border-radius: 8px 8px 0 0;
+}
+
+@media (max-width: 200px) {
+  .nav {
+    overflow: hidden;
+    display: block;
+  }
+}
+/* 動態導覽列-end */
+
+/* 立即選購按鈕-start */
+.buy {
+  transition: all 1s;
+  cursor: pointer;
+}
+
+.buy span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buy span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -1.5rem;
+  transition: 0.5s;
+}
+
+.buy:hover span {
+  padding-right: 1.5rem;
+}
+
+.buy:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+a.nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* color: #FEB7C9; */
+
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
+  font-size: 1rem;
+  margin-left: auto;
+}
+a.nav-link:hover {
+  transform: scale(1.3);
+  transition: all 0.7s ease-in-out;
+}
+.nav-link {
+  margin: 0 1rem;
+}
+
+/* 立即選購按鈕-end */
+/* 產品名稱-start */
+.card-body .card-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+@media (max-width: 1200px) {
+  .card-body .card-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .card-body .card-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .card-body .card-title {
+    font-size: 1.2rem;
+  }
+}
+/* 產品名稱-end */
+/* 客製禮盒樣式-start */
+
+/* 進度條-start */
+.myprogress li {
+  list-style-type: none;
+  float: left;
+  width: 25%;
+  position: relative;
+  text-align: center;
+}
+
+.myprogress li:before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f111';
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #ddd;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.myprogress li.done:before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f00c';
+}
+
+.myprogress li:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #595959;
+  top: 15px;
+  left: -50%;
+  z-index: -1;
+}
+
+.myprogress li:first-child:after {
+  content: none;
+}
+
+.myprogress li.active,
+.myprogress li.done {
+  color: #9a2540;
+}
+
+.myprogress li.active:before,
+.myprogress li.done:before {
+  border-color: #9a2540;
+}
+
+.myprogress li.active + li:after,
+.myprogress li.done + li:after {
+  background-color: #9a2540;
+}
+/* 進度條-end */
+
+/* 上、下一步按鈕 | 類別-被點選-start */
+Button.btn-color,
+.category-buttons .btn-color {
+  background-color: #9a2540;
+  color: white;
+  border-radius: 7px;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: none;
+}
+
+Button.btn-color:hover,
+.category-buttons .btn-color:hover {
+  background-color: #b33f5a;
+}
+Button.btn-color:active {
+  background-color: #c97689 !important;
+}
+/* 上、下一步按鈕-end */
+
+/* 類別-被點選 | 未被點選-start */
+.category-buttons .btn-color,
+.btn-cat-color:hover {
+  background-color: #9a2540;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+.btn-cat-color {
+  background-color: #fcdde2;
+  color: #9a2540;
+  border-radius: 5px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: none;
+}
+/* 類別-被點選 | 未被點選-end */
+
+/* 禮盒商品圖片 */
+.giftPitcure img {
+  height: 250px;
+  width: 250px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.selected-product-image {
+  border-radius: 5%;
+  margin-top: 8px;
+  margin-left: 9px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.selected-four-box {
+  width: 330px;
+  height: 330px;
+  cursor: pointer;
+  background-image: url('./images/four_boxBodyIn_0.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.selected-six-box {
+  width: 480px;
+  height: 330px;
+  cursor: pointer;
+  background-image: url('./images/six_boxBodyIn_0.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.selected-nine-box {
+  width: 480px;
+  height: 480px;
+  cursor: pointer;
+  background-image: url('./images/nine_boxBodyIn_0.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* 卡片-start */
+.card-front img {
+  cursor: pointer;
+}
+.card-back-img {
+  position: relative;
+}
+.card-back-text {
+  position: absolute;
+  top: 10px; /* 文字距離圖片頂部的距離 */
+  left: 10px; /* 文字距離圖片左側的距離 */
+  background-color: rgba(255, 255, 255, 0.384); /* 文字背景色 */
+  padding: 5px; /* 文字的內邊距 */
+  white-space: pre-wrap; /* 保留換行符號，還會保留空格 */
+  width: 310px;
+  height: 230px;
+  font-size: 20px;
+}
+/* 卡片-end */
+/* 客製禮盒樣式-end */
+
+/* FAQ常見問題-start */
+
+.ui-accordion .ui-accordion-header {
+  background: linear-gradient(
+    240deg,
+    white 0%,
+    rgba(252, 221, 226, 1) 20%,
+    #e08685 100%
+  );
+  border: #e08685;
+  font-weight: bolder;
+  line-height: 2rem;
+  border-radius: 10px; /* 多加圓角 */
+  color: white;
+}
+
+.ui-accordion .ui-accordion-header:not(.ui-state-active):hover {
+  color: #9a2540;
+}
+
+.ui-accordion .ui-accordion-header:not(.ui-state-active) {
+  color: rgb(78, 78, 78);
+}
+
+.ui-icon:not(.ui-state-active) {
+  color: #fcdde2;
+}
+
+.ui-accordion .ui-accordion-content {
+  background-color: #fcdde2;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0;
+  /* overflow: hidden; */
+}
+
+.ui-accordion .ui-accordion-content > p {
+  font-size: 1.2rem;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  color: rgb(56, 56, 56);
+  /* overflow: hidden; */
+}
+
+#accordion > div {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  padding: 1.5rem;
+}
+
+@media (max-width: 800px) {
+  .ui-accordion .ui-accordion-content > p {
+    overflow: hidden;
+    font-size: 1rem;
+  }
+}
+/* FAQ常見問題-end */
+
+/* sub-訂閱我們-start */
+/* #subscribe-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#email {
+  padding: 10px;
+}
+
+.subh1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#message {
+  font-weight: bold;
+} */
+
+#subscribe-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  border: none;
+}
+
+#subscribe-form > input {
+  border: none;
+  height: 2rem;
+}
+
+#email {
+  padding: 10px;
+}
+
+.subButton {
+  background-color: #e08685;
+  color: rgb(245, 245, 245);
+  border: none;
+  cursor: pointer;
+  height: 2rem;
+  width: 6rem;
+}
+/* .subh1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+} */
+
+#message {
+  font-weight: bold;
+}
+
+.cartstyle {
+  margin-bottom: 55vh;
+}
+
+.giftmarin {
+  margin-top: 10vh;
+  margin-bottom: 10.3vh;
+}
+
+.outlet {
+  position: relative;
+  height: 1000px;
+}
+
+.placeholder-text {
+  font-size: 8px;
+}
+
+/* //歷史訂單 */
+.orderhistoryMb {
+  margin-bottom: 55vh;
+}
+
+/* 測試3d */
+
+.tdimension {
+  width: 700px;
+  height: 300px;
+  margin: 20px auto 40px auto;
+  perspective: 1000px;
+  /* //perspective 是用來設定觀看者與物件間的距離，數值越大，觀看者與物件間的距離越遠，物件就會顯得越小，反之亦然。 */
+}
+.tdimension a {
+  display: block;
+  width: 47%;
+  height: 100%;
+  background: url('./images/拾月菓logo.png');
+  background-size: cover;
+  transform-style: preserve-3d;
+  transform: rotateX(70deg);
+  transition: all 0.8s;
+}
+.tdimension:hover a {
+  transform: rotateX(20deg);
+}
+.tdimension a:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+  transform: rotateX(90deg);
+  transform-origin: bottom;
+}
+
+.tdimensionmid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 禮盒選擇產品動畫 */
+
+.animate__fadeIn {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate__fadeIn {
+  animation-name: fadeIn;
+}
+
+.disable-pointer {
+  cursor: not-allowed !important;
+}

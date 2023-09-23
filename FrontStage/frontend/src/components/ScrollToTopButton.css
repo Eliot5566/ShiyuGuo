@@ -1,0 +1,25 @@
+/* 在合适的地方导入这个 CSS 文件 */
+
+.scroll-to-top-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: none;
+
+  /* color: #fff; */
+  border: none;
+  border-radius: 50%;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  z-index: 999;
+}
+
+.scroll-to-top-button.visible {
+  opacity: 1;
+}
+
+.scroll-to-top-button:hover {
+  /* background-color: #0056b3; */
+}

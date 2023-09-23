@@ -1,0 +1,133 @@
+.contactus {
+  /* background: linear-gradient(to bottom, #ffeaed 0%, #e5c4cd 87.37%); */
+}
+.contactus h2 {
+  margin: 2.5em;
+  text-align: center;
+}
+.contact-items {
+  width: 70%;
+  display: flex;
+  border: 2px solid rgb(229, 170, 184);
+  background-color: #e5aab8;
+  color: white;
+  border-radius: 30px;
+  justify-content: center;
+}
+.item {
+  margin: 50px;
+}
+.Address {
+  text-align: center;
+}
+.tour {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* background-color: #efcfd6; */
+  /* margin:60px */
+  /* justify-content: center; */
+}
+
+.sit1 {
+  display: flex;
+  margin: 30px;
+}
+.sit1 img {
+  width: 400px;
+  border-radius: 20%;
+  box-shadow: 0px 5px 7px 4px rgba(154, 37, 64, 0.4);
+}
+.sit1 ul li:first-child {
+  margin-top: 40px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+  text-decoration: double;
+  color: rgb(154, 37, 64);
+  text-align: center;
+}
+.sit1 li {
+  color: #9a2540;
+  list-style: none;
+  margin: 20px;
+  font-size: 20px;
+}
+
+/* .sit2 {
+  display: flex;
+  margin: 30px;
+}
+.sit2 img {
+  width: 400px;
+  margin-left: 40px;
+  border-radius: 20%;
+  box-shadow: 8px 5px 7px 4px rgba(154, 37, 64, 0.4);
+} */
+/* .sit2 h4 {
+  margin: 80px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+  text-decoration: double;
+  color: rgb(154, 37, 64);
+}
+.sit2 p{
+  color: #9a2540;
+  font-size: 20px;
+}
+.sit3 {
+  display: flex;
+  margin: 30px;
+}
+.sit3 img {
+  width: 400px;
+  border-radius: 20%;
+  box-shadow: 0px 5px 7px 4px rgba(154, 37, 64, 0.4);
+}
+.sit3 h4 {
+  margin: 90px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+  text-decoration: double;
+  color: #9a2540;
+} */
+.googlemap {
+  width: 100%;
+}
+
+.form-group {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: #9a2540;
+  font-size: 20px;
+} /* contactus.css */
+
+/* 整個表單容器 */
+.contactus.container {
+  opacity: 0.8;
+  background-color: #f9f9f99c;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 表單標題 */
+.contactus.container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* 表單項目標題 */
+.form-group label {
+  font-weight: bold;
+}
+
+/* 輸入框和文本區域 */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
