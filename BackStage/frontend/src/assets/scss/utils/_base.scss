@@ -1,0 +1,38 @@
+*,*::before,*::after{
+	box-sizing:border-box;
+}
+body{
+    margin: 0 auto;
+    height: auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+img,svg {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+p{
+    margin-bottom:0;
+}
+// a{
+//     text-decoration: none;
+//     color:inherit;
+// }
+.icons{
+    svg{
+        color: #000;
+        width: 50px;
+        height: 50px;
+    }
+}
+// .navbar{
+//     position: fixed;
+//     top:-10;
+//     left: 0;
+//     right: 0;
+// }
+// .sidebar{
+//     position: sticky;
+//     top:0;
+//     left: 0;
+// }

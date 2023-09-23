@@ -1,0 +1,15 @@
+.sidebar li {
+    border-left: 5px solid transparent;
+    cursor: pointer;
+    transition: border-left 0.3s ease;
+}
+
+.sidebar li:hover {
+    border-left: 5px solid gray;
+}
+
+.active{
+    background-color: gray;
+    // border-radius: 5px;
+    // color: white;
+}
