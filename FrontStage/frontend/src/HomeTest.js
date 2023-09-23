@@ -36,7 +36,7 @@ function HomeTest() {
       0
     );
 
-    // 設定購物車數量
+    // 設定購物車數
     setCartItemCount(itemCount);
   }, [cart, giftBoxQuantity]);
   const signoutHandler = () => {
