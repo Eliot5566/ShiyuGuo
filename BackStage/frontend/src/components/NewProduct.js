@@ -95,7 +95,6 @@ const NewProduct = () => {
                 timer: 1500,
                 allowOutsideClick:false
             })
-            // navigate('/products')
             setTimeout(() => {
                 navigate('/products');
             }, 1500);

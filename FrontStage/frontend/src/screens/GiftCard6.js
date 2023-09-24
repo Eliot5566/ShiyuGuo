@@ -90,6 +90,7 @@ const GiftCard6 = () => {
   // };
   useEffect(() => {
     handleCardSelect('綠色');
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Container

@@ -12,18 +12,18 @@ function page4() {
     <div>
       <h1 className="card-title fw-bold">客製化禮物盒</h1>
 
-      <div class="container-fluid ">
-        <div class="row m-5">
-          <div class="col-md-5">
+      <div className="container-fluid ">
+        <div className="row m-5">
+          <div className="col-md-5">
             <img
               className="card-img-top shadow p-3"
               src={cakepackage}
               alt="包裝圖片"
             />
           </div>
-          <div class="col-md-7  d-flex justify-content-center ">
-            <div class="row align-items-center">
-              <div class="col-md-3  ">
+          <div className="col-md-7  d-flex justify-content-center ">
+            <div className="row align-items-center">
+              <div className="col-md-3  ">
                 <img
                   className=" m-2 img-fluid"
                   src={step1}
@@ -39,7 +39,7 @@ function page4() {
                 />
               </div>
 
-              <div class="col-md-3 ">
+              <div className="col-md-3 ">
                 <img
                   className="m-2 img-fluid"
                   src={step2}
@@ -55,7 +55,7 @@ function page4() {
                   style={{ width: '70px' }}
                 />
               </div>
-              <div class="col-md-3 ">
+              <div className="col-md-3 ">
                 <img
                   className="m-2 img-fluid"
                   src={step3}
@@ -71,7 +71,7 @@ function page4() {
                   style={{ width: '70px' }}
                 />
               </div>
-              <div class="col-md-3 ">
+              <div className="col-md-3 ">
                 <img
                   className="m-2 img-fluid"
                   src={step4}
@@ -88,8 +88,8 @@ function page4() {
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12">
+        <div className="row">
+          <div className="col-md-12">
             <a href="/gift" className="btn btn-danger">
               開始製作禮物盒
             </a>
