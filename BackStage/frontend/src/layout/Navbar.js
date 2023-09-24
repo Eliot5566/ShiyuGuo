@@ -25,9 +25,9 @@ function Navbar({Toggle}) {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                        {/* <li className="nav-item border rounded">
-                            <Link to="/" className="nav-link text-white" aria-current="page"> <i className='bi bi-search'></i>搜尋</Link>
-                        </li> */}
+                        <li className="nav-item border rounded">
+                            <Link to="/products" className="nav-link text-white" aria-current="page"> <i className='bi bi-search'></i>產品</Link>
+                        </li>
                         <li className="nav-item mx-2 border rounded">
                             <Link to="/member" className="nav-link text-white" aria-current="page">會員</Link>
                         </li>
