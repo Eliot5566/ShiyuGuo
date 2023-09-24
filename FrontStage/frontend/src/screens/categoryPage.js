@@ -53,7 +53,7 @@ function CategoryBar() {
   };
   return (
     <>
-      <nav className="nav" style={{marginTop: '10rem' }}>
+      <nav className="nav" style={{ marginTop: '12rem' }}>
         <p
           onClick={() => handleItemClick('饅頭')}
           style={textColor('饅頭')}
@@ -150,7 +150,7 @@ function ProductCard({ category }) {
         if (category && category !== '所有商品') {
           // 發送請求以獲取產品數據
           response = await axios.get(
-            `http://localhost:5000/products/${category}`
+            ` http://localhost:5000/products/${category}`
           );
         } else {
           response = await axios.get(`http://localhost:5000/products`);
@@ -176,7 +176,7 @@ function ProductCard({ category }) {
     <>
       {products.map((product) => (
         <React.Fragment key={product._id}>
-          <div className="col-6 col-lg-3 position-relative" >
+          <div className="col-6 col-lg-3 position-relative">
             <div
               className="position-absolute"
               style={{
@@ -194,7 +194,7 @@ function ProductCard({ category }) {
               className="card border border-0 position-relative bg-transparent"
               // onMouseEnter={mouseEnter}
               // onMouseLeave={mouseLeave}
-              style={{ marginBottom: '8rem' }}
+              style={{ marginBottom: '7rem' }}
             >
               <img
                 alt="產品圖片"

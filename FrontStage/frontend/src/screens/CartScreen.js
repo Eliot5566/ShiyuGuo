@@ -198,7 +198,7 @@ export default function CartScreen() {
   const max = 20;
 
   return (
-    <div className="cartstyle" style={{marginTop: '10rem'}}>
+    <div className="cartstyle" style={{ marginTop: '10rem' }}>
       <Container>
         <Helmet>
           <title>購物車內容</title>
@@ -214,7 +214,10 @@ export default function CartScreen() {
                 <div className="clouds"></div>
                 <div className="rabbit"></div>
                 <br />
-                <div className="carp fs-4 fw-bold" style={{ color: 'rgb(78,78,78)' }}>
+                <div
+                  className="carp fs-4 fw-bold"
+                  style={{ color: 'rgb(78,78,78)' }}
+                >
                   購物車目前空空的，快點去挑選喜歡的產品
                 </div>
               </div>
@@ -223,11 +226,11 @@ export default function CartScreen() {
                 {cartItems.map((item) => (
                   <ListGroup.Item key={item._id}>
                     <Row className="align-items-center">
-                      <Col md={3}>
+                      {/* <Col md={3}>
                         <img
                           src={item.image}
                           alt={item.name}
-                          className="img-fluid rounded img-thumbnail"
+                          className="img-fluid rounded img-thumbnail "
                           style={{
                             height: '10rem',
                             width: '10rem',
@@ -239,7 +242,63 @@ export default function CartScreen() {
                             }
                           }}
                         />
+                      </Col> */}
+                      <Col md={3}>
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="img-fluid rounded img-thumbnail position-relative"
+                          style={{
+                            height: '10rem',
+                            width: '10rem',
+                            objectFit: 'cover',
+                          }}
+                          onMouseEnter={() =>
+                            item.isGiftBox && !expandedProduct
+                              ? (document.getElementById(
+                                  `tooltip-${item._id}`
+                                ).style.visibility = 'visible')
+                              : null
+                          }
+                          onMouseLeave={() =>
+                            item.isGiftBox && !expandedProduct
+                              ? (document.getElementById(
+                                  `tooltip-${item._id}`
+                                ).style.visibility = 'hidden')
+                              : null
+                          }
+                          onClick={() => {
+                            if (item.isGiftBox) {
+                              toggleProductContent(item._id, item.giftBoxType);
+                            }
+                          }}
+                        />
+                        {item.isGiftBox && (
+                          <div
+                            id={`tooltip-${item._id}`}
+                            className="position-absolute"
+                            style={{
+                              padding: '0.5rem',
+                              zIndex: '0',
+                              top: '0',
+                              left: '2.3%',
+                              width: '18%',
+                              borderRadius: '0.5rem',
+
+                              visibility: 'hidden',
+                              backgroundColor: 'rgba(0,0,0,0.5)',
+                              color: 'white',
+                              fontSize: '1rem',
+                              display: 'flex',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                            }}
+                          >
+                            點擊查看商品內容
+                          </div>
+                        )}
                       </Col>
+
                       <Col md={4}>
                         <Link
                           to={`/product/${item._id}`}
@@ -296,8 +355,7 @@ export default function CartScreen() {
                     </Row>
                     {item.isGiftBox && expandedProduct === item._id && (
                       <div>
-                        <div className=" ">
-                          {/* 渲染选定的商品信息 */}
+                        <div>
                           {(() => {
                             const productCounts =
                               selectedGiftBoxType === '4'
@@ -330,8 +388,8 @@ export default function CartScreen() {
                           })()}
                         </div>
                         <h4>卡片內容：</h4>
-                        <p>樣式:{selectedCard}</p>
-                        <p>內容:{cardContent}</p>
+                        <p>樣式：{selectedCard}</p>
+                        <p>內容：{cardContent}</p>
                       </div>
                     )}
                   </ListGroup.Item>

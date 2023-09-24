@@ -63,7 +63,7 @@ export default function ProfileScreen() {
   };
 
   return (
-    <div className="container small-container mt-5 mb-5">
+    <div className="container small-container  mb-5">
       <Helmet>
         <title>會員資料</title>
       </Helmet>

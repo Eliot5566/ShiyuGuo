@@ -63,12 +63,12 @@ export default function ShippingAddress() {
   };
 
   return (
-    <Container className="shippingAddress mb-5 mt-5">
+    <Container className="shippingAddress mb-5 " style={{ marginTop: '15vh' }}>
       <Helmet>
         <title>收貨地址</title>
       </Helmet>
       <CheckoutSteps step1 step2></CheckoutSteps>
-      <div className="container small-container">
+      <div className="container ">
         <h1 className="my-3">收貨地址</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group className="mb-3" controlId="fullName">

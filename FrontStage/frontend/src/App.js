@@ -86,6 +86,10 @@ function App() {
               <Route path="/" element={<HomeTest />} />
               <Route path="/" element={<Layout />}>
                 <Route path="/category" element={<CategoryPage />} />
+                <Route
+                  path="/category/:categoryName"
+                  element={<CategoryPage />}
+                />
                 <Route path="/product/:_id" element={<Product />} />
                 <Route path="/cart" element={<CartScreen />} />
                 {/* <Route path="/signin" element={<SigninScreen />} /> */}
