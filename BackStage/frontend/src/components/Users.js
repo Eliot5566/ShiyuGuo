@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { useNavigate, useLocation } from "react-router-dom";
 import Transition from '../Transition';
+import { Helmet } from 'react-helmet-async';
 
 
 const Users = () => {
@@ -40,7 +41,9 @@ const Users = () => {
 
     return (
         <Transition>
-
+        <Helmet>
+            <title>管理員</title>
+        </Helmet>
         <div className="container">
             <article>
                 <div className="px-4 border rounded-3 bg-white mt-3">

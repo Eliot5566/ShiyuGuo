@@ -3,6 +3,7 @@ import axios from '../api/axios';
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom';
 import Transition from '../Transition';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -106,6 +107,9 @@ const NewProduct = () => {
 
     return (
         <Transition>
+            <Helmet>
+                <title>新增產品</title>
+            </Helmet>
             <div className='container w-newScreen px-4 border rounded-3 bg-white mt-3'>
                 <div className='d-flex justify-content-between mt-2'>
                     <h2 className='text-center'>新增產品</h2>

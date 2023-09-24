@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from '../api/axios';
 import { Link } from 'react-router-dom';
 import Transition from '../Transition';
+import { Helmet } from 'react-helmet-async';
 
 const NAME_REGEX = /^[A-z][A-z0-9]{7,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,24}$/;
@@ -99,6 +100,9 @@ const Register = () => {
     return (
         // 下面這個<>是 <React.Fragment> 的語法糖
         <>  
+            <Helmet>
+                <title>註冊</title>
+            </Helmet>
             {success ? (
                 <Transition>
                     <section className="container d-flex justify-content-center align-items-center vh-100 w-25 text-center">

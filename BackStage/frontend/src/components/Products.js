@@ -5,6 +5,7 @@ import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import Transition from '../Transition';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 
 function Products() {
@@ -180,6 +181,9 @@ function Products() {
 
     return (
         <Transition>
+            <Helmet>
+                <title>產品</title>
+            </Helmet>
             <div className="container text-center px-4 border rounded-3 bg-white mt-3">
                 <div className="d-flex justify-content-end">
                     {/* <button className="btn btn-primary my-2">新增商品</button> */}

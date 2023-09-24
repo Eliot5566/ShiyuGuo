@@ -6,6 +6,7 @@ import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { motion, useMotionValue, useTransform, animate }  from 'framer-motion';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSackDollar, faCartShopping, faArrowTrendDown, faReceipt } from '@fortawesome/free-solid-svg-icons';
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     const [orders, setOrders] = useState([]);
@@ -92,6 +93,9 @@ const Home = () => {
 
     return (
         <Transition>
+            <Helmet>
+                <title>儀錶板</title>
+            </Helmet>
             <div className="p-3 bg-light">
                 <section className="contanier-fluid">
                     <div className="row">

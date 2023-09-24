@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import Transition from '../Transition';
+import { Helmet } from 'react-helmet-async';
 
 
 const Order = () => {
@@ -97,6 +98,9 @@ const Order = () => {
 
     return (
         <Transition>
+            <Helmet>
+                <title>會員訂單</title>
+            </Helmet>
             <div className="container text-center p-3 border rounded-3 bg-white mt-3">
             {noOrders ? ( // 如果沒有訂單，顯示此人未下訂單的訊息
                 <div className='d-flex flex-column justify-content-center align-items-center'>
