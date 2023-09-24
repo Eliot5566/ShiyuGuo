@@ -57,7 +57,7 @@ export default function SignTest() {
 
   const handleNameChange = (value) => {
     setName(value);
-    setIsNameValid(value.length >= 4);
+    setIsNameValid(value.length >= 3);
   };
 
   const handleEmailChange = (value) => {
@@ -86,7 +86,7 @@ export default function SignTest() {
     let errorMessage = '';
 
     if (!isNameValid) {
-      errorMessage = '用戶名稱必須至少4個字元';
+      errorMessage = '用戶名稱必須至少3個字元';
     } else if (!isEmailValid) {
       errorMessage = '請輸入有效的帳號 (信箱)';
     } else if (!isPwdValid) {
@@ -141,16 +141,12 @@ export default function SignTest() {
         pwd,
       });
 
-      localStorage.setItem('userInfo', JSON.stringify(data));
-
-      // ctxDispatch 是 Store.js 中的 dispatch 函数
-      // 用来更新 Store.js 中的 state userInfo
-      ctxDispatch({ type: 'USER_SIGNIN', payload: data });
+      // localStorage.setItem('userInfo', JSON.stringify(data));
 
       //ctxDispatch是Store.js裡的dispatch function
       //用來更新Store.js裡的state userInfo
-      ctxDispatch({ type: 'USER_SIGNIN', payload: data });
-      localStorage.setItem('userInfo', JSON.stringify(data));
+      // ctxDispatch({ type: 'USER_SIGNIN', payload: data });
+      // localStorage.setItem('userInfo', JSON.stringify(data));
       navigate(redirect || '/');
     } catch (err) {
       console.log(err.response.data.message);
@@ -242,7 +238,7 @@ export default function SignTest() {
                   <input
                     className="signinput placeholder-text"
                     type="text"
-                    placeholder="用戶名稱 至少4個字元"
+                    placeholder="用戶名稱 至少3個字元"
                     required
                     onChange={(e) => handleNameChange(e.target.value)}
                   />
