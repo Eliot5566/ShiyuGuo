@@ -657,3 +657,13 @@ Button.btn-color:active {
 .disable-pointer {
   cursor: not-allowed !important;
 }
+
+/* 漢堡圖切換時 添加動畫效果  */
+.hamburger-icon.active {
+  transform: rotate(90deg);
+
+  transition: transform 0.3s ease-in-out;
+  /* transition: transform 0.5s ease-in-out; */
+}
+
+/* 漢堡圖切換時 添加動畫效果  */

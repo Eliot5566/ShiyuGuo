@@ -227,7 +227,9 @@ export default function PlaceOrder() {
                   <div className="d-grid">
                     <Button
                       type="button"
+                      className="btn-color"
                       onClick={placeOrderHandler}
+                      style={{ backgroundColor: '#9a2540' }}
                       disabled={cart.cartItems.length === 0}
                     >
                       送出訂單

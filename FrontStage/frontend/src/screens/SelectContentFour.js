@@ -38,6 +38,15 @@ export default function SelectContentFour() {
 
   // 點擊產品時的處理函數
   const handleProductSelect = (product) => {
+    //如果選擇商品已滿 顯示提式
+    if (state.selectedProducts.length === 3) {
+      swal({
+        title: '已選滿四個商品！',
+        icon: 'warning',
+        button: '確定',
+      });
+    }
+
     if (state.selectedProducts.length >= 4) {
       // 已選擇的產品數量達到4個，顯示錯誤提示
       swal({
@@ -70,13 +79,15 @@ export default function SelectContentFour() {
   };
 
   const handleNextButtonClick = async () => {
-    // const userResponse = window.confirm('是否需要加入禮盒卡片？');
-    // const userResponse = swal({
-    //   title: "是否需要加入禮盒卡片？",
-    //   icon: "warning",
-    //   // buttons: true,
-    //   dangerMode: true,
-    // });
+    //如果商品尚未選滿四個，跳出警告
+    if (state.selectedProducts.length < 4) {
+      swal({
+        title: '請選滿四個商品！',
+        icon: 'warning',
+        button: '確定',
+      });
+      return;
+    }
 
     const userResponse = await swal({
       title: '是否需要加入禮盒卡片？',

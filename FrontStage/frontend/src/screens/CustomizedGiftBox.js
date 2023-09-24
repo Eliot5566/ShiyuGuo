@@ -46,6 +46,7 @@ export default function CustomizedGiftBox() {
                 selectedBox === 'null' ? 'disable-pointer' : ''
               }`}
               onClick={checkoutHandler}
+              style={{ backgroundColor: '#9a2540' }}
               disabled={selectedBox === 'null'}
             >
               下一步

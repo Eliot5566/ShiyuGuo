@@ -38,6 +38,15 @@ export default function SelectContentNine() {
 
   // 點擊產品時的處理函數
   const handleProductSelect = (product) => {
+    //如果選擇商品已滿 顯示提式
+    if (state.selectedProducts9.length === 8) {
+      swal({
+        title: '已選滿九個商品！',
+        icon: 'warning',
+        button: '確定',
+      });
+    }
+
     if (state.selectedProducts9.length >= 9) {
       // 已選擇的產品數量達到9個，顯示錯誤提示
       swal({
@@ -72,6 +81,17 @@ export default function SelectContentNine() {
   };
 
   const handleNextButtonClick = async () => {
+    //如果商品尚未選滿9個，跳出警告
+
+    if (state.selectedProducts9.length < 9) {
+      swal({
+        title: '請選滿九個商品！',
+        icon: 'warning',
+        button: '確定',
+      });
+      return;
+    }
+
     // const userResponse = window.confirm('是否需要加入禮盒卡片？');
     // const userResponse = swal({
     //   title: "是否需要加入禮盒卡片？",

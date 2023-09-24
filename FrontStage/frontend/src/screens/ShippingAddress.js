@@ -126,7 +126,12 @@ export default function ShippingAddress() {
             ></Form.Control>
           </Form.Group>
           <div className="mb-3">
-            <Button variant="primary" type="submit">
+            <Button
+              className="btn-color"
+              // variant="primary"
+              type="submit"
+              style={{ backgroundColor: '#9a2540' }}
+            >
               下一步
             </Button>
           </div>

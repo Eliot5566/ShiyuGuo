@@ -38,6 +38,15 @@ export default function SelectContentSix() {
 
   // 點擊產品時的處理函數
   const handleProductSelect = (product) => {
+    //如果選擇商品已滿 顯示提式
+    if (state.selectedProducts6.length === 5) {
+      swal({
+        title: '已選滿六個商品！',
+        icon: 'warning',
+        button: '確定',
+      });
+    }
+
     if (state.selectedProducts6.length >= 6) {
       // 已選擇的產品數量達到6個，顯示錯誤提示
       swal({
@@ -73,6 +82,16 @@ export default function SelectContentSix() {
   };
 
   const handleNextButtonClick = async () => {
+    //如果商品尚未選滿6個，跳出警告
+    if (state.selectedProducts6.length < 6) {
+      swal({
+        title: '請選滿六個商品！',
+        icon: 'warning',
+        button: '確定',
+      });
+      return;
+    }
+
     // const userResponse = window.confirm('是否需要加入禮盒卡片？');
     // const userResponse = swal({
     //   title: "是否需要加入禮盒卡片？",

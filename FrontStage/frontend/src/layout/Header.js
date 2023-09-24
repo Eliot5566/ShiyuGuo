@@ -283,13 +283,9 @@
 ///924
 
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, NavDropdown, Badge } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import shopcar from '../images/購物車_icon_0.png';
-import membericon from '../images/會員icon_0.png';
-import hamburgericon from '../images/漢堡icon_0.png';
 import logo from '../images/拾月菓logo.png';
 import { useContext } from 'react';
 import { Store } from '../Store';
@@ -301,28 +297,46 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 function Header() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo, giftBoxQuantity } = state;
   const [cartItemCount, setCartItemCount] = useState(0);
 
-  // 添加汉堡菜单按钮状态
+  //添加漢堡菜單按鈕狀態
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
-
-  // 汉堡菜单按钮点击事件处理函数
+  // 漢堡菜單按鈕點擊事件處理函數
   const handleHamburgerClick = () => {
     setIsHamburgerOpen(!isHamburgerOpen);
   };
 
+  //點選其他地方關閉漢堡菜單
+  const handleOutsideClick = (e) => {
+    if (isHamburgerOpen && e.target.closest('.mobile-menu')) {
+      setIsHamburgerOpen(false);
+      //點選漢堡圖關閉漢堡菜單
+    } else if (isHamburgerOpen && !e.target.closest('.hamburger-button')) {
+      setIsHamburgerOpen(false);
+    }
+  };
+
   useEffect(() => {
-    // 计算购物车数量
+    document.addEventListener('click', handleOutsideClick, true);
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick, true);
+    };
+  }, [isHamburgerOpen]);
+
+  useEffect(() => {
+    // 計算購物車數量
     const itemCount = cart.cartItems.reduce(
       (count, item) => count + (item.quantity || 0),
       0
     );
 
-    // 设置购物车数量
+    // 設定購物車數量
     setCartItemCount(itemCount);
   }, [cart, giftBoxQuantity]);
 
@@ -335,21 +349,21 @@ function Header() {
     window.location.href = '/signin';
   };
 
-  // 添加汉堡菜单按钮状态
+  // 添加漢堡菜單按鈕狀態
   const [device, setDevice] = useState(
     window.innerWidth > 600 ? 'PC' : 'mobile'
   );
 
-  // 检测窗口大小变化以更新设备状态
+  //根據視窗大小變化更新設備狀態
   const handleResize = () => {
     setDevice(window.innerWidth > 600 ? 'PC' : 'mobile');
   };
 
   useEffect(() => {
-    // 监听窗口大小变化
+    // 監聽視窗大小變化
     window.addEventListener('resize', handleResize);
 
-    // 移除监听器以防止内存泄漏
+    //移除監聽器以防止內存洩漏
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -357,7 +371,7 @@ function Header() {
 
   return (
     <Navbar
-      className=" HeaderNav"
+      className="fixed-top HeaderNav"
       bg="none"
       // style={{ backgroundColor: '#ffffff29' }}
       // variant="light"
@@ -453,11 +467,6 @@ function Header() {
               className={`hamburger-button ${isHamburgerOpen ? 'active' : ''}`}
               onClick={handleHamburgerClick}
             >
-              {/* <img
-                className="icon-img"
-                src={hamburgericon}
-                alt="漢堡icon.png"
-              /> */}
               {device === 'mobile' && (
                 <div
                   className={`hamburger-button ${
@@ -465,12 +474,14 @@ function Header() {
                   }`}
                   onClick={handleHamburgerClick}
                 >
-                  {/* <img
-                className="icon-img"
-                src={hamburgericon}
-                alt="漢堡icon.png"
-              /> */}
-                  <FontAwesomeIcon icon={faBars} style={{ color: '#9a2540' }} />
+                  <FontAwesomeIcon
+                    className={`hamburger-icon ${
+                      isHamburgerOpen ? 'active' : ''
+                    }`}
+                    //icon切換時 添加一個動畫效果
+                    icon={isHamburgerOpen ? faTimes : faBars}
+                    style={{ color: '#9a2540' }}
+                  />
                 </div>
               )}
             </div>

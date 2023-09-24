@@ -17,6 +17,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 function Test2() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -30,6 +31,23 @@ function Test2() {
   const handleHamburgerClick = () => {
     setIsHamburgerOpen(!isHamburgerOpen);
   };
+
+  //點選其他地方關閉漢堡菜單
+  const handleOutsideClick = (e) => {
+    if (isHamburgerOpen && e.target.closest('.mobile-menu')) {
+      setIsHamburgerOpen(false);
+    } else if (isHamburgerOpen && !e.target.closest('.hamburger-button')) {
+      setIsHamburgerOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleOutsideClick, true);
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick, true);
+    };
+  }, [isHamburgerOpen]);
 
   useEffect(() => {
     // 计算购物车数量
@@ -134,7 +152,6 @@ function Test2() {
             </NavDropdown>
           ) : (
             <Link className="nav-link" to="/signin">
-              {/* <img className="icon-img" src={membericon} alt="會員icon" /> */}
               <FontAwesomeIcon
                 icon={faCircleUser}
                 style={{ color: '#9a2540' }}
@@ -169,11 +186,6 @@ function Test2() {
               className={`hamburger-button ${isHamburgerOpen ? 'active' : ''}`}
               onClick={handleHamburgerClick}
             >
-              {/* <img
-                className="icon-img"
-                src={hamburgericon}
-                alt="漢堡icon.png"
-              /> */}
               {device === 'mobile' && (
                 <div
                   className={`hamburger-button ${
@@ -181,12 +193,14 @@ function Test2() {
                   }`}
                   onClick={handleHamburgerClick}
                 >
-                  {/* <img
-                className="icon-img"
-                src={hamburgericon}
-                alt="漢堡icon.png"
-              /> */}
-                  <FontAwesomeIcon icon={faBars} style={{ color: '#9a2540' }} />
+                  <FontAwesomeIcon
+                    className={`hamburger-icon ${
+                      isHamburgerOpen ? 'active' : ''
+                    }`}
+                    //icon切換時 添加一個動畫效果
+                    icon={isHamburgerOpen ? faTimes : faBars}
+                    style={{ color: '#9a2540' }}
+                  />
                 </div>
               )}
             </div>

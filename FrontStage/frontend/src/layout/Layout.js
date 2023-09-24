@@ -19,7 +19,7 @@ const Layout = () => {
         {/* <Nav /> */}
         {/* <Test2 /> */}
         <Background style={{ zIndex: 1 }} />
-        <Outlet className="" style={{ zIndex: 5 }} />
+        <Outlet style={{ zIndex: 5 }} />
         <ScrollToTopButton />
         <div className="footermt">
           {' '}

@@ -259,5 +259,9 @@ section.os.animate {
 
 .HeaderNav {
   background-color: rgb(201, 118, 137);
-  color: #ffffff29;
+  /* color: #ffffff29; */
+}
+
+.HeaderNav a {
+  color: #fffffffb;
 }

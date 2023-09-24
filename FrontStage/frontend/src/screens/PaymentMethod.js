@@ -84,7 +84,13 @@ export default function PaymentMethod() {
             </label>
           </div>
           <div className="mb-3">
-            <Button type="submit">下一步</Button>
+            <Button
+              type="submit"
+              className="btn-color"
+              style={{ backgroundColor: '#9a2540' }}
+            >
+              下一步
+            </Button>
           </div>
         </Form>
       </div>
