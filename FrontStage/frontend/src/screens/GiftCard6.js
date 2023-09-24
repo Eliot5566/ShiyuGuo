@@ -21,7 +21,7 @@ const GiftCard6 = () => {
   const navigate = useNavigate();
   // 初始化第二張圖片的路徑為空字串
   const [secondImage, setSecondImage] = useState('');
-  const maxContentLength = 50; // 最大字數限制
+  const maxContentLength = 70; // 最大字數限制
 
   const handleCardSelect = (card) => {
     setNewSelectedCard(card);
@@ -90,12 +90,15 @@ const GiftCard6 = () => {
   // };
   useEffect(() => {
     handleCardSelect('綠色');
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Container
-      className="mt-3 mb-3 pt-3 shadow-lg"
-      style={{ backgroundColor: '#ffffffbc' }}
+      className="pt-3 shadow-lg"
+      style={{
+        backgroundColor: '#ffffffbc',
+        margin: '15vh auto 10vh auto',
+      }}
     >
       <Row>
         <Col md={12}>
@@ -161,8 +164,8 @@ const GiftCard6 = () => {
               </p>
               <textarea
                 className="form-control"
-                rows="5" // 設定顯示幾行文字
-                maxLength="50" // 添加最大字數限制
+                rows="6" // 設定顯示幾行文字
+                maxLength="70" // 添加最大字數限制
                 placeholder="請輸入卡片內容"
                 value={newCardContent}
                 onChange={handleContentChange}

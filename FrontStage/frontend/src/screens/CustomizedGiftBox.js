@@ -30,7 +30,10 @@ export default function CustomizedGiftBox() {
   return (
     <Container
       className="giftmarin p-3 shadow-lg "
-      style={{ backgroundColor: '#ffffffbc' }}
+      style={{
+        backgroundColor: '#ffffffbc',
+        margin: '15vh auto 10vh auto',
+      }}
     >
       <Row>
         <Col md={12}>
