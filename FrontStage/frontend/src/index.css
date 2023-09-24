@@ -488,7 +488,7 @@ Button.btn-color:active {
   border-radius: 10px;
   padding: 10px;
   margin: 10px 0;
-  /* overflow: hidden; */
+  color: rgb(56, 56, 56);
 }
 
 .ui-accordion .ui-accordion-content > p {

@@ -182,9 +182,9 @@ function Product(props) {
         <div
           key={data._id}
           className="container"
-          style={{ marginBottom: '15rem' }}
+          style={{ marginBottom: '15rem', marginTop: '10rem' }}
         >
-          <div className="row text-center mt-5 fw-bold text-secondary">
+          <div className="row text-center fw-bold text-secondary">
             <span
               className="mb-3"
               style={{
