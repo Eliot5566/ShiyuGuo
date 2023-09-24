@@ -8,8 +8,8 @@
   z-index: 5;
   opacity: 0.9;
   margin: auto;
-  width: 650px;
-  height: 1000px;
+  width: 800px;
+  height: 850px;
   position: relative;
 }
 .welcome {
@@ -17,10 +17,10 @@
   background: #f6f6f6;
   /* background: #faeddd; */
   /* background: #f6f6f6; */
-  width: 850px;
+  width: 800px;
   height: 515px;
   position: absolute;
-  top: 15%;
+  top: 30%;
   border-radius: 5px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
   /* background-color: #faeddd; */
@@ -28,7 +28,7 @@
 .pinkbox {
   position: absolute;
   top: -10%;
-  left: 5%;
+  left: 0;
   background: #fcdde2;
   width: 420px;
   height: 600px;
@@ -365,3 +365,84 @@
 }
 
 /* 動畫 */
+/* 适应小屏幕 */
+/* 添加以下样式到 SignTest.css */
+
+/* 適應小屏幕 可以正常顯示註冊與登入頁面 不要出現滾動條 */
+
+/* 改動後 只能顯示粉色畫面 無法看到或切換註冊頁面 該如何修正 */
+
+@media (max-width: 768px) {
+  .signcontainer {
+    width: 75%;
+    height: 75%;
+    margin: auto;
+    padding: 0;
+  }
+  .welcome {
+    width: 75%;
+    height: 75%;
+    top: 0;
+    left: 0;
+    margin: auto;
+
+    border-radius: 0;
+  }
+  .pinkbox {
+    width: 75%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+    /* box-shadow: none; */
+  }
+  .leftbox {
+    width: 50%;
+    height: 50%;
+    top: 0;
+    left: 0vw;
+  }
+
+  .rightbox {
+    width: 50%;
+    height: 50%;
+    top: 0;
+    left: 40vw;
+  }
+  .signh1 {
+    margin-top: 50px;
+    font-size: 1.5em;
+  }
+  .signtitle {
+    margin-top: 10%;
+    font-size: 1.5em;
+  }
+  .signaccount {
+    margin-top: 30%;
+  }
+  .signbutton {
+    margin-top: 10%;
+  }
+  .signinput {
+    width: 80%;
+  }
+  .checkbox {
+    left: -50px;
+  }
+
+  .signaccount {
+    /* display: none; */
+    margin-top: 15vh;
+  }
+
+  /* //調整為小視窗時 可以看見此按鈕 不要被覆蓋 */
+  .signbutton2 {
+    margin-top: 70%;
+  }
+
+  /* ///////////////////////////////// */
+
+  /* //小視窗下點選註冊頁面的註冊按鈕後，註冊頁面消失，登入頁面出現 */
+
+  /* ///////////////////////////////// */
+}

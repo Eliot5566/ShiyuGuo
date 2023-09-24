@@ -53,7 +53,7 @@ function CategoryBar() {
   };
   return (
     <>
-      <nav className="nav" style={{marginTop: '12rem'}}>
+      <nav className="nav" style={{marginTop: '10rem' }}>
         <p
           onClick={() => handleItemClick('饅頭')}
           style={textColor('饅頭')}
@@ -194,7 +194,7 @@ function ProductCard({ category }) {
               className="card border border-0 position-relative bg-transparent"
               // onMouseEnter={mouseEnter}
               // onMouseLeave={mouseLeave}
-              style={{ marginBottom: '7rem' }}
+              style={{ marginBottom: '8rem' }}
             >
               <img
                 alt="產品圖片"
