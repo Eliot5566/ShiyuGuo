@@ -198,7 +198,7 @@ export default function CartScreen() {
   const max = 20;
 
   return (
-    <div className="cartstyle">
+    <div className="cartstyle" style={{marginTop: '10rem'}}>
       <Container>
         <Helmet>
           <title>購物車內容</title>
@@ -214,7 +214,7 @@ export default function CartScreen() {
                 <div className="clouds"></div>
                 <div className="rabbit"></div>
                 <br />
-                <div className="carp fs-4 fw-bold">
+                <div className="carp fs-4 fw-bold" style={{ color: 'rgb(78,78,78)' }}>
                   購物車目前空空的，快點去挑選喜歡的產品
                 </div>
               </div>

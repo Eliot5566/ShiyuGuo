@@ -5,6 +5,7 @@ import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import Transition from '../Transition';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 
 function Products() {
@@ -83,6 +84,14 @@ function Products() {
                         products._id === editedProducts._id ? editedProducts : products
                     )
                 );
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: '編輯成功！',
+                    showConfirmButton: false,
+                    timer: 1000,
+                    allowOutsideClick:false
+                })
         } catch (err) {
             console.log(err);
         }
@@ -114,6 +123,14 @@ function Products() {
                         products._id === editedProducts._id ? editedProducts : products
                     )
                 );
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: '編輯成功！',
+                    showConfirmButton: false,
+                    timer: 1000,
+                    allowOutsideClick:false
+                })
         } catch (err) {
             console.log(err);
         }
@@ -125,7 +142,7 @@ function Products() {
         setEditedProducts({ ...products });
     };
 
-        // 按下(上下架)的modal的確認按鈕
+        // 按下刪除的modal的確認按鈕
         const handleConfirmDelete = async(e) =>{
             e.preventDefault();
             try {
@@ -164,6 +181,9 @@ function Products() {
 
     return (
         <Transition>
+            <Helmet>
+                <title>產品</title>
+            </Helmet>
             <div className="container text-center px-4 border rounded-3 bg-white mt-3">
                 <div className="d-flex justify-content-end">
                     {/* <button className="btn btn-primary my-2">新增商品</button> */}

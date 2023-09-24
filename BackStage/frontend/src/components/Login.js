@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import useAuth from '../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import Transition from '../Transition';
-
+import { Helmet } from 'react-helmet-async';
 import axios from '../api/axios';
 const LOGIN_URL = '/auth';
 
@@ -62,6 +62,9 @@ const Login = () => {
 
     return (
         <Transition>
+            <Helmet>
+                <title>登入</title>
+            </Helmet>
             <section className="container d-flex justify-content-center align-items-center min-vh-100">
                 <div className="row border rounded-5 p-3 bg-white shadow box-area">
                     <div className="left-box col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box">

@@ -5,6 +5,7 @@ import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import Transition from '../Transition';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -81,6 +82,14 @@ const Member = () => {
                         member._id === editedMember._id ? editedMember : member
                     )
                 );
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: '編輯成功！',
+                    showConfirmButton: false,
+                    timer: 1000,
+                    allowOutsideClick:false
+                })
         } catch (err) {
             console.log(err);
         }
@@ -123,6 +132,9 @@ const Member = () => {
 
     return (
         <Transition>
+            <Helmet>
+                <title>會員</title>
+            </Helmet>
             <div className="container text-center px-4 border rounded-3 bg-white mt-3">
                 <div className="row">
                     <table className="col table table-striped table-hover">

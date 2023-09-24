@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import axios from '../api/axios';
+import { Helmet } from 'react-helmet-async';
 
 const FORGETPWD_URL = '/forgetPWD';
 
@@ -43,6 +44,9 @@ const ForgetPWD = () => {
     }
     return (
         <div className="container d-flex justify-content-center align-items-center min-vh-100">
+            <Helmet>
+                <title>忘記密碼</title>
+            </Helmet>
             <section className='forgetScreen'>
                 <h1 className='text-center'>忘記密碼</h1>
                 <p className={errMsg ? "errmsg" : "offscreen"}>{errMsg}</p>

@@ -14,22 +14,25 @@ function FAQ() {
   return (
     <>
       <div
-        className="container mt-5 p-5 rounded-3" // 這裡有多加mt-5 mb-5 p-5 rounded-3和背景顏色
+        className="fs-1 mb-3 text-center fw-bolder"
+        style={{ 
+          color: 'rgb(78, 78, 78)', 
+          marginTop: '10rem' 
+        }}
+      >
+        常見問題&nbsp;FAQ
+      </div>
+      <div
+        className="container rounded-3 p-5"
         style={{
           backgroundColor: 'rgba(255, 255, 255, 0.3)',
           fontSize: '1.2rem',
           width: '100vw',
-          height: '600px',
+          height: '500px',
           overflow: 'hidden',
           marginBottom: '15rem',
         }}
       >
-        <div
-          className="fs-1 mb-3 text-center fw-bolder"
-          style={{ color: 'rgb(78, 78, 78)' }}
-        >
-          常見問題&nbsp;FAQ
-        </div>
         <div id="accordion">
           <p>Q：產品購買數量有無限制？</p>
           <div>
