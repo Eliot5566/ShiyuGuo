@@ -201,7 +201,7 @@ export default function CartScreen() {
     <div className="cartstyle" style={{ marginTop: '10rem' }}>
       <Container>
         <Helmet>
-          <title>購物車內容</title>
+          <title>購物車內容 | 拾月菓</title>
         </Helmet>
         <h1 className="mt-5 mb-4 fw-bold" style={{ color: 'rgb(78,78,78)' }}>
           購物車內容

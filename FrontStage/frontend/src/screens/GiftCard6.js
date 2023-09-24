@@ -11,6 +11,7 @@ import offWhiteColorBack from '../images/card/offwhite_card_back.jpg';
 import pinkCardBack from '../images/card/pink_card_back.jpg';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import MyProgress from '../components/MyProgress';
+import { Helmet } from 'react-helmet-async';
 
 const GiftCard6 = () => {
   const { state, dispatch } = useContext(Store); // 使用全局狀態和dispatch
@@ -100,6 +101,10 @@ const GiftCard6 = () => {
         margin: '15vh auto 10vh auto',
       }}
     >
+      <Helmet>
+        <title>客製化卡片 | 拾月菓</title>
+        <meta name="description" content="拾月菓" />
+      </Helmet>
       <Row>
         <Col md={12}>
           <MyProgress currentStep={currentStep} />

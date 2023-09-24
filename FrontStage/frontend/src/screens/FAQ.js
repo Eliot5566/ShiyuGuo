@@ -5,6 +5,7 @@ import '../index.css';
 import 'jquery-ui/themes/base/all.css'; // 匯入 jQuery UI 的 CSS 文件
 import 'jquery-ui/ui/widgets/accordion'; // 匯入 jQuery UI 的 accordion 模組
 import Background from '../components/Background';
+import { Helmet } from 'react-helmet-async';
 
 function FAQ() {
   useEffect(() => {
@@ -13,11 +14,15 @@ function FAQ() {
 
   return (
     <>
+      <Helmet>
+        <title>FAQ | 拾月菓</title>
+        <meta name="description" content="拾月菓" />
+      </Helmet>
       <div
         className="fs-1 mb-3 text-center fw-bolder"
-        style={{ 
-          color: 'rgb(78, 78, 78)', 
-          marginTop: '10rem' 
+        style={{
+          color: 'rgb(78, 78, 78)',
+          marginTop: '10rem',
         }}
       >
         常見問題&nbsp;FAQ

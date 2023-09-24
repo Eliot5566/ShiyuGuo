@@ -221,7 +221,7 @@ export default function OrderScreen() {
   ) : (
     <Container className="small-container mb-5">
       <Helmet>
-        <title>訂單 {orderId}</title>
+        <title>訂單 | 拾月菓 {orderId}</title>
       </Helmet>
       <PayPalScriptProvider options={{ 'client-id': clientId }}>
         <h1 className="my-3">訂單編號 {orderId}</h1>

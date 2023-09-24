@@ -7,6 +7,7 @@ import shop3 from '../images/shop-pic/店面圖2.jpeg';
 import swal from 'sweetalert';
 import GoogleMap from '../components/GoogleMap';
 import { useForm, Controller } from 'react-hook-form';
+import { Helmet } from 'react-helmet-async';
 
 function ContactUs() {
   const { handleSubmit, control, reset } = useForm();
@@ -42,6 +43,10 @@ function ContactUs() {
   };
   return (
     <div className="contactus">
+      <Helmet>
+        <title>聯絡我們 | 拾月菓</title>
+        <meta name="description" content="拾月菓" />
+      </Helmet>
       <img
         className="banner"
         src={banner}

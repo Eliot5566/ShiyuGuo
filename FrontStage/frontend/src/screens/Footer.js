@@ -10,6 +10,7 @@ import { faSquareInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faSquareFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faSquareTwitter } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
+
 function Footer() {
   return (
     <footer>

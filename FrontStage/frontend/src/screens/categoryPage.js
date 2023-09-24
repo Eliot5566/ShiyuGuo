@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../index.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 // 左邊的分類標題 (為了重複使用useState的data，所以採用createContext)
 const CategoryContext = createContext();
@@ -11,6 +12,10 @@ function Category() {
   const { data } = useContext(CategoryContext);
   return (
     <>
+      <Helmet>
+        <title>產品分類 | 拾月菓</title>
+        <meta name="description" content="拾月菓" />
+      </Helmet>
       <div
         className="CATtitle p-2 position-relative"
         style={{ zIndex: '2', color: 'rgb(78, 78, 78)' }}

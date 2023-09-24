@@ -215,7 +215,7 @@ function Product(props) {
               }}
             >
               <Helmet>
-                <title>{data.name}</title>
+                <title>{data.name} | 拾月菓</title>
               </Helmet>
               <p
                 style={{

@@ -65,7 +65,7 @@ export default function ShippingAddress() {
   return (
     <Container className="shippingAddress mb-5 " style={{ marginTop: '15vh' }}>
       <Helmet>
-        <title>收貨地址</title>
+        <title>收貨地址 | 拾月菓</title>
       </Helmet>
       <CheckoutSteps step1 step2></CheckoutSteps>
       <div className="container ">

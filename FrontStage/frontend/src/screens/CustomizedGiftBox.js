@@ -8,6 +8,7 @@ import { Store } from '../Store';
 import { Link, useNavigate } from 'react-router-dom';
 import MyProgress from '../components/MyProgress';
 import 'animate.css';
+import { Helmet } from 'react-helmet-async';
 
 export default function CustomizedGiftBox() {
   const { state, dispatch } = useContext(Store);
@@ -35,6 +36,10 @@ export default function CustomizedGiftBox() {
         margin: '15vh auto 10vh auto',
       }}
     >
+      <Helmet>
+        <title>客製禮盒 | 拾月菓</title>
+        <meta name="description" content="拾月菓" />
+      </Helmet>
       <Row>
         <Col md={12}>
           <MyProgress currentStep={currentStep} />

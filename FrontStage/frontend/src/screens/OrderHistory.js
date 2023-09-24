@@ -71,7 +71,7 @@ export default function OrderHistory() {
   return (
     <Container className="small-container orderhistoryMb">
       <Helmet>
-        <title>訂單查詢</title>
+        <title>訂單查詢 | 拾月菓</title>
       </Helmet>
 
       <h1>訂單查詢</h1>

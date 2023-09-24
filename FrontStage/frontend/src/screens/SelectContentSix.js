@@ -9,6 +9,7 @@ import { Store } from '../Store';
 import MyProgress from '../components/MyProgress';
 import 'animate.css';
 import swal from 'sweetalert';
+import { Helmet } from 'react-helmet-async';
 
 export default function SelectContentSix() {
   const { state, dispatch } = useContext(Store);
@@ -136,6 +137,10 @@ export default function SelectContentSix() {
         margin: '15vh auto 10vh auto',
       }}
     >
+      <Helmet>
+        <title>客製禮盒產品內容 | 拾月菓</title>
+        <meta name="description" content="拾月菓" />
+      </Helmet>
       <Row>
         <Col md={12}>
           <MyProgress currentStep={currentStep} />

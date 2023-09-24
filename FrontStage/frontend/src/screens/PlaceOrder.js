@@ -126,7 +126,7 @@ export default function PlaceOrder() {
     <Container className="small-container mb-5">
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
       <Helmet>
-        <title>訂單明細</title>
+        <title>訂單明細 | 拾月菓</title>
       </Helmet>
       <h1 className="my-3"> 訂單明細</h1>
       <Row>

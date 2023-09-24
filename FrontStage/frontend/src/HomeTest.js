@@ -7,6 +7,7 @@ import Page4 from './page4';
 import Try from './Try';
 import './nav.css';
 import Test2 from './screens/Test2';
+import { Helmet } from 'react-helmet-async';
 
 import './start.css';
 import './App.css';
@@ -55,6 +56,10 @@ function HomeTest() {
     //offest
 
     <div className="App my-background">
+      <Helmet>
+        <title>首頁 | 拾月菓</title>
+        <meta name="description" content="拾月菓" />
+      </Helmet>
       <Parallax pages={6} style={{ top: '0', left: '0' }} className="animation">
         <ParallaxLayer offset={0} speed={0}>
           <div className="animation_layer parallax" id="block"></div>

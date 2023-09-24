@@ -43,7 +43,7 @@ export default function PaymentMethod() {
       <div className="container small-container paycon ">
         <CheckoutSteps step1 step2 step3></CheckoutSteps>
         <Helmet>
-          <title>付款方式</title>
+          <title>付款方式 | 拾月菓</title>
         </Helmet>
         <h1 className="my-3">付款方式</h1>
         <Form onSubmit={submitHandler}>

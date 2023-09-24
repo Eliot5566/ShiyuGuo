@@ -186,6 +186,10 @@ export default function SignTest() {
   }, [navigate, redirect, userInfo]);
   return (
     <>
+      <Helmet>
+        <title>註冊登入頁面 | 拾月菓</title>
+        <meta name="description" content="拾月菓" />
+      </Helmet>
       <div className="signcontainer ">
         <div className="welcome">
           <div
