@@ -22,6 +22,15 @@ export default function SignTest() {
 
   const toggleForm = () => {
     setIsSignIn(!isSignIn);
+    //當視窗為小畫面@media (max-width: 768px)時，點擊登入或註冊按鈕後，會自動跳轉到另一個表單
+    if (window.innerWidth < 768) {
+      window.scrollTo(0, 0);
+    }
+
+    //當視窗為小畫面@media (max-width: 768px)時，點擊登入或註冊按鈕後，會自動跳轉到另一個表單
+    if (window.innerWidth < 768) {
+      window.scrollTo(0, 0);
+    }
   };
   const navigate = useNavigate();
   const { search } = useLocation();
@@ -326,6 +335,14 @@ export default function SignTest() {
             </button>
           </div>
         </div>
+        {/* 當視窗為小畫面@media (max-width: 768px) 新增一個按鈕來切換登入註冊*/}
+        {window.innerWidth < 768 && (
+          <div className="toggle-btn signbutton2">
+            <button className="signbutton" onClick={toggleForm}>
+              {isSignIn ? '註冊' : '註冊'}
+            </button>
+          </div>
+        )}
       </div>
     </>
   );
