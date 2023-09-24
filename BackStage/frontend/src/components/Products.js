@@ -218,7 +218,12 @@ function Products() {
                         <tbody>
                             {currentProducts.map((products, index) => (
                             // {products.map((products, index) => (
-                                <tr className="align-middle" key={index}>
+                                <tr key={index}  
+                                    className={products.countInStock > 20
+                                        ? "align-middle"
+                                        : "align-middle table-danger"
+                                    }
+                                >
                                     <td>{products._id}</td>
                                     <td>{products.name}</td>
                                     <td>{products.slug}</td>

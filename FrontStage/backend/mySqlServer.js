@@ -106,7 +106,7 @@ app.get('/products/:category', async (req, res) => {
 
 app.get('/:_id', async (req, res) => {
   const _id = req.params._id;
-  const sql = 'SELECT * FROM products where _id = ?';
+  const sql = 'SELECT * FROM products where _id = ? and onSale = 1';
 
   try {
     const results = await executeQuery(sql, [_id]);

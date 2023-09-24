@@ -179,8 +179,11 @@ export default function GiftBoxDetails() {
   };
   return (
     <Container
-      className="mt-3 mb-3 pt-3 shadow-lg"
-      style={{ backgroundColor: '#ffffffbc' }}
+      className="pt-3 shadow-lg"
+      style={{
+        backgroundColor: '#ffffffbc',
+        margin: '15vh auto 10vh auto',
+      }}
     >
       <Row>
         <Col md={12}>
@@ -188,7 +191,7 @@ export default function GiftBoxDetails() {
         </Col>
       </Row>
 
-      <h3 className="fs-2 fw-bolder text-center mb-5 mt-3">確認禮盒內容</h3>
+      <h3 className="fs-2 fw-bolder text-center mb-5 mt-5">確認禮盒內容</h3>
       {
         <div className="selected-four-box mx-auto">
           {/* 渲染選定的商品信息 */}
@@ -196,7 +199,7 @@ export default function GiftBoxDetails() {
             <img
               // key={index}
               // key={selectedProduct._id}
-              key={`${selectedProduct._id}-${index}`} // 使用组合的 key
+              key={`${selectedProduct._id}-${index}`} // 使用組合的 key
               src={selectedProduct.product_package}
               className="selected-product-image"
               alt={`selected product ${selectedProduct._id}`}
@@ -219,7 +222,7 @@ export default function GiftBoxDetails() {
         {productList.map((selectedProduct, index) => (
           <div
             // key={selectedProduct._id}
-            key={`${selectedProduct._id}-${index}`} // 使用组合的 key
+            key={`${selectedProduct._id}-${index}`} // 使用組合的 key
             className="product-details d-flex justify-content-center"
           >
             <div
@@ -232,7 +235,7 @@ export default function GiftBoxDetails() {
                 style={{ width: '5rem', height: '5rem' }}
                 alt={`selected product ${selectedProduct._id}`}
               />
-              <div className="fs-5 m-3">{selectedProduct.name}</div>
+              <div className="fs-5 m-3">{selectedProduct.slug}</div>
               <div
                 className="fs-5 pe-3"
                 style={{ marginLeft: 'auto', color: '#9A2540' }}
@@ -249,7 +252,7 @@ export default function GiftBoxDetails() {
       <div>
         {/* 顯示用戶選擇的卡片樣式與內容 */}
         <div
-          className="text-center mt-5 fs-4 fw-bolder"
+          className="text-center mt-5 mb-3 fs-4 fw-bolder"
           style={{ color: '#9A2540' }}
         >
           選擇的卡片樣式
@@ -300,7 +303,7 @@ export default function GiftBoxDetails() {
             addToCart(20); // 调用 addToCart 函数
           }}
         >
-          加到購物車
+          加入購物車
         </Button>
       </div>
     </Container>

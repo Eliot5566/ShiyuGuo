@@ -2,6 +2,7 @@ import Transition from '../Transition';
 import LineChart from "./LineChart";
 import PieChart from "./PieChart";
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom'
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { motion, useMotionValue, useTransform, animate }  from 'framer-motion';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -124,7 +125,10 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="col-12 col-sm-6 col-md-4 col-lg-3 p-3 bg-light">
-                            <div className="d-flex justify-content-around p-4 align-items-center bg-white border border-secondary shadow-sm rounded-3 shadow">
+                            <Link 
+                            className="d-flex justify-content-around p-4 align-items-center bg-white border border-secondary shadow-sm rounded-3 shadow text-black"
+                            to="/products"
+                            >
                                 <FontAwesomeIcon icon={faArrowTrendDown} className='fs-1 text-danger'/>
                                 <div className='text-center'>
                                     <p>庫存過低</p>
@@ -133,7 +137,7 @@ const Home = () => {
                                         <span className='ms-1 align-self-center'>款</span>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         </div>
                         <div className="col-12 col-sm-6 col-md-4 col-lg-3 p-3 bg-light">
                             <div className="d-flex justify-content-around p-4 align-items-center bg-white border border-secondary shadow-sm rounded-3 shadow">

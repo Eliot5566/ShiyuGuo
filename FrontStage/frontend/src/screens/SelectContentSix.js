@@ -130,8 +130,11 @@ export default function SelectContentSix() {
 
   return (
     <Container
-      className="mt-3 mb-3 pt-3 shadow-lg"
-      style={{ backgroundColor: '#ffffffbc' }}
+      className="pt-3 shadow-lg"
+      style={{
+        backgroundColor: '#ffffffbc',
+        margin: '15vh auto 10vh auto',
+      }}
     >
       <Row>
         <Col md={12}>
@@ -260,7 +263,7 @@ export default function SelectContentSix() {
           .map((product) => (
             <Col
               key={product.slug}
-              sm={4}
+              sm={6}
               md={4}
               lg={3}
               className="mb-3 giftPitcure"
