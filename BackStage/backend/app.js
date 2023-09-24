@@ -36,7 +36,7 @@ app.use( express.json() );
 // 這個中間件將協助解析這些Cookie數據，使其可供你的路由處理程序訪問
 app.use( cookieParser() );
 // 靜態檔案
-app.use('/', express.static(path.join(__dirname, '/public')));
+app.use('/', express.static("../../FrontStage/frontend/public/"));
 
 // 路由
 app.use('/', require('./routes/root'));

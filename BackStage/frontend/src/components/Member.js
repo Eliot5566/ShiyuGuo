@@ -81,6 +81,14 @@ const Member = () => {
                         member._id === editedMember._id ? editedMember : member
                     )
                 );
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: '編輯成功！',
+                    showConfirmButton: false,
+                    timer: 1000,
+                    allowOutsideClick:false
+                })
         } catch (err) {
             console.log(err);
         }

@@ -1,4 +1,5 @@
 const myDBconn = require('../config/db');
+const fs = require('fs');
 
 const handleProducts = async (req, res) => {
     myDBconn.query('SELECT * FROM products',
@@ -49,9 +50,9 @@ const handleOnSaleProducts = async (req, res) => {
 
 const handleNewProducts = async (req, res) => {
     const {name, slug, category, price, countInStock, rating, description} = req.body;
-    const image = req.files.image[0].path.replace(/\\/g, '/').replace('public/images/', '/images/');
-    const gift_product = req.files.gift_product[0].path.replace(/\\/g, '/').replace('public/images/', '/images/');
-    const product_package = req.files.product_package[0].path.replace(/\\/g, '/').replace('public/images/', '/images/');
+    const image = req.files.image[0].path.replace(/\\/g, '/').replace('../../FrontStage/frontend/public/images/', '/images/');
+    const gift_product = req.files.gift_product[0].path.replace(/\\/g, '/').replace('../../FrontStage/frontend/public/images/', '/images/');
+    const product_package = req.files.product_package[0].path.replace(/\\/g, '/').replace('../../FrontStage/frontend/public/images/', '/images/');
     myDBconn.query('ALTER TABLE products AUTO_INCREMENT = 1'); // 讓ID從1開始
     myDBconn.query("insert into products (name, slug, category, image, price, countInStock, rating, description, gift_product, product_package) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
     [name, slug, category, image, price, countInStock, rating, description, gift_product, product_package],
@@ -67,7 +68,8 @@ const handleNewProducts = async (req, res) => {
 }
 
 const handleDeleteProducts = async (req, res) => {
-    const {_id,name} = req.body.editedProducts;
+    // console.log(req.body.editedProducts);
+    const {_id,name,image,gift_product,product_package} = req.body.editedProducts;
     myDBconn.query('DELETE FROM products where _id = ?',
     [_id],
     async function(err, data){
@@ -78,6 +80,27 @@ const handleDeleteProducts = async (req, res) => {
         } else {
             // 執行成功
             res.status(201).json({ 'success': `${name} 刪除成功` });
+            fs.unlink(`../../FrontStage/frontend/public/${image}`, (err) => {
+                if (err) {
+                    console.error('刪除image時發生錯誤：', err);
+                } else {
+                    console.log('檔案已成功刪除');
+                }
+            });
+            fs.unlink(`../../FrontStage/frontend/public/${gift_product}`, (err) => {
+                if (err) {
+                    console.error('刪除gift_product時發生錯誤：', err);
+                } else {
+                    console.log('檔案已成功刪除');
+                }
+            });
+            fs.unlink(`../../FrontStage/frontend/public/${product_package}`, (err) => {
+                if (err) {
+                    console.error('刪除product_package時發生錯誤：', err);
+                } else {
+                    console.log('檔案已成功刪除');
+                }
+            });
         }
     })
 }
