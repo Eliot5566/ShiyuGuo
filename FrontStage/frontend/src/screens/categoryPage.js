@@ -194,7 +194,7 @@ function ProductCard({ category }) {
               className="card border border-0 position-relative bg-transparent"
               // onMouseEnter={mouseEnter}
               // onMouseLeave={mouseLeave}
-              style={{ marginBottom: '5rem' }}
+              style={{ marginBottom: '7rem' }}
             >
               <img
                 alt="產品圖片"
