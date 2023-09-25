@@ -229,7 +229,7 @@ section.os.animate {
   right: -100%; /* 初始状态下隐藏菜单 */
   width: 80%; /* 调整菜单宽度 */
   height: 100%;
-  background-color: #333;
+  background-color: #fcdde2;
   /* background-color: lightcoral; */
   opacity: 0.95;
   /* 背景菜單顏色 */
@@ -263,5 +263,7 @@ section.os.animate {
 }
 
 .HeaderNav a {
-  color: #fffffffb;
+  color: #9a2540;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
