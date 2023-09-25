@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import Transition from '../Transition';
+import Transition from '../components/Transition';
 
 
 const Missing = () => {

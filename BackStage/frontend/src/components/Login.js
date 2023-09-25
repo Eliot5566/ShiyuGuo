@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import useAuth from '../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom'
-import Transition from '../Transition';
+import Transition from '../components/Transition';
 import { Helmet } from 'react-helmet-async';
 import axios from '../api/axios';
 const LOGIN_URL = '/auth';

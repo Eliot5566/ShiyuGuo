@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
-import Transition from '../Transition';
+import Transition from '../components/Transition';
 import { Helmet } from 'react-helmet-async';
 
 
@@ -112,12 +112,12 @@ const Order = () => {
             ) : (
                 <>
                 <div className='d-flex justify-content-end'>
-                    <button className="btn btn-primary fs-6 my-2 me-2" onClick={goBack}>
+                    <button className="btn btn-warning fs-6 my-2 me-2" onClick={goBack}>
                         回到上一頁
                     </button>
                     <div className="pagination btn-group w-50 my-2">
                         {Array.from({ length: Math.ceil(orders.length / ordersPerPage) }).map((_, index) => (
-                            <button key={index} onClick={() => paginate(index + 1)} className="btn btn-warning">
+                            <button key={index} onClick={() => paginate(index + 1)} className="page btn">
                                 {index + 1}
                             </button>
                         ))}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { useNavigate, useLocation } from "react-router-dom";
-import Transition from '../Transition';
+import Transition from '../components/Transition';
 import { Helmet } from 'react-helmet-async';
 
 

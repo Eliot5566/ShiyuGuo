@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useState, useEffect } from "react";
 import axios from "../api/axios";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
-import Transition from '../Transition';
+import Transition from '../components/Transition';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';

@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "../api/axios";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
-import Transition from '../Transition';
+import Transition from '../components/Transition';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
@@ -187,10 +187,10 @@ function Products() {
             <div className="container text-center px-4 border rounded-3 bg-white mt-3">
                 <div className="d-flex justify-content-end">
                     {/* <button className="btn btn-primary my-2">新增商品</button> */}
-                    <Link to="new" className="btn btn-primary my-2">新增商品</Link>
+                    <Link to="new" className="new btn btn-warning my-2">新增商品</Link>
                     <div className="pagination btn-group w-25 my-2 ms-2">
                         {Array.from({ length: Math.ceil(products.length / productsPerPage) }).map((_, index) => (
-                            <button key={index} onClick={() => paginate(index + 1)} className="btn btn-warning">
+                            <button key={index} onClick={() => paginate(index + 1)} className="btn page">
                                 {index + 1}
                             </button>
                         ))}
@@ -198,7 +198,7 @@ function Products() {
                 </div>
 
                 <div className="row">
-                    <table className="col table table-striped table-hover">
+                    <table className="col table table-hover">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -209,7 +209,7 @@ function Products() {
                                 <th>價格</th>
                                 <th>庫存</th>
                                 <th>瀏覽數</th>
-                                <th>rating</th>
+                                <th>評分</th>
                                 <th>上下架</th>
                                 <th>編輯</th>
                                 <th>刪除</th>
@@ -219,7 +219,7 @@ function Products() {
                             {currentProducts.map((products, index) => (
                             // {products.map((products, index) => (
                                 <tr key={index}  
-                                    className={products.countInStock > 20
+                                    className={products.countInStock >= 10
                                         ? "align-middle"
                                         : "align-middle table-danger"
                                     }

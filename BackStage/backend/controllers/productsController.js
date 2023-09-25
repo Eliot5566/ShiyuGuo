@@ -51,8 +51,8 @@ const handleOnSaleProducts = async (req, res) => {
 const handleNewProducts = async (req, res) => {
     const {name, slug, category, price, countInStock, rating, description} = req.body;
     const image = req.files.image[0].path.replace(/\\/g, '/').replace('../../FrontStage/frontend/public/images/', '/images/');
-    const gift_product = req.files.gift_product[0].path.replace(/\\/g, '/').replace('../../FrontStage/frontend/public/images/', '/images/');
-    const product_package = req.files.product_package[0].path.replace(/\\/g, '/').replace('../../FrontStage/frontend/public/images/', '/images/');
+    const gift_product = req.files.gift_product[0].path.replace(/\\/g, '/').replace('../../FrontStage/frontend/public/product_gift_pic/', '/product_gift_pic/');
+    const product_package = req.files.product_package[0].path.replace(/\\/g, '/').replace('../../FrontStage/frontend/public/product_gift_pic/', '/product_gift_pic/');
     myDBconn.query('ALTER TABLE products AUTO_INCREMENT = 1'); // 讓ID從1開始
     myDBconn.query("insert into products (name, slug, category, image, price, countInStock, rating, description, gift_product, product_package) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
     [name, slug, category, image, price, countInStock, rating, description, gift_product, product_package],
