@@ -198,7 +198,7 @@ function Products() {
                 </div>
 
                 <div className="row">
-                    <table className="col table table-striped table-hover">
+                    <table className="col table table-hover">
                         <thead>
                             <tr>
                                 <th>ID</th>

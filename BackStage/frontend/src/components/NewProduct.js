@@ -177,13 +177,13 @@ const NewProduct = () => {
                     <li className="d-flex justify-content-between mt-2">
                         <label htmlFor="gift_product" className='form-label'>Gift_Product：</label>
                         <input type="file" id="gift_product" name="gift_product" required className='form-control'
-                            onChange={handleGiftUpload}
+                            onChange={handleGiftUpload} accept="image/*"
                         />
                     </li>
                     <li className="d-flex justify-content-between mt-2">
                         <label htmlFor="product_package" className='form-label'>Product_Package：</label>
                         <input type="file" id="product_package" name="product_package" required className='form-control'
-                            onChange={handlePackageUpload}
+                            onChange={handlePackageUpload} accept="image/*"
                         />
                     </li>
                     <input type="submit" value="確認" className='btn btn-primary mx-auto w-75 m-3'/>

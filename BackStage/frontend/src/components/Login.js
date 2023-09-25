@@ -68,8 +68,8 @@ const Login = () => {
             <section className="container d-flex justify-content-center align-items-center min-vh-100">
                 <div className="row border rounded-5 p-3 bg-white shadow box-area">
                     <div className="left-box col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box">
-                        <p className="text-white fs-2 bg-dark bg-opacity-50 shadow rounded p-1 courier mb-2">Be Verified</p>
-                        <small className="join text-white text-wrap text-center  bg-dark bg-opacity-50 shadow rounded">Join experienced Designers on this platform.</small>
+                        <p className="text-white fs-2 bg-dark bg-opacity-50 shadow rounded p-1 courier mb-2">拾月菓</p>
+                        <small className="join text-white text-wrap text-center  bg-dark bg-opacity-50 shadow rounded fs-5">每一口，都是和菓子的味道</small>
                     </div>
                     <div className="col-md-6 right-box">
                         <div className="row align-items-center">
