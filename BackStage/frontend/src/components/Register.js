@@ -3,7 +3,7 @@ import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from '../api/axios';
 import { Link } from 'react-router-dom';
-import Transition from '../Transition';
+import Transition from '../components/Transition';
 import { Helmet } from 'react-helmet-async';
 
 const NAME_REGEX = /^[A-z][A-z0-9]{7,23}$/;

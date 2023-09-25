@@ -57,7 +57,7 @@ export default function SignTest() {
 
   const handleNameChange = (value) => {
     setName(value);
-    setIsNameValid(value.length >= 4);
+    setIsNameValid(value.length >= 3);
   };
 
   const handleEmailChange = (value) => {
@@ -86,7 +86,7 @@ export default function SignTest() {
     let errorMessage = '';
 
     if (!isNameValid) {
-      errorMessage = '用戶名稱必須至少4個字元';
+      errorMessage = '用戶名稱必須至少3個字元';
     } else if (!isEmailValid) {
       errorMessage = '請輸入有效的帳號 (信箱)';
     } else if (!isPwdValid) {
@@ -110,14 +110,16 @@ export default function SignTest() {
     const submitHandler = async (e) => {
       e.preventDefault();
       if (pwd !== confirmpwd) {
-        swal('請檢查您的密碼', '密碼不一致', 'error');
+        // swal('請檢查您的密碼', '密碼不一致', 'error');
         // toast.error('密碼不一致');
         return;
       }
 
       try {
+
         // 此處放置註冊的 Axios 請求
       } catch (err) {
+        // 
         console.error(err.response.data.message);
       }
     };
@@ -140,18 +142,17 @@ export default function SignTest() {
         email,
         pwd,
       });
-
-      localStorage.setItem('userInfo', JSON.stringify(data));
-
-      // ctxDispatch 是 Store.js 中的 dispatch 函数
-      // 用来更新 Store.js 中的 state userInfo
-      ctxDispatch({ type: 'USER_SIGNIN', payload: data });
-
-      //ctxDispatch是Store.js裡的dispatch function
-      //用來更新Store.js裡的state userInfo
+//註冊成功 跳出提示訊息
+    
+      //如果註冊成功 更新頁面為登入頁面
+      //設置isSignIn為false 顯示登入表單
+      // setIsSignIn(!isSignIn);
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
+      swal('註冊成功', '歡迎加入拾月菓', 'success');
+ 
       navigate(redirect || '/');
+      // 如果註冊成功，導向 redirect (redirect是一個字串)
     } catch (err) {
       console.log(err.response.data.message);
     }
@@ -166,9 +167,13 @@ export default function SignTest() {
       });
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
-
+      //登入成功 跳出提示訊息
+      swal('登入成功', '歡迎回來', 'success');
       navigate(redirect || '/');
     } catch (err) {
+      // 登入失敗 跳出提示訊息
+      swal('登入失敗', '請檢查您的帳號密碼', 'error');
+    
       console.log(err.response.data.message);
     }
   };
@@ -204,7 +209,7 @@ export default function SignTest() {
                 <form
                   className="more-padding signform"
                   autoComplete="off"
-                  onClick={submitHandlerSignIn}
+                  // onClick={submitHandlerSignIn}
                 >
                   {/* 驗證符號 */}
                   <input
@@ -226,7 +231,9 @@ export default function SignTest() {
                   <input className="signinput" type="checkbox" id="remember" />
                   <label htmlFor="remember">remember me</label>
                 </div> */}
-                  <button className="signbutton " type="submit">
+                  <button className="signbutton "
+                    onClick={submitHandlerSignIn}
+                   type="submit">
                     確認
                   </button>
                 </form>
@@ -242,7 +249,7 @@ export default function SignTest() {
                   <input
                     className="signinput placeholder-text"
                     type="text"
-                    placeholder="用戶名稱 至少4個字元"
+                    placeholder="用戶名稱 至少3個字元"
                     required
                     onChange={(e) => handleNameChange(e.target.value)}
                   />

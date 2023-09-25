@@ -41,7 +41,7 @@ function Product(props) {
         // 如果購物車裡已經有的數量+現在要加入的數量>庫存
         MySwal.fire({
           title: <strong>購物車數量已大於庫存量</strong>,
-          html: <p>請選購其他商品~</p>,
+          html: <p>請選購其他商品～</p>,
           icon: 'error',
           iconColor: '#e4849a',
           confirmButtonColor: '#9a2540',
@@ -57,7 +57,7 @@ function Product(props) {
         // 提示成功加入購物車
         MySwal.fire({
           title: <strong>成功加入購物車</strong>,
-          html: <p>謝謝選購，可以到購物車查看內容~</p>,
+          html: <p>謝謝選購，可以到購物車查看內容～</p>,
           icon: 'success',
           iconColor: '#e4849a',
           confirmButtonColor: '#9a2540',
@@ -70,7 +70,7 @@ function Product(props) {
         // 提示庫存不足
         MySwal.fire({
           title: <strong>很抱歉，目前沒有庫存</strong>,
-          html: <p>請選購其他商品~</p>,
+          html: <p>請選購其他商品～</p>,
           icon: 'error',
           iconColor: '#e4849a',
           confirmButtonColor: '#9a2540',
@@ -87,7 +87,7 @@ function Product(props) {
         });
         MySwal.fire({
           title: <strong>成功加入購物車</strong>,
-          html: <p>謝謝選購，可以到購物車查看內容~</p>,
+          html: <p>謝謝選購，可以到購物車查看內容～</p>,
           icon: 'success',
           iconColor: '#e4849a',
           confirmButtonColor: '#9a2540',
@@ -167,7 +167,7 @@ function Product(props) {
     if (quantity === 20) {
       MySwal.fire({
         title: <strong>訂購商品上限為20個</strong>,
-        html: <p>感謝您的支持~</p>,
+        html: <p>感謝您的支持～</p>,
         icon: 'warning',
         iconColor: '#e4849a',
         confirmButtonColor: '#9a2540',

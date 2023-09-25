@@ -13,6 +13,7 @@ const mysqlUsersRouter = require('./routes/mysqlUsers.js');
 const mysqlOrderRouter = require('./routes/orderRoute.js');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const swal = require('sweetalert');
 
 const nodemailer = require('nodemailer');
 const emailValidator = require('email-validator');
@@ -191,11 +192,11 @@ app.post('/subscribe', async (req, res) => {
       res.status(500).send('訂閱失敗');
     } else {
       console.log('Email sent: ' + info.response);
-      res
-        .status(200)
-        .send(
-          '<script>alert("訂閱成功"); window.location.href = "/";</script>'
-        );
+      res.status(200).send(
+        // 使用swal彈出視窗 顯示訂閱成功
+
+        '<script>alert("訂閱成功"); window.location.href = "/";</script>'
+      );
 
       // 之後把網頁轉回首頁
     }

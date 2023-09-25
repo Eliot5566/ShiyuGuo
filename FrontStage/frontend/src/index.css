@@ -256,7 +256,7 @@ a.nav-link {
 }
 a.nav-link:hover {
   transform: scale(1.3);
-  transition: all 0.7s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .nav-link {
   margin: 0 1rem;
@@ -363,7 +363,7 @@ Button.btn-color,
 
 Button.btn-color:hover,
 .category-buttons .btn-color:hover {
-  background-color: #b33f5a;
+  background-color: #b33f5a!important;
 }
 Button.btn-color:active {
   background-color: #c97689 !important;

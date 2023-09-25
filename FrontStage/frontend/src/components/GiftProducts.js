@@ -50,9 +50,8 @@ function GiftProducts(props) {
         alt={product.name}
       />
       <p className="product-name">{product.slug}</p>
-      <Button className="btn-color " onClick={() => addToCartHandler(product)}>
-        +
-      </Button>
+      {/* <Button className="btn-color " onClick={() => addToCartHandler(product)}> */}
+      <Button className="btn-color ">+</Button>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import Transition from '../Transition';
+import Transition from '../components/Transition';
 import LineChart from "./LineChart";
 import PieChart from "./PieChart";
 import { useState, useEffect } from "react";
@@ -73,7 +73,7 @@ const Home = () => {
     const isPaid = orders.filter((order) => order.is_paid === 1).length;
 
     // 計算庫存 少於20
-    const lowInStock = products.filter((product) => product.countInStock < 20).length;
+    const lowInStock = products.filter((product) => product.countInStock < 10).length;
 
     // 計算已付款的所有訂單的總金額
     const totalPaidAmount = orders.filter((order) => order.is_paid === 1).reduce((total, order) => {

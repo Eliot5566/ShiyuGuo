@@ -24,24 +24,18 @@ function SideBar() {
                             <span className='fs-4'>儀錶板</span>
                         </Link>
                     </li>
-                    <li className={location.pathname ==='/member' ? 'active nav-item p-1':'nav-item p-1'} >
-                        <Link to="/member" className='p-1 text-white d-block'>
-                            <FontAwesomeIcon icon={faCircleUser} className='me-3 fs-5'/>
-                            <span className='fs-4'>會員</span>
-                        </Link>
-                    </li>
                     <li className={location.pathname ==='/products' ? 'active nav-item p-1':'nav-item p-1'}>
                         <Link to="/products" className='p-1 text-white d-block'>
                             <FontAwesomeIcon icon={faBook} className='me-3 fs-5'/>
                             <span className='fs-4'>產品</span>
                         </Link>
                     </li>
-                    {/* <li className={location.pathname ==='/orders' ? 'active nav-item p-1':'nav-item p-1'}>
-                        <Link to="/orders" className='p-1 text-white d-block'>
-                            <FontAwesomeIcon icon={faBook} className='me-3 fs-5'/>
-                            <span className='fs-4'>下架產品</span>
+                    <li className={location.pathname ==='/member' ? 'active nav-item p-1':'nav-item p-1'} >
+                        <Link to="/member" className='p-1 text-white d-block'>
+                            <FontAwesomeIcon icon={faCircleUser} className='me-3 fs-5'/>
+                            <span className='fs-4'>會員</span>
                         </Link>
-                    </li> */}
+                    </li>
                 </ul>
             </div>
             <div>

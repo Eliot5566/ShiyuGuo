@@ -47,7 +47,7 @@ function page2() {
               <img className="border border-5" src={b} />
             </div>
             <div className="section-content">
-              <h3 className="">禮盒服務快來製作自己喜歡禮盒組合吧~</h3>
+              <h3 className="">禮盒服務快來製作自己喜歡禮盒組合吧～</h3>
               <p>
                 {/* Lorem Ipsum is not simply random text. It has roots in a piece of
             classical Latin literature from 45 BC, making it over 2000 years old.

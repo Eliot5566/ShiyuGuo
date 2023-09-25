@@ -1,8 +1,8 @@
 import React,{ useState } from 'react';
 import axios from '../api/axios';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import Transition from '../Transition';
+import Transition from '../components/Transition';
 import { Helmet } from 'react-helmet-async';
 
 
@@ -113,7 +113,7 @@ const NewProduct = () => {
             <div className='container w-newScreen px-4 border rounded-3 bg-white mt-3'>
                 <div className='d-flex justify-content-between mt-2'>
                     <h2 className='text-center'>新增產品</h2>
-                    <button className="btn btn-primary fs-6" onClick={goBack}>
+                    <button className="btn btn-warning fs-6" onClick={goBack}>
                         回到上一頁
                     </button>
                 </div>
@@ -163,7 +163,7 @@ const NewProduct = () => {
                         />
                     </li>
                     <li className="d-flex justify-content-between mt-2">
-                        <label htmlFor="rating" className='form-label'>Rating：</label>
+                        <label htmlFor="rating" className='form-label'>評分：</label>
                         <input type="number" min={1} max={5} id="rating" name="rating" required className='form-control'
                             onChange={handleInputChange}
                         />
