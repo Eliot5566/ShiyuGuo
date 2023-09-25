@@ -303,9 +303,6 @@ export default function SignTest() {
                   <button className="signbutton signsubmit" type="submit">
                     確認
                   </button>
-                  <div className="forgot-password-link">
-                    <Link to="/forgotpassword">忘記密碼？</Link>
-                  </div>
                 </form>
               </div>
             )}
