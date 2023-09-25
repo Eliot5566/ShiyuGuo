@@ -33,15 +33,39 @@ export default function ProfileScreen() {
     loadingUpdate: false,
   });
 
-  const submitHandler = async (e) => {
+  const submitNameHandler = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.put(
-        '/api/users/profile',
+        '/api/users/update-name', // 假設後端提供了專門用於更新用戶名稱的API端點
         {
           name,
-          email,
-          oldPwd, // 傳遞 oldPwd 到後端
+        },
+        {
+          headers: { Authorization: `Bearer ${userInfo.token}` },
+        }
+      );
+      dispatch({
+        type: 'UPDATE_SUCCESS',
+      });
+      ctxDispatch({ type: 'USER_SIGNIN', payload: data });
+      localStorage.setItem('userInfo', JSON.stringify(data));
+      toast.success('用戶名稱更新成功');
+    } catch (err) {
+      dispatch({
+        type: 'FETCH_FAIL',
+      });
+      toast.error(err.response.data.message);
+    }
+  };
+
+  const submitPasswordHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.put(
+        '/api/users/update-password', // 假設後端提供了專門用於更新密碼的API端點
+        {
+          oldPwd,
           pwd,
         },
         {
@@ -53,7 +77,7 @@ export default function ProfileScreen() {
       });
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
-      toast.success('使用者資料，更新成功');
+      toast.success('密碼更新成功');
     } catch (err) {
       dispatch({
         type: 'FETCH_FAIL',
@@ -81,7 +105,7 @@ export default function ProfileScreen() {
       <br></br>
       <h1 className="my-3">變更會員資料</h1>
 
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitNameHandler}>
         <Form.Group className="mb-3" controlId="name">
           <Form.Label>用戶名稱</Form.Label>
           <Form.Control
@@ -90,18 +114,27 @@ export default function ProfileScreen() {
             required
           />
         </Form.Group>
-        {/* <Form.Group className="mb-3" controlId="email">
-          <Form.Label>帳號</Form.Label>
-          <Form.Control
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </Form.Group> */}
+        <div className="mb-3 ">
+          <Button
+            type="submit"
+            style={{ background: '#9a2540' }}
+            onMouseOver={(e) => {
+              e.target.style.backgroundColor = '#b33f5a';
+            }}
+            onMouseOut={(e) => {
+              e.target.style.backgroundColor = '#9a2540';
+            }}
+            className="btn-color"
+          >
+            提交更新
+          </Button>
+        </div>
+      </form>
+
+      <h1 className="my-3">變更密碼</h1>
+
+      <form onSubmit={submitPasswordHandler}>
         <Form.Group className="mb-3" controlId="oldPwd">
-          {' '}
-          {/* 新增 oldPwd 的表單字段 */}
           <Form.Label>輸入舊密碼</Form.Label>
           <Form.Control
             type="password"

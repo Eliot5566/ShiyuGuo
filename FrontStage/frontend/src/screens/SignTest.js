@@ -116,10 +116,9 @@ export default function SignTest() {
       }
 
       try {
-
         // 此處放置註冊的 Axios 請求
       } catch (err) {
-        // 
+        //
         console.error(err.response.data.message);
       }
     };
@@ -142,15 +141,15 @@ export default function SignTest() {
         email,
         pwd,
       });
-//註冊成功 跳出提示訊息
-    
+      //註冊成功 跳出提示訊息
+
       //如果註冊成功 更新頁面為登入頁面
       //設置isSignIn為false 顯示登入表單
       // setIsSignIn(!isSignIn);
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
       swal('註冊成功', '歡迎加入拾月菓', 'success');
- 
+
       navigate(redirect || '/');
       // 如果註冊成功，導向 redirect (redirect是一個字串)
     } catch (err) {
@@ -173,7 +172,7 @@ export default function SignTest() {
     } catch (err) {
       // 登入失敗 跳出提示訊息
       swal('登入失敗', '請檢查您的帳號密碼', 'error');
-    
+
       console.log(err.response.data.message);
     }
   };
@@ -189,6 +188,7 @@ export default function SignTest() {
       // 如果userInfo有值就導向redirect (redirect是一個字串)
     }
   }, [navigate, redirect, userInfo]);
+
   return (
     <>
       <Helmet>
@@ -231,9 +231,11 @@ export default function SignTest() {
                   <input className="signinput" type="checkbox" id="remember" />
                   <label htmlFor="remember">remember me</label>
                 </div> */}
-                  <button className="signbutton "
+                  <button
+                    className="signbutton "
                     onClick={submitHandlerSignIn}
-                   type="submit">
+                    type="submit"
+                  >
                     確認
                   </button>
                 </form>
