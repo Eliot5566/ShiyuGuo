@@ -130,11 +130,11 @@ export default function GiftBoxDetails9() {
       payload: updatedCartCount,
     });
     swal({
-      title: '成功加入購物車!',
+      title: '成功加入購物車！',
       icon: 'success',
       button: '確認',
     });
-    // alert('成功加入購物車!');
+    // alert('成功加入購物車！');
     navigate('/cart');
   };
 

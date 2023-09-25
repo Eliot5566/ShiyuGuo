@@ -363,7 +363,7 @@ Button.btn-color,
 
 Button.btn-color:hover,
 .category-buttons .btn-color:hover {
-  background-color: #b33f5a;
+  background-color: #b33f5a!important;
 }
 Button.btn-color:active {
   background-color: #c97689 !important;

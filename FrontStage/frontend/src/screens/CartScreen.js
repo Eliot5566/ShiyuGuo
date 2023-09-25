@@ -107,7 +107,7 @@ export default function CartScreen() {
     if (item.quantity >= 20) {
       MySwal.fire({
         title: <strong>訂購商品上限為20個</strong>,
-        html: <p>感謝您的支持~</p>,
+        html: <p>感謝您的支持～</p>,
         icon: 'warning',
         iconColor: '#e4849a',
         confirmButtonColor: '#9a2540',
@@ -126,7 +126,7 @@ export default function CartScreen() {
     if (item.quantity === 0) {
       MySwal.fire({
         title: <strong>庫存已售罄</strong>,
-        html: <p>感謝您的支持~</p>,
+        html: <p>感謝您的支持～</p>,
         icon: 'warning',
         iconColor: '#e4849a',
         confirmButtonColor: '#9a2540',
@@ -218,7 +218,7 @@ export default function CartScreen() {
                   className="carp fs-4 fw-bold"
                   style={{ color: 'rgb(78,78,78)' }}
                 >
-                  購物車目前空空的，快點去挑選喜歡的產品
+                  購物車目前空空的，快點去挑選喜歡的產品吧～
                 </div>
               </div>
             ) : (
@@ -311,7 +311,7 @@ export default function CartScreen() {
                       <Col md={2}>
                         <Button
                           onClick={() => minus(item)}
-                          className="fw-bolder rounded-circle fs-5 p-0 border-0"
+                          className="fw-bolder rounded-circle fs-5 p-0 border-0 btn-color"
                           style={{
                             width: '2rem',
                             height: '2rem',
@@ -325,7 +325,7 @@ export default function CartScreen() {
                         <span className="fs-5 p-2">{item.quantity}</span>
                         <Button
                           onClick={() => plus(item)}
-                          className="fw-bolder rounded-circle fs-5 p-0 border-0"
+                          className="fw-bolder rounded-circle fs-5 p-0 border-0 btn-color"
                           style={{
                             width: '2rem',
                             height: '2rem',
