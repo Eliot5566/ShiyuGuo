@@ -51,6 +51,8 @@ import ContactUs from './screens/ContactUs';
 import UserPage from './screens/UserPage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import ForgotPassword from './screens/ForgotPassword';
+import ResetPassword from './screens/ResetPassword';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -113,6 +115,12 @@ function App() {
                 <Route path="/profile" element={<ProfileScreen />} />
                 <Route path="/userpage" element={<UserPage />} />
                 <Route path="/signin" element={<SignTest />} />
+                <Route path="/forgotpassword" element={<ForgotPassword />} />
+
+                <Route
+                  path="/resetpassword/:resetToken"
+                  element={<ResetPassword />}
+                />
                 <Route path="/contact" element={<ContactUs />} />
 
                 <Route path="/test" element={<HomeScreen />} />

@@ -71,7 +71,7 @@ export default function ShippingAddress() {
         <title>收貨地址 | 拾月菓</title>
       </Helmet>
       <CheckoutSteps step1 step2></CheckoutSteps>
-      <div className=" ">
+      <div className="container ">
         <h1 className="my-3">收貨地址</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group className="mb-3" controlId="fullName">
