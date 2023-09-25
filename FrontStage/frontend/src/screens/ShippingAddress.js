@@ -63,12 +63,15 @@ export default function ShippingAddress() {
   };
 
   return (
-    <Container className="shippingAddress mb-5 " style={{ marginTop: '15vh' }}>
+    <Container
+      className="shippingAddress mb-5 "
+      style={{ marginTop: '15vh', opacity: '0.8' }}
+    >
       <Helmet>
         <title>收貨地址 | 拾月菓</title>
       </Helmet>
       <CheckoutSteps step1 step2></CheckoutSteps>
-      <div className="container ">
+      <div className="container  ">
         <h1 className="my-3">收貨地址</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group className="mb-3" controlId="fullName">
