@@ -16,16 +16,16 @@ import { Helmet } from 'react-helmet-async';
 const GiftCard6 = () => {
   const { state, dispatch } = useContext(Store); // 使用全局狀態和dispatch
   const [currentStep, setCurrentStep] = useState(2);
-  const { selectedCard, cardContent, isConfirmed, userInfo } = state;
-  const [newSelectedCard, setNewSelectedCard] = useState(selectedCard);
-  const [newCardContent, setNewCardContent] = useState(cardContent);
+  const { selectedCard6, cardContent6, isConfirmed, userInfo } = state;
+  const [newSelectedCard6, setNewSelectedCard6] = useState(selectedCard6);
+  const [newCardContent, setNewCardContent] = useState(cardContent6);
   const navigate = useNavigate();
   // 初始化第二張圖片的路徑為空字串
   const [secondImage, setSecondImage] = useState('');
   const maxContentLength = 70; // 最大字數限制
 
   const handleCardSelect = (card) => {
-    setNewSelectedCard(card);
+    setNewSelectedCard6(card);
     // 根據使用者選擇的卡片樣式更新第二張圖片的路徑
     switch (card) {
       case '綠色':
@@ -41,7 +41,7 @@ const GiftCard6 = () => {
         setSecondImage(''); // 預設情況下清空第二張圖片路徑
         break;
     }
-    dispatch({ type: 'UPDATE_SELECTED_CARD', payload: card });
+    dispatch({ type: 'UPDATE_SELECTED_CARD6', payload: card });
   };
 
   const handleContentChange = (event) => {
@@ -53,7 +53,7 @@ const GiftCard6 = () => {
       setNewCardContent(content.slice(0, maxContentLength));
     }
 
-    dispatch({ type: 'UPDATE_CARD_CONTENT', payload: content });
+    dispatch({ type: 'UPDATE_CARD_CONTENT6', payload: content });
   };
 
   const handleConfirm = () => {
@@ -152,7 +152,7 @@ const GiftCard6 = () => {
               {/* 所選卡片對應的圖片 */}
               <img
                 src={secondImage}
-                alt={newSelectedCard}
+                alt={newSelectedCard6}
                 width={334}
                 height={250}
               />

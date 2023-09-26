@@ -19,6 +19,9 @@ export default function CartScreen() {
   const [selectedGiftBoxType, setSelectedGiftBoxType] = useState('4');
   const [expandedProduct, setExpandedProduct] = useState(null);
 
+  // 在 CartScreen 組件中定義三種不同禮盒尺寸的卡片內容和樣式
+
+
   const navigate = useNavigate();
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -29,9 +32,32 @@ export default function CartScreen() {
     selectedProducts6,
     selectedProducts9,
     selectedCard,
+    selectedCard6,
+    selectedCard9,
     cardContent,
+    cardContent6,
+    cardContent9,
     _id,
   } = state;
+
+
+  const cardContentMap = {
+    '4': {
+      cardType: selectedCard,
+      cardContent: cardContent,
+    },
+    '6': {
+      cardType: selectedCard6,
+      cardContent: cardContent6,
+    },
+    '9': {
+      cardType: selectedCard9,
+      cardContent: cardContent9,
+    },
+  };
+  
+  const selectedCardContent = cardContentMap[selectedGiftBoxType];
+
 
   const productMap = selectedProducts.reduce((map, product) => {
     const { _id, name } = product;
@@ -387,10 +413,10 @@ export default function CartScreen() {
                             );
                           })()}
                         </div>
-                        <h4>卡片內容：</h4>
-                        <p>樣式：{selectedCard}</p>
-                        <p>內容：{cardContent}</p>
-                      </div>
+    <h4>卡片內容：</h4>
+    <p>樣式：{selectedCardContent.cardType}</p>
+    <p>內容：{selectedCardContent.cardContent}</p>
+  </div>
                     )}
                   </ListGroup.Item>
                 ))}
@@ -417,7 +443,7 @@ export default function CartScreen() {
                         className="text-white fs-4 btn-color mt-2"
                         onClick={() => {
                           checkoutHandler();
-                          handleSubmit(); // 调用 handleSubmit 函数
+                          handleSubmit(); // 
                         }}
                         type="button"
                         variant="primary"
