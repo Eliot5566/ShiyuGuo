@@ -10,7 +10,7 @@ export default function Sub() {
 </head> */}
 
       <link rel="stylesheet" href="./style.css"></link>
-      <h5>追蹤我們</h5>
+      <h5>最新消息</h5>
       <form id="subscribe-form" action="/subscribe" method="post">
         <input
           type="email"

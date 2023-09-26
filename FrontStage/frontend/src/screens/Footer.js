@@ -30,7 +30,6 @@ function Footer() {
                       />
                     </Link>
                   </li>
-
                   <li className="icons">
                     <Link className="nav-link  " to="https://line.me/zh-hant/">
                       <FontAwesomeIcon

@@ -10,9 +10,7 @@ footer {
 }
 .icon {
   display: flex;
-}
-.icons {
-  margin: 20px;
+  justify-content: center; 
 }
 .footer-item ul a {
   text-decoration: none;
