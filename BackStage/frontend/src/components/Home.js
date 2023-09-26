@@ -101,7 +101,7 @@ const Home = () => {
                 <section className="contanier-fluid">
                     <div className="row">
                         <div className="col-12 col-sm-6 col-md-4 col-lg-3 p-3 bg-light">
-                            <div className="d-flex justify-content-around p-4 align-items-center bg-white border border-secondary shadow-sm rounded-3 shadow">
+                            <div className="d-flex justify-content-around p-4 align-items-center bg-white border border-dark shadow-sm rounded-3 shadow">
                                 <FontAwesomeIcon icon={faSackDollar} className='fs-1 text-success'/>
                                 <div className='text-center'>
                                     <p>營收</p>
@@ -113,7 +113,7 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="col-12 col-sm-6 col-md-4 col-lg-3 p-3 bg-light">
-                            <div className="d-flex justify-content-around p-4 align-items-center bg-white border border-secondary shadow-sm rounded-3 shadow">
+                            <div className="d-flex justify-content-around p-4 align-items-center bg-white border border-dark shadow-sm rounded-3 shadow">
                                 <FontAwesomeIcon icon={faCartShopping} className='fs-1 text-info'/>
                                 <div className='text-center'>
                                     <p>已付款</p>
@@ -126,7 +126,7 @@ const Home = () => {
                         </div>
                         <div className="col-12 col-sm-6 col-md-4 col-lg-3 p-3 bg-light">
                             <Link 
-                            className="d-flex justify-content-around p-4 align-items-center bg-white border border-secondary shadow-sm rounded-3 shadow text-black"
+                            className="d-flex justify-content-around p-4 align-items-center bg-white border border-dark shadow-sm rounded-3 shadow text-black"
                             to="/products"
                             >
                                 <FontAwesomeIcon icon={faArrowTrendDown} className='fs-1 text-danger'/>
@@ -140,7 +140,7 @@ const Home = () => {
                             </Link>
                         </div>
                         <div className="col-12 col-sm-6 col-md-4 col-lg-3 p-3 bg-light">
-                            <div className="d-flex justify-content-around p-4 align-items-center bg-white border border-secondary shadow-sm rounded-3 shadow">
+                            <div className="d-flex justify-content-around p-4 align-items-center bg-white border border-dark shadow-sm rounded-3 shadow">
                                 <FontAwesomeIcon icon={faReceipt} className='fs-1 text-warning'/>
                                 <div className='text-center'>
                                     <p>訂單總價</p>

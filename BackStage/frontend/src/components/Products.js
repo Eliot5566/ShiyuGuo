@@ -96,7 +96,6 @@ function Products() {
             console.log(err);
         }
     }
-    //
 
     // 按下上下架按鈕後，把products的資料送到modal
     // 這裡的products是tbody裡面那個currentProducts陣列的products
@@ -142,33 +141,33 @@ function Products() {
         setEditedProducts({ ...products });
     };
 
-        // 按下刪除的modal的確認按鈕
-        const handleConfirmDelete = async(e) =>{
-            e.preventDefault();
-            try {
-                const response = await axios.delete("/products",
-                // delete的資料傳送形式要跟其他的不一樣
-                {
-                    data:JSON.stringify({ editedProducts }),
-                    headers: { 'Content-Type': 'application/json' },
-                    withCredentials: true
-                });
-                console.log(response.data);
-                Swal.fire({
-                    position: 'top',
-                    icon: 'success',
-                    title: '刪除成功！',
-                    showConfirmButton: false,
-                    timer: 1500,
-                    allowOutsideClick:false
-                })
-                setTimeout(() => {
-                    window.location.reload();
-                }, 1500);
-            } catch (err) {
-                console.log(err);
-            }
+    // 按下刪除的modal的確認按鈕
+    const handleConfirmDelete = async(e) =>{
+        e.preventDefault();
+        try {
+            const response = await axios.delete("/products",
+            // delete的資料傳送形式要跟其他的不一樣
+            {
+                data:JSON.stringify({ editedProducts }),
+                headers: { 'Content-Type': 'application/json' },
+                withCredentials: true
+            });
+            console.log(response.data);
+            Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: '刪除成功！',
+                showConfirmButton: false,
+                timer: 1500,
+                allowOutsideClick:false
+            })
+            setTimeout(() => {
+                window.location.reload();
+            }, 1500);
+        } catch (err) {
+            console.log(err);
         }
+    }
 
 
     // 紀錄頁數
@@ -186,11 +185,10 @@ function Products() {
             </Helmet>
             <div className="container text-center px-4 border rounded-3 bg-white mt-3">
                 <div className="d-flex justify-content-end">
-                    {/* <button className="btn btn-primary my-2">新增商品</button> */}
                     <Link to="new" className="new btn btn-warning my-2">新增商品</Link>
                     <div className="pagination btn-group w-25 my-2 ms-2">
                         {Array.from({ length: Math.ceil(products.length / productsPerPage) }).map((_, index) => (
-                            <button key={index} onClick={() => paginate(index + 1)} className="btn page">
+                            <button key={index} onClick={() => paginate(index + 1)} className="btn btn-secondary">
                                 {index + 1}
                             </button>
                         ))}

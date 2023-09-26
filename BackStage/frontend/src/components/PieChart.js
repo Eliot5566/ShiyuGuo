@@ -109,7 +109,7 @@ function PieChart() {
     }
 
     return (
-        <div className='bg-white border border-secondary rounded-3 shadow pb-4'>
+        <div className='bg-white border border-dark rounded-3 shadow pb-4'>
             <Pie data={data} options={options}></Pie>
         </div>
     )

@@ -87,7 +87,7 @@ function LineChart() {
     }
 
     return (
-        <div className='bg-white border border-secondary rounded-3 shadow p-2'>
+        <div className='bg-white border border-dark rounded-3 shadow p-2'>
             <Line data={data} options={options}></Line>
         </div>
     )
