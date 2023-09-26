@@ -32,15 +32,6 @@ header a {
   /* scale: 1.2; */
   transition: all 0.5s ease-in-out;
 }
-#basic-nav-dropdown {
-  color: #000000;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.dropdown-menu a {
-  color: #000000;
-}
 
 /* ////////////// */
 main {
@@ -160,7 +151,7 @@ main {
 }
 
 .nav-item {
-  color: #83818c;
+  color: #fcdde2;
   padding: 20px;
   text-decoration: none;
   transition: 0.3s;
@@ -243,12 +234,14 @@ main {
   opacity: 1;
   right: 0;
 }
+/* 立即選購按鈕-end */
+
+/* nav-link-start */
 a.nav-link {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* color: #FEB7C9; */
-
+  color:#9a2540;
   transform: scale(1);
   transition: all 0.3s ease-in-out;
   font-size: 1rem;
@@ -261,8 +254,8 @@ a.nav-link:hover {
 .nav-link {
   margin: 0 1rem;
 }
+/* nav-link-end */
 
-/* 立即選購按鈕-end */
 /* 產品名稱-start */
 .card-body .card-title {
   font-size: 1.5rem;
@@ -657,16 +650,15 @@ Button.btn-color:active {
 /* 漢堡圖切換時 添加動畫效果  */
 .hamburger-icon.active {
   transform: rotate(90deg);
-
   transition: transform 0.3s ease-in-out;
   /* transition: transform 0.5s ease-in-out; */
 }
 
 /* 漢堡圖切換時 添加動畫效果  */
-
 .profilemt {
   margin-top: 20vh;
 }
+
 /* 購物車展開。 */
 /* Add hover effect and tooltip style for gift box image */
 .tooltip-text {
@@ -688,3 +680,21 @@ Button.btn-color:active {
 .position-relative:hover .tooltip-text {
   visibility: visible;
 }
+
+/* 導覽列-會員-下拉選單 */
+#basic-nav-dropdown {
+  color: #9a2540;
+  font-weight: bold;
+  text-decoration: none;
+}
+.dropdown-menu a {
+  color: #9a2540;
+}
+.dropdown-menu a:hover {
+  color: white;
+  background-color: #e08685;
+}
+a.active.dropdown-item{
+  background-color: #e08685;
+}
+/* 導覽列-會員-下拉選單 */

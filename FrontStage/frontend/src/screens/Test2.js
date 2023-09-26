@@ -101,7 +101,7 @@ function Test2() {
         <LinkContainer to="/">
           <img className="logo-img me-auto" src={logo} alt="拾月菓logo.png" />
         </LinkContainer>
-        <Nav className=" ms-auto">
+        <Nav className="">
           {device === 'PC' && (
             <>
               <Link className="nav-link  " to="/">
@@ -122,7 +122,7 @@ function Test2() {
             </>
           )}
 
-          <Link to="/cart" className="nav-link ">
+          <Link to="/cart" className="nav-link">
             {/* <img className="icon-img " src={shopcar} alt="購物車.png" /> */}
             <FontAwesomeIcon
               icon={faCartShopping}
@@ -152,7 +152,7 @@ function Test2() {
               </Link>
             </NavDropdown>
           ) : (
-            <Link className="nav-link" to="/signin">
+            <Link className="nav-link me-5" to="/signin">
               <FontAwesomeIcon
                 icon={faCircleUser}
                 style={{ color: '#9a2540' }}

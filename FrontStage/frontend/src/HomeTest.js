@@ -67,7 +67,7 @@ function HomeTest() {
         {/* --------------------------------------------------------------- */}
         <ParallaxLayer offset={0} speed={0}>
           <div className="animation_layer parallax" id="bg"></div>
-          <div className="vertical-text text-wrap fs-2 fw-bold h-100 ">
+          <div className="vertical-text text-wrap  fw-bold h-100 ">
             <div>每</div>
             <div>一</div>
             <div>口</div>
@@ -82,7 +82,7 @@ function HomeTest() {
             <div>道</div>
           </div>
 
-          <div className="vertical-text2 text-wrap fs-4 fw-bold ">
+          <div className="vertical-text2 text-wrap  fw-bold ">
             <div>伝</div>
             <div>統</div>
             <div>說</div>

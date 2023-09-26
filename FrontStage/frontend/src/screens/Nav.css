@@ -17,10 +17,9 @@ body {
   text-decoration: none;
   font-size: 17px;
 }
-.dropdown-menu a {
-  color: black;
-  /* background-color: aqua; */
-}
+/* .dropdown-menu a {
+  color: #9a2540;
+} */
 /* .topnav a:hover {
   background-color: #ddd;
   color: #fcdde2;

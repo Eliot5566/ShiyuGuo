@@ -193,64 +193,63 @@ section.os.animate {
   line-height: 1.5;
   margin-top: 10px;
 }
-.nav-link:first-child {
+/* .nav-link:first-child {
   margin-right: 10px;
-}
-.nav-link {
-  margin-right: 30px;
-}
+} */
+/* .nav-link {
+  margin-right: 1.5vw;
+} */
 
 /* Test2.css */
-/* 汉堡菜单按钮的样式 */
+/* 漢堡菜單按鈕的樣式 */
 .hamburger-button {
   cursor: pointer;
   display: block;
   position: absolute;
-  right: 8px; /* 调整按钮位置 */
-  top: 16px; /* 调整按钮位置 */
+  right: 8px;
+  top: 16px; 
   z-index: 999;
 }
 
-/* 汉堡菜单图标的样式 */
+/* 漢堡選單圖示的樣式 */
 .hamburger-icon {
-  font-size: 24px; /* 调整图标大小 */
-  color: #333; /* 调整图标颜色 */
-  transition: color 0.3s ease; /* 添加过渡效果 */
+  font-size: 24px;
+  transition: color 0.3s ease;
 }
 
-/* 汉堡菜单图标的激活状态样式（当菜单展开时） */
-.hamburger-icon.active {
-  color: #fff; /* 调整激活状态下的图标颜色 */
-}
 
 .mobile-menu {
   position: fixed;
   top: 0;
-  right: -100%; /* 初始状态下隐藏菜单 */
-  width: 80%; /* 调整菜单宽度 */
+  right: -100%; 
+ /* 初始狀態下隱藏選單 */
+  width: 80%; 
+/* 調整選單寬度 */
   height: 100%;
   background-color: #fcdde2;
   /* background-color: lightcoral; */
   opacity: 0.95;
-  /* 背景菜單顏色 */
+ /* 背景選單顏色 */
   z-index: 998;
   transition: right 0.5s ease;
 }
 
-/* 汉堡菜单项的样式 */
+/* 漢堡菜單項目的樣式 */
 .mobile-menu-item {
   display: block;
   padding: 20px;
-  color: #fff;
+  color: #9a2540;
+  font-weight: bold;
   text-align: center;
   text-decoration: none;
-  font-size: 18px;
-  transition: background-color 0.5s ease; /* 添加过渡效果 */
+  font-size: 1.2rem;
+  transition: background-color 0.5s ease;
 }
 
-/* 汉堡菜单项的激活状态样式（当鼠标悬停时） */
+/* 漢堡選單項目的啟動狀態樣式（當滑鼠懸停時） */
 .mobile-menu-item:hover {
-  background-color: #555; /* 调整激活状态下的背景颜色 */
+  background-color: #e08685; /* 調整啟動狀態下的背景顏色 */
+  color: white;
 }
 
 .mobile-menu.active {
@@ -264,6 +263,6 @@ section.os.animate {
 
 .HeaderNav a {
   color: #9a2540;
-  font-size: 1.4rem;
-  font-weight: bold;
+  font-size: 1.2rem;
+  /* font-weight: bold; */
 }
