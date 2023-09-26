@@ -32,7 +32,7 @@ function FAQ() {
         style={{
           backgroundColor: 'rgba(255, 255, 255, 0.3)',
           fontSize: '1.2rem',
-          width: '100vw',
+          width: '100%',
           height: '500px',
           overflow: 'hidden',
           marginBottom: '15rem',
