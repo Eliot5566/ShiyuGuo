@@ -107,7 +107,7 @@ const Register = () => {
                 <Transition>
                     <section className="container d-flex justify-content-center align-items-center vh-100 w-25 text-center">
                         <div className="row border rounded-5 p-3 bg-white shadow box-area">
-                            <h1>成功!</h1>
+                            <h1>成功！</h1>
                             <Link to="/">登入</Link>
                         </div>
                     </section>

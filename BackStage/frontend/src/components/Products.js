@@ -93,7 +93,7 @@ const Products = () => {
                   withCredentials: true
               }
               );
-              console.log(response.data);
+              // console.log(response.data);
               // 更改成功 直接更改products的資料
               setProducts((prevProducts) =>
                   prevProducts.map((products) =>
@@ -131,7 +131,7 @@ const Products = () => {
                   withCredentials: true
               }
               );
-              console.log(response.data);
+              // console.log(response.data);
               // 更改成功 直接更改products的資料
               setProducts((prevProducts) =>
                   prevProducts.map((products) =>
@@ -168,7 +168,7 @@ const Products = () => {
               headers: { 'Content-Type': 'application/json' },
               withCredentials: true
           });
-          console.log(response.data);
+          // console.log(response.data);
           Swal.fire({
               position: 'top',
               icon: 'success',
@@ -374,26 +374,30 @@ const Products = () => {
                                   className="form-control d-flex flex-column justify-content-center w-modal mx-auto list-unstyled gap-2"
                                   id="editProducts"
                               >
-                                  <p>ID： {editedProducts._id}</p>
+                                  <p className='d-flex'>ID： {editedProducts._id}</p>
                                   <li className="d-flex justify-content-between">
                                       <label htmlFor="name">名稱：</label>
-                                      <input type="text" id="name" name="name" required value={editedProducts.name} onChange={handleInputChange} />
+                                      <input type="text" id="name" name="name" className='form-control w-75' required value={editedProducts.name} onChange={handleInputChange} />
                                   </li>
                                   <li className="d-flex justify-content-between">
                                       <label htmlFor="slug">slug：</label>
-                                      <input type="text" id="slug" name="slug" required value={editedProducts.slug} onChange={handleInputChange} />
+                                      <input type="text" id="slug" name="slug" className='form-control w-75' required value={editedProducts.slug} onChange={handleInputChange} />
                                   </li>
                                   <li className="d-flex justify-content-between">
                                       <label htmlFor="category">種類：</label>
-                                      <input type="text" id="category" name="category" required value={editedProducts.category} onChange={handleInputChange} />
+                                      <input type="text" id="category" name="category" className='form-control w-75' required value={editedProducts.category} onChange={handleInputChange} />
                                   </li>
                                   <li className="d-flex justify-content-between">
                                       <label htmlFor="price">價格：</label>
-                                      <input type="text" id="price" name="price" required value={editedProducts.price} onChange={handleInputChange} />
+                                      <input type="text" id="price" name="price" className='form-control w-75' required value={editedProducts.price} onChange={handleInputChange} />
                                   </li>
                                   <li className="d-flex justify-content-between">
                                       <label htmlFor="countInStock">庫存：</label>
-                                      <input type="text" id="countInStock" name="countInStock" required value={editedProducts.countInStock} onChange={handleInputChange} />
+                                      <input type="text" id="countInStock" name="countInStock" className='form-control w-75' required value={editedProducts.countInStock} onChange={handleInputChange} />
+                                  </li>
+                                  <li className="d-flex justify-content-between">
+                                      <label htmlFor="description">描述：</label>
+                                      <textarea type="text" id="description" name="description" className='form-control w-75' required value={editedProducts.description} onChange={handleInputChange} />
                                   </li>
                               </form>
                           )}

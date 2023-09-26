@@ -179,19 +179,8 @@ const Order = () =>{
                 <>
                 <div className="d-flex justify-content-end">
                     <div className='d-flex align-self-center ms-2'>
-                        <div className='align-self-center'>
-                            <span>
-                                {table.getState().pagination.pageIndex + 1}
-                            </span>
-                            <span>
-                                /
-                            </span>
-                            <span>
-                                {table.getPageCount()}
-                            </span>
-                        </div>
                         <div className="input-group ms-1">
-                            <span className="input-group-text">前往第</span>
+                            <span className="input-group-text">第</span>
                             <input
                                 type="number" 
                                 min={1}
@@ -203,7 +192,8 @@ const Order = () =>{
                                 table.setPageIndex(page)
                                 }}
                             />
-                            <span className="input-group-text">頁</span>
+                            <span className="input-group-text">/</span>
+                            <span className="input-group-text">{table.getPageCount()} 頁</span>
                         </div>
                         <div className="input-group ms-1">
                             <span className="input-group-text">顯示</span>
