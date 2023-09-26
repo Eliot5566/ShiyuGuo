@@ -36,12 +36,6 @@ function SideBar() {
                             <span className='fs-4'>會員</span>
                         </Link>
                     </li>
-                    <li className={location.pathname ==='/table' ? 'active nav-item p-1':'nav-item p-1'} >
-                        <Link to="/table" className='p-1 text-white d-block'>
-                            <FontAwesomeIcon icon={faCircleUser} className='me-3 fs-5'/>
-                            <span className='fs-4'>table</span>
-                        </Link>
-                    </li>
                 </ul>
             </div>
             <div>
