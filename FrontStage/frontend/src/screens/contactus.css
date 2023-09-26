@@ -1,7 +1,9 @@
 
 .contactus h2 {
-  margin: 2em;
+  margin: 2vh;
   text-align: center;
+  color: #9a2540;
+  font-weight: bold;
 }
 .contact-items {
   width: 70%;
@@ -33,18 +35,18 @@
   /* margin: 30px; */
 }
 .sit1 img {
-  width: 400px;
+  width:350px;
   border-radius: 20%;
   box-shadow: 0px 5px 7px 4px rgba(154, 37, 64, 0.4);
- 
+
 }
 .sit1 ul li:first-child {
   margin-top: 40px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 30px;
-  text-decoration: double;
+  font-weight: bold;
   color: rgb(154, 37, 64);
-  text-align: center;
+  /* text-align: center; */
 }
 .sit1 li {
   color: #9a2540;
@@ -114,7 +116,9 @@
 /* 表單標題 */
 .contactForm h2 {
   font-size: 24px;
-  color: #333;
+  /* color: #333; */
+  color: #9a2540;
+  font-weight: bold;
 }
 
 /* 表單項目標題 */

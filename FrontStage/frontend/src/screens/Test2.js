@@ -72,12 +72,12 @@ function Test2() {
 
   // 添加汉堡菜单按钮状态
   const [device, setDevice] = useState(
-    window.innerWidth > 600 ? 'PC' : 'mobile'
+    window.innerWidth > 980 ? 'PC' : 'mobile'
   );
 
   // 检测窗口大小变化以更新设备状态
   const handleResize = () => {
-    setDevice(window.innerWidth > 600 ? 'PC' : 'mobile');
+    setDevice(window.innerWidth > 980 ? 'PC' : 'mobile');
   };
 
   useEffect(() => {

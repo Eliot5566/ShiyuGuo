@@ -46,7 +46,7 @@ function ContactUs() {
     }
   };
   return (
-    <div className="contactus">
+    <div className="contactus" style={{marginTop:'15vh'}}>
       <Helmet>
         <title>聯絡我們 | 拾月菓</title>
         <meta name="description" content="拾月菓" />
@@ -61,7 +61,7 @@ function ContactUs() {
       <div className='container contact-items'>
         <Container>
           <Row>
-            <Col md={4} sm={12}>
+            <Col lg={4}  >
               <div className='item Email'>
                 <FontAwesomeIcon icon={faEnvelope} size='2xl' style={{ color: '#ffffff', margin: '2px', }} />
                 <h4>聯絡信箱</h4>
@@ -69,7 +69,7 @@ function ContactUs() {
               </div>
             </Col>
 
-            <Col md={4} sm={12}>
+            <Col lg={4} >
               <div className='item Tel'>
                 <FontAwesomeIcon icon={faPhone} size='2xl' style={{ color: '#ffffff', margin: '2px', }} />
                 <h4>客服電話</h4>
@@ -77,7 +77,7 @@ function ContactUs() {
               </div>
             </Col>
 
-            <Col md={4} sm={12}>
+            <Col lg={4} >
               <div className='item Address'>
                 <FontAwesomeIcon icon={faLocationDot} size='2xl' style={{ color: '#ffffff', margin: '2px', }} />
                 <h4>門市地址</h4>
@@ -90,21 +90,21 @@ function ContactUs() {
 
 
 
-      <div  className='housetour'  >  
+      <div  className='housetour mt-5'  >  
      
         <h2>店面介紹</h2>
         <div className='tour'>
           <div className='sit1'>
             <Container className='p-5'>
-              <Row className='mb-5'>
-                <Col lg={6} sm={12} >
-                  <div>
+              <Row className='mb-5 '>
+                <Col lg={6} className='text-center'>
+                  <div >
                     <img className='shop1' src={shop1} alt='店面圖' />
                   </div>
 
                 </Col>
 
-                <Col lg={6} sm={12} className='in'>
+                <Col lg={6}  className='in'>
                   <div>
                     <ul>
                       <li>室內舒適座位</li>
@@ -118,7 +118,7 @@ function ContactUs() {
 
               <Row className='mb-5'>
 
-                <Col lg={6} sm={12} className='col1'>
+                <Col lg={6} className='col1'>
                   <div>
                     <ul>
                       <li>美麗山景座位</li>
@@ -129,7 +129,7 @@ function ContactUs() {
                   </div>
                 </Col>
 
-                <Col lg={6} sm={12} className='col2'>
+                <Col lg={6} className='col2 text-center'>
                   <div>
                     <img className='shop2' src={shop2} alt='店面圖' />
                   </div>
@@ -140,12 +140,12 @@ function ContactUs() {
 
               <Row>
                 
-                <Col lg={6} sm={12} >
+                <Col lg={6} className='text-center'>
                   <div>
                     <img className='shop1' src={shop3} alt='店面圖' />
                   </div>
                 </Col>
-                <Col lg={6} sm={12} className='in'>
+                <Col lg={6}  className='in'>
                   <div>
                     <ul>
                       <li>日系廊台</li>

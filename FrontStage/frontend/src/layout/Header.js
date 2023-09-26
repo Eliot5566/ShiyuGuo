@@ -352,12 +352,12 @@ function Header() {
 
   // 添加漢堡菜單按鈕狀態
   const [device, setDevice] = useState(
-    window.innerWidth > 600 ? 'PC' : 'mobile'
+    window.innerWidth > 995 ? 'PC' : 'mobile'
   );
 
   //根據視窗大小變化更新設備狀態
   const handleResize = () => {
-    setDevice(window.innerWidth > 600 ? 'PC' : 'mobile');
+    setDevice(window.innerWidth > 995 ? 'PC' : 'mobile');
   };
 
   useEffect(() => {
