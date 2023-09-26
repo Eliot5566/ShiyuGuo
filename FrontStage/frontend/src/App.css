@@ -126,16 +126,11 @@
   background-image: url('./images/櫻花.png');
 }
 
-/* #block {
-  background-image: url('./images/擋住用.png');
-} */
-
-/* 隐藏导航栏 */
 .hide-navbar-footer .navbar {
   display: none;
 }
 
-/* 隐藏页脚 */
+/* //隱藏footer// */
 .hide-navbar-footer .footer {
   display: none;
 }

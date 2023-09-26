@@ -46,40 +46,46 @@ function ContactUs() {
     }
   };
   return (
-    <div className="contactus" style={{marginTop:'15vh'}}>
+    <div className="contactus" style={{ marginTop: '15vh' }}>
       <Helmet>
         <title>聯絡我們 | 拾月菓</title>
         <meta name="description" content="拾月菓" />
       </Helmet>
-      {/* <img
-        className='banner'
-        src={banner}
-        alt='店面圖'
-        style={{ width: '100%' }}
-      /> */}
       <h2>基本資訊</h2>
-      <div className='container contact-items'>
+      <div className="container contact-items">
         <Container>
           <Row>
-            <Col lg={4}  >
-              <div className='item Email'>
-                <FontAwesomeIcon icon={faEnvelope} size='2xl' style={{ color: '#ffffff', margin: '2px', }} />
+            <Col lg={4}>
+              <div className="item Email">
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  size="2xl"
+                  style={{ color: '#ffffff', margin: '2px' }}
+                />
                 <h4>聯絡信箱</h4>
                 <p>octmoon@octmoon.com</p>
               </div>
             </Col>
 
-            <Col lg={4} >
-              <div className='item Tel'>
-                <FontAwesomeIcon icon={faPhone} size='2xl' style={{ color: '#ffffff', margin: '2px', }} />
+            <Col lg={4}>
+              <div className="item Tel">
+                <FontAwesomeIcon
+                  icon={faPhone}
+                  size="2xl"
+                  style={{ color: '#ffffff', margin: '2px' }}
+                />
                 <h4>客服電話</h4>
                 <p>03-11112222</p>
               </div>
             </Col>
 
-            <Col lg={4} >
-              <div className='item Address'>
-                <FontAwesomeIcon icon={faLocationDot} size='2xl' style={{ color: '#ffffff', margin: '2px', }} />
+            <Col lg={4}>
+              <div className="item Address">
+                <FontAwesomeIcon
+                  icon={faLocationDot}
+                  size="2xl"
+                  style={{ color: '#ffffff', margin: '2px' }}
+                />
                 <h4>門市地址</h4>
                 <p>宜蘭縣大同區菓子路10-4號</p>
               </div>
@@ -88,23 +94,19 @@ function ContactUs() {
         </Container>
       </div>
 
-
-
-      <div  className='housetour mt-5'  >  
-     
+      <div className="housetour mt-5">
         <h2>店面介紹</h2>
-        <div className='tour'>
-          <div className='sit1'>
-            <Container className='p-5'>
-              <Row className='mb-5 '>
-                <Col lg={6} className='text-center'>
-                  <div >
-                    <img className='shop1' src={shop1} alt='店面圖' />
+        <div className="tour">
+          <div className="sit1">
+            <Container className="p-5">
+              <Row className="mb-5 ">
+                <Col lg={6} className="text-center">
+                  <div>
+                    <img className="shop1" src={shop1} alt="店面圖" />
                   </div>
-
                 </Col>
 
-                <Col lg={6}  className='in'>
+                <Col lg={6} className="in">
                   <div>
                     <ul>
                       <li>室內舒適座位</li>
@@ -116,9 +118,8 @@ function ContactUs() {
                 </Col>
               </Row>
 
-              <Row className='mb-5'>
-
-                <Col lg={6} className='col1'>
+              <Row className="mb-5">
+                <Col lg={6} className="col1">
                   <div>
                     <ul>
                       <li>美麗山景座位</li>
@@ -129,23 +130,20 @@ function ContactUs() {
                   </div>
                 </Col>
 
-                <Col lg={6} className='col2 text-center'>
+                <Col lg={6} className="col2 text-center">
                   <div>
-                    <img className='shop2' src={shop2} alt='店面圖' />
+                    <img className="shop2" src={shop2} alt="店面圖" />
                   </div>
-
                 </Col>
-                </Row>
-
+              </Row>
 
               <Row>
-                
-                <Col lg={6} className='text-center'>
+                <Col lg={6} className="text-center">
                   <div>
-                    <img className='shop1' src={shop3} alt='店面圖' />
+                    <img className="shop1" src={shop3} alt="店面圖" />
                   </div>
                 </Col>
-                <Col lg={6}  className='in'>
+                <Col lg={6} className="in">
                   <div>
                     <ul>
                       <li>日系廊台</li>
@@ -153,54 +151,50 @@ function ContactUs() {
                     </ul>
                   </div>
                 </Col>
-
-               
-
               </Row>
             </Container>
-
           </div>
         </div>
       </div>
 
-      <div className='googlemap'>
+      <div className="googlemap">
         <GoogleMap />
       </div>
 
       {/* ///表單 */}
-      <div className='contactForm container mt-5 mb-5'>
+      <div className="contactForm container mt-5 mb-5">
         <h2>聯絡我們</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className='form-group'>
+          <div className="form-group">
             <label>姓名：</label>
             <Controller
-              name='name'
+              name="name"
               control={control}
-              defaultValue=''
+              defaultValue=""
               render={({ field }) => (
-                <input {...field} className='form-control' />
+                <input {...field} className="form-control" />
               )}
             />
           </div>
-          <div className='form-group'>
+          <div className="form-group">
             <label>電子郵件：</label>
             <Controller
-              name='email'
+              name="email"
               control={control}
-              defaultValue=''
+              defaultValue=""
               render={({ field }) => (
-                <input {...field} className='form-control' />
+                <input {...field} className="form-control" />
               )}
             />
           </div>
-          <div className='form-group'>
+          <div className="form-group">
             <label>訊息：</label>
             <Controller
-              name='message'
+              name="message"
               control={control}
-              defaultValue=''
+              defaultValue=""
               render={({ field }) => (
-                <textarea {...field} className='form-control' />
+                <textarea {...field} className="form-control" />
               )}
             />
           </div>
@@ -211,13 +205,12 @@ function ContactUs() {
               marginTop: '20px',
             }}
           >
-            <button type='submit' className='btn-color'>
+            <button type="submit" className="btn-color">
               送出
             </button>
           </div>
         </form>
       </div>
-
     </div>
   );
 }

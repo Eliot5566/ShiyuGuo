@@ -3,12 +3,6 @@ import React from 'react';
 export default function Sub() {
   return (
     <>
-      {/* <head>
-  
-    <title>訂閱通知</title>
-    
-</head> */}
-
       <link rel="stylesheet" href="./style.css"></link>
       <h5>最新消息</h5>
       <form id="subscribe-form" action="/subscribe" method="post">

@@ -24,15 +24,12 @@ function Test2() {
   const { cart, userInfo, giftBoxQuantity } = state;
   const [cartItemCount, setCartItemCount] = useState(0);
 
-  // 添加汉堡菜单按钮状态
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
 
-  // 汉堡菜单按钮点击事件处理函数
   const handleHamburgerClick = () => {
     setIsHamburgerOpen(!isHamburgerOpen);
   };
 
-  //點選其他地方關閉漢堡菜單
   const handleOutsideClick = (e) => {
     if (isHamburgerOpen && e.target.closest('.mobile-menu')) {
       setIsHamburgerOpen(false);
@@ -47,17 +44,15 @@ function Test2() {
     return () => {
       document.removeEventListener('click', handleOutsideClick, true);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHamburgerOpen]);
 
   useEffect(() => {
-    // 计算购物车数量
     const itemCount = cart.cartItems.reduce(
       (count, item) => count + (item.quantity || 0),
       0
     );
 
-    // 设置购物车数量
     setCartItemCount(itemCount);
   }, [cart, giftBoxQuantity]);
 
@@ -70,21 +65,17 @@ function Test2() {
     window.location.href = '/signin';
   };
 
-  // 添加汉堡菜单按钮状态
   const [device, setDevice] = useState(
     window.innerWidth > 980 ? 'PC' : 'mobile'
   );
 
-  // 检测窗口大小变化以更新设备状态
   const handleResize = () => {
     setDevice(window.innerWidth > 980 ? 'PC' : 'mobile');
   };
 
   useEffect(() => {
-    // 监听窗口大小变化
     window.addEventListener('resize', handleResize);
 
-    // 移除监听器以防止内存泄漏
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -181,7 +172,6 @@ function Test2() {
             </div>
           )}
 
-          {/* 漢堡按鈕 */}
           {device === 'mobile' && (
             <div
               className={`hamburger-button ${isHamburgerOpen ? 'active' : ''}`}

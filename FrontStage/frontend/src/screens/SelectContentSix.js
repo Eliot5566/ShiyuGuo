@@ -93,14 +93,6 @@ export default function SelectContentSix() {
       return;
     }
 
-    // const userResponse = window.confirm('是否需要加入禮盒卡片？');
-    // const userResponse = swal({
-    //   title: "是否需要加入禮盒卡片？",
-    //   icon: "warning",
-    //   // buttons: true,
-    //   dangerMode: true,
-    // });
-
     const userResponse = await swal({
       title: '是否需要加入禮盒卡片？',
       icon: 'warning',

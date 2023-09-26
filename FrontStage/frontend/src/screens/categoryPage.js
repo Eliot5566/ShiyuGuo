@@ -175,8 +175,6 @@ function ProductCard({ category }) {
 
     fetchProducts();
   }, [category]);
-  // map函數的主要目的是將數據陣列中的每個元素映射到React元素
-  // 在 map 内部，多個相鄰JSX 元素需要被包裹在一个父容器内。
   return (
     <>
       {products.map((product) => (

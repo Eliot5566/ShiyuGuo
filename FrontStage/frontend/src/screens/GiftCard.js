@@ -58,43 +58,8 @@ const GiftCard = () => {
     dispatch({ type: 'UPDATE_CARD_CONTENT', payload: content });
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   try {
-  //     //取得登入的使用者的 資料庫_id
-  //     const userId = userInfo._id;
-  //     // console.log('userId', userId);
-  //     const cardType = selectedCard;
-  //     // console.log('cardType', cardType);
-  //     const cardContent = newCardContent;
-  //     // console.log('cardContent', cardContent);
-
-  //     // const selectedProduct = state.selectedProducts;
-  //     const selectedProduct = JSON.stringify(state.selectedProducts); // 将数组转换为JSON字符串
-  //     console.log('selectedProduct', selectedProduct);
-  //     const response = await axios.post('/save-card-info', {
-  //       userId,
-  //       cardType,
-  //       cardContent,
-  //       selectedProduct,
-  //     });
-
-  //     if (response.status === 200) {
-  //       navigate('/cardboxdetail');
-  //       setNewCardContent('');
-  //     } else {
-  //       alert('卡片資訊儲存失敗');
-  //     }
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //     alert('卡片資訊儲存失敗');
-  //   }
-  // };
-
   useEffect(() => {
     handleCardSelect('綠色');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -183,12 +148,7 @@ const GiftCard = () => {
           </Col>
           <div className="text-center mt-3 mb-3">
             <Link to="/cardboxdetail">
-              <Button
-                className="btn-color"
-                // onClick={handleSubmit}
-              >
-                確定
-              </Button>
+              <Button className="btn-color">確定</Button>
             </Link>
           </div>
         </Row>

@@ -65,22 +65,9 @@ const Nav = () => {
     } else {
       x.className = 'topnav';
     }
-    // console.log(123)
   };
   return (
     <Navbar className="topnav" id="myTopnav">
-      {/* <Link to="/home" className="active">
-        Home
-      </Link>
-      <Link to="/home" className="active">
-        Home
-      </Link>
-      <Link to="/home" className="active">
-        Home
-      </Link>
-      <Link to="/home" className="active">
-        Home
-      </Link> */}
       <Link className="nav-link ms-auto" to="/">
         首頁
       </Link>
@@ -128,7 +115,6 @@ const Nav = () => {
       )}
 
       <Link href="#" className="icon" onClick={myFunction}>
-        {/* <FontAwesomeIcon icon="fa-solid fa-bars" /> */}
         漢堡
       </Link>
     </Navbar>

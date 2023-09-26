@@ -96,35 +96,6 @@ function Product(props) {
       }
     }
   };
-  // const addToCartHandler = async (item) => {
-  //   const quantity = parseInt(input); // 從input中獲取商品數量
-  //   if (isNaN(quantity) || quantity < 1) {
-  //     window.alert('請輸入有效的商品數量');
-  //     return;
-  //   }
-
-  //   const existItem = cartItems.find((x) => x._id === item._id);
-
-  //   if (existItem) {
-  //     if (existItem.quantity + quantity > max) {
-  //       window.alert('抱歉，庫存不足');
-  //     } else {
-  //       ctxDispatch({
-  //         type: 'CART_ADD_ITEM',
-  //         payload: { ...item, quantity: existItem.quantity + quantity },
-  //       });
-  //     }
-  //   } else {
-  //     if (quantity > max) {
-  //       window.alert('抱歉，庫存不足');
-  //     } else {
-  //       ctxDispatch({
-  //         type: 'CART_ADD_ITEM',
-  //         payload: { ...item, quantity },
-  //       });
-  //     }
-  //   }
-  // };
 
   const { _id } = useParams();
   const [data, setData] = useState(null); // 修改為 null

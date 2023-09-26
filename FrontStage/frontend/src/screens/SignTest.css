@@ -1,7 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Lora');
-/* body {
-  background: #cbc0d3;
-} */
 .signcontainer {
   align-items: center;
   justify-content: center;
@@ -58,7 +55,6 @@
   text-align: center;
   margin-top: 95px;
   text-transform: uppercase;
-  /* color: #f6f6f6; */
   color: black;
   font-size: 2em;
   letter-spacing: 8px;
@@ -98,13 +94,7 @@
   left: 29%;
   opacity: 0.7;
 }
-/* .smaller {
-  width: 90px;
-  height: 100px;
-  top: 48%;
-  left: 38%;
-  opacity: 0.9;
-} */
+
 .signbutton {
   padding: 12px;
   font-family: 'Open Sans', sans-serif;
@@ -363,14 +353,6 @@
     transform: translateX(calc(0% + 100px));
   }
 }
-
-/* 動畫 */
-/* 适应小屏幕 */
-/* 添加以下样式到 SignTest.css */
-
-/* 適應小屏幕 可以正常顯示註冊與登入頁面 不要出現滾動條 */
-
-/* 改動後 只能顯示粉色畫面 無法看到或切換註冊頁面 該如何修正 */
 
 @media (max-width: 768px) {
   .signcontainer {

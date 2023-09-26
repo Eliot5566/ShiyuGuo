@@ -201,13 +201,13 @@ section.os.animate {
 } */
 
 /* Test2.css */
-/* 漢堡菜單按鈕的樣式 */
+
 .hamburger-button {
   cursor: pointer;
   display: block;
   position: absolute;
   right: 8px;
-  top: 16px; 
+  top: 16px;
   z-index: 999;
 }
 
@@ -217,19 +217,18 @@ section.os.animate {
   transition: color 0.3s ease;
 }
 
-
 .mobile-menu {
   position: fixed;
   top: 0;
-  right: -100%; 
- /* 初始狀態下隱藏選單 */
-  width: 80%; 
-/* 調整選單寬度 */
+  right: -100%;
+  /* 初始狀態下隱藏選單 */
+  width: 80%;
+  /* 調整選單寬度 */
   height: 100%;
   background-color: #fcdde2;
   /* background-color: lightcoral; */
   opacity: 0.95;
- /* 背景選單顏色 */
+  /* 背景選單顏色 */
   z-index: 998;
   transition: right 0.5s ease;
 }
