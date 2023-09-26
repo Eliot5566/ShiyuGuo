@@ -12,6 +12,7 @@ import { useContext, useEffect } from 'react';
 import { Store } from '../Store';
 import { toast } from 'react-toastify';
 import swal from 'sweetalert';
+import PasswordStrengthIndicator from '../components/PasswordStrengthIndicator';
 
 export default function SignTest() {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -227,6 +228,7 @@ export default function SignTest() {
                     onChange={(e) => setPwd(e.target.value)}
                     placeholder="密碼"
                   />
+            
                   {/* <div className="checkbox">
                   <input className="signinput" type="checkbox" id="remember" />
                   <label htmlFor="remember">remember me</label>
@@ -281,6 +283,7 @@ export default function SignTest() {
                     required
                     onChange={(e) => handlePwdChange(e.target.value)}
                   />
+                    {pwd && <PasswordStrengthIndicator password={pwd} />}
                   {isPwdValid ? (
                     <span className="validation-check">&#10004;</span>
                   ) : (
@@ -303,6 +306,7 @@ export default function SignTest() {
                   <button className="signbutton signsubmit" type="submit">
                     確認
                   </button>
+                
                 </form>
               </div>
             )}
