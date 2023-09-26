@@ -10,7 +10,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faPhone} from '@fortawesome/free-solid-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { Helmet } from 'react-helmet-async';
 function ContactUs() {
@@ -46,24 +46,24 @@ function ContactUs() {
     }
   };
   return (
-  <div className="contactus">
+    <div className="contactus">
       <Helmet>
         <title>聯絡我們 | 拾月菓</title>
         <meta name="description" content="拾月菓" />
       </Helmet>
-      <img
+      {/* <img
         className='banner'
         src={banner}
         alt='店面圖'
         style={{ width: '100%' }}
-      />
+      /> */}
       <h2>基本資訊</h2>
       <div className='container contact-items'>
         <Container>
           <Row>
-            <Col md={4} sm={6}>
+            <Col md={4} sm={12}>
               <div className='item Email'>
-              <FontAwesomeIcon icon={faEnvelope} size='2xl' style={{color: '#ffffff', margin: '2px',}} />
+                <FontAwesomeIcon icon={faEnvelope} size='2xl' style={{ color: '#ffffff', margin: '2px', }} />
                 <h4>聯絡信箱</h4>
                 <p>octmoon@octmoon.com</p>
               </div>
@@ -71,7 +71,7 @@ function ContactUs() {
 
             <Col md={4} sm={12}>
               <div className='item Tel'>
-              <FontAwesomeIcon icon={faPhone} size='2xl' style={{color: '#ffffff', margin: '2px',}} />
+                <FontAwesomeIcon icon={faPhone} size='2xl' style={{ color: '#ffffff', margin: '2px', }} />
                 <h4>客服電話</h4>
                 <p>03-11112222</p>
               </div>
@@ -79,7 +79,7 @@ function ContactUs() {
 
             <Col md={4} sm={12}>
               <div className='item Address'>
-              <FontAwesomeIcon icon={faLocationDot} size='2xl' style={{color: '#ffffff', margin: '2px',}} />
+                <FontAwesomeIcon icon={faLocationDot} size='2xl' style={{ color: '#ffffff', margin: '2px', }} />
                 <h4>門市地址</h4>
                 <p>宜蘭縣大同區菓子路10-4號</p>
               </div>
@@ -87,91 +87,88 @@ function ContactUs() {
           </Row>
         </Container>
       </div>
-   
 
 
-    <div className='housetour'>
+
+      <div  className='housetour'  >  
+     
         <h2>店面介紹</h2>
-          <div className='tour'>
-            <div className='sit1'>
-          <Container>
-              <Row>
-               <Col lg={4} sm={12} >
-                    <div>
-                      <img className='shop1' src={shop1} alt='店面圖' />
-                      </div>
-              
-               </Col>
+        <div className='tour'>
+          <div className='sit1'>
+            <Container className='p-5'>
+              <Row className='mb-5'>
+                <Col lg={6} sm={12} >
+                  <div>
+                    <img className='shop1' src={shop1} alt='店面圖' />
+                  </div>
 
-               <Col lg={8} sm={12} className='in'>
-                   <div>
-                      <ul>
-                        <li>室內舒適座位</li>
-                        <li>
-                          充滿日本風情的座位區，營造寧靜、放鬆的氛圍，適合品茶閱讀或聊天
-                        </li>
-                      </ul>
-                    </div>
-              </Col>
-             
-            
-                  {/* <div className='sit1'> */}
-                   
-                  <Col lg={8} sm={12} className='col1'>
-                    <div>
-                      <ul>
-                        <li>美麗山景座位</li>
-                        <li>
-                          吃著和菓子，欣賞一年四季不同的壯麗風景，感受大自然的美妙
-                        </li>
-                      </ul>
-                    </div>
-                  </Col>
-                   
-                    <Col lg={4} sm={12} className='col2'>
-                   <div>
-                      <img className='shop2' src={shop2} alt='店面圖' />
-                    </div>
-                 
-                  </Col>
-                {/* </div> */}
-                  
-               
-            {/* <div className='sit1'> */}
-                    <Col lg={4} sm={12} >
+                </Col>
+
+                <Col lg={6} sm={12} className='in'>
+                  <div>
+                    <ul>
+                      <li>室內舒適座位</li>
+                      <li>
+                        充滿日本風情的座位區，營造寧靜、放鬆的氛圍，適合品茶閱讀或聊天
+                      </li>
+                    </ul>
+                  </div>
+                </Col>
+              </Row>
+
+              <Row className='mb-5'>
+
+                <Col lg={6} sm={12} className='col1'>
+                  <div>
+                    <ul>
+                      <li>美麗山景座位</li>
+                      <li>
+                        吃著和菓子，欣賞一年四季不同的壯麗風景，感受大自然的美妙
+                      </li>
+                    </ul>
+                  </div>
+                </Col>
+
+                <Col lg={6} sm={12} className='col2'>
+                  <div>
+                    <img className='shop2' src={shop2} alt='店面圖' />
+                  </div>
+
+                </Col>
+                </Row>
+
+
+              <Row>
+                
+                <Col lg={6} sm={12} >
                   <div>
                     <img className='shop1' src={shop3} alt='店面圖' />
                   </div>
-                    </Col>
-                  <Col lg={8} sm={12} className='in'>
+                </Col>
+                <Col lg={6} sm={12} className='in'>
                   <div>
                     <ul>
                       <li>日系廊台</li>
                       <li>日系建築和自然的融合，體驗日本文化與自然和諧生活</li>
                     </ul>
                   </div>
-                  </Col>
-                
-            {/* </div> */}
-            
-          </Row>
-      </Container>
-    
-  
-       
+                </Col>
+
+               
+
+              </Row>
+            </Container>
+
+          </div>
         </div>
-    </div>
-    </div>
-      
-      
-    
+      </div>
 
       <div className='googlemap'>
         <GoogleMap />
       </div>
 
       {/* ///表單 */}
-      <div className='contactus container mt-5 mb-5'>
+      <div className='contactForm container mt-5 mb-5'>
         <h2>聯絡我們</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className='form-group'>
@@ -221,7 +218,7 @@ function ContactUs() {
         </form>
       </div>
 
-  </div>    
+    </div>
   );
 }
 
