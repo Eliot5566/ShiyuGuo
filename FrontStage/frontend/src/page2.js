@@ -30,7 +30,7 @@ function page2() {
               <h3 className="">
                 即日起和菓子
                 <br />
-                滿百免運活動!!!
+                滿百免運活動！
               </h3>
               <p>
                 {/* Lorem Ipsum is not simply random text. It has roots in a piece of
@@ -62,7 +62,7 @@ function page2() {
               <img src={c} />
             </div>
             <div className="section-content">
-              <h3 className="">最新門市開幕喽</h3>
+              <h3 className="">最新門市開幕</h3>
               <p>
                 {/* Lorem Ipsum is not simply random text. It has roots in a piece of
             classical Latin literature from 45 BC, making it over 2000 years old.
