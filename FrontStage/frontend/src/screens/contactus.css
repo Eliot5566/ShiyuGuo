@@ -14,12 +14,12 @@
   border-radius: 30px;
   justify-content: center;
 }
+
 .item {
   margin: 50px;
-}
-.Address {
   text-align: center;
 }
+
 .tour {
   display: flex;
   flex-direction: column;
@@ -50,8 +50,10 @@
 .sit1 li {
   color: #9a2540;
   list-style: none;
-  margin: 20px;
+ text-align: center;
   font-size: 20px;
+  margin: 30px;
+  /* margin-left:20px ; */
 }
 
 /* .sit2 {
@@ -131,3 +133,13 @@
   border-radius: 5px;
   font-size: 16px;
 }
+@media (max-width: 767px) { 
+  .col1 {
+    order: 2; 
+  }
+
+  .col2 {
+    order: 1; 
+  }
+}
+
