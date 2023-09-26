@@ -9,7 +9,11 @@ const initialState = {
   selectedProducts6: [], 
   selectedProducts9: [], 
   selectedCard: '', // 用戶選擇的卡片
+  selectedCard6: '', // 用戶選擇的卡片
+  selectedCard9: '', // 用戶選擇的卡片
   cardContent: '', // 卡片內容 
+  cardContent6: '', // 卡片內容
+  cardContent9: '', // 卡片內容
   // userInfo是一個物件，裡面有name、email、isAdmin、token四個屬性
   //來自哪裡 ? 來自於SignScreen.js的ctxDispatch({ type: 'USER_SIGNIN', payload: data });
   //data 是一個物件，裡面有name、email、isAdmin、token四個屬性
@@ -144,6 +148,26 @@ function reducer(state, action) {
       return {
         ...state,
         cardContent: action.payload,
+      };
+    case 'UPDATE_SELECTED_CARD6':
+      return {
+        ...state,
+        selectedCard6: action.payload,
+      };
+    case 'UPDATE_CARD_CONTENT6':
+      return {
+        ...state,
+        cardContent6: action.payload,
+      };
+    case 'UPDATE_SELECTED_CARD9':
+      return {
+        ...state,
+        selectedCard9: action.payload,
+      };
+    case 'UPDATE_CARD_CONTENT9':
+      return {
+        ...state,
+        cardContent9: action.payload,
       };
     case 'UPDATE_CONFIRMED':
       return {

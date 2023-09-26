@@ -144,7 +144,7 @@
             </Button>
           </div>
         </form>
-
+<hr className=' mb-5'/>
         <h1 className="my-3">變更密碼</h1>
 
         <form onSubmit={submitPasswordHandler}>

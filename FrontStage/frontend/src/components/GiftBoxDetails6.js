@@ -21,8 +21,8 @@ export default function GiftBoxDetails6() {
   const {
     userInfo,
     selectedProducts6,
-    selectedCard,
-    cardContent,
+    selectedCard6,
+    cardContent6,
     cart: { cartItems },
     giftBox, // 添加禮盒訊息
     giftBoxQuantity, // 添加禮盒數量
@@ -47,7 +47,7 @@ export default function GiftBoxDetails6() {
     if (storedGiftBox) {
       // 如果之前存放的禮盒資料存在，則加載到state中
       dispatch({
-        type: 'UPDATE_CART_GIFT_BOX',
+        type: 'UPDATE_CART_GIFT_BOX6',
         payload: JSON.parse(storedGiftBox),
       });
     }
@@ -55,7 +55,7 @@ export default function GiftBoxDetails6() {
     if (storedGiftBoxQuantity) {
       // 如果之前存放的禮盒數量存在，則加載到state中
       dispatch({
-        type: 'UPDATE_GIFT_BOX_QUANTITY',
+        type: 'UPDATE_GIFT_BOX_QUANTITY6',
         payload: parseInt(storedGiftBoxQuantity),
       });
     }
@@ -144,7 +144,8 @@ export default function GiftBoxDetails6() {
       //取得登入的使用者的 資料庫_id
       const userId = userInfo._id;
       // console.log('userId', userId);
-      const cardType = selectedCard;
+      const cardType = selectedCard6;
+      const cardContent = cardContent6;
       // console.log('cardType', cardType);
       // console.log('cardContent', cardContent);
       // const selectedProduct = state.selectedProducts;
@@ -258,31 +259,31 @@ export default function GiftBoxDetails6() {
           <Col md={6} className="d-flex justify-content-center">
             <div className="card-back-img mb-3">
               {/* 所選卡片對應的圖片 */}
-              {selectedCard === '綠色' ? (
+              {selectedCard6 === '綠色' ? (
                 <img
                   src={greenCardBack}
-                  alt={selectedCard}
+                  alt={selectedCard6}
                   width={334}
                   height={250}
                 />
-              ) : selectedCard === '米白' ? (
+              ) : selectedCard6 === '米白' ? (
                 <img
                   src={offWhiteColorBack}
-                  alt={selectedCard}
+                  alt={selectedCard6}
                   width={334}
                   height={250}
                 />
-              ) : selectedCard === '粉色' ? (
+              ) : selectedCard6 === '粉色' ? (
                 <img
                   src={pinkCardBack}
-                  alt={selectedCard}
+                  alt={selectedCard6}
                   width={334}
                   height={250}
                 />
               ) : null}
               <p
                 className="card-back-text"
-                dangerouslySetInnerHTML={{ __html: cardContent }}
+                dangerouslySetInnerHTML={{ __html: cardContent6 }}
               ></p>
             </div>
             {/* 顯示用戶選擇的卡片樣式與內容 */}

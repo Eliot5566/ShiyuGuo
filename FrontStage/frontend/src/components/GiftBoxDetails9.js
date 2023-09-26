@@ -21,8 +21,8 @@ export default function GiftBoxDetails9() {
   const {
     userInfo,
     selectedProducts9,
-    selectedCard,
-    cardContent,
+    selectedCard9,
+    cardContent9,
     cart: { cartItems },
     giftBox, // 添加禮盒訊息
     giftBoxQuantity, // 添加禮盒數量
@@ -145,7 +145,8 @@ export default function GiftBoxDetails9() {
       //取得登入的使用者的 資料庫_id
       const userId = userInfo._id;
       // console.log('userId', userId);
-      const cardType = selectedCard;
+      const cardType = selectedCard9;
+      const cardContent = cardContent9;
       // console.log('cardType', cardType);
       // console.log('cardContent', cardContent);
       // const selectedProduct = state.selectedProducts;
@@ -259,31 +260,31 @@ export default function GiftBoxDetails9() {
           <Col md={6} className="d-flex justify-content-center">
             <div className="card-back-img mb-3">
               {/* 所選卡片對應的圖片 */}
-              {selectedCard === '綠色' ? (
+              {selectedCard9 === '綠色' ? (
                 <img
                   src={greenCardBack}
-                  alt={selectedCard}
+                  alt={selectedCard9}
                   width={334}
                   height={250}
                 />
-              ) : selectedCard === '米白' ? (
+              ) : selectedCard9 === '米白' ? (
                 <img
                   src={offWhiteColorBack}
-                  alt={selectedCard}
+                  alt={selectedCard9}
                   width={334}
                   height={250}
                 />
-              ) : selectedCard === '粉色' ? (
+              ) : selectedCard9 === '粉色' ? (
                 <img
                   src={pinkCardBack}
-                  alt={selectedCard}
+                  alt={selectedCard9}
                   width={334}
                   height={250}
                 />
               ) : null}
               <p
                 className="card-back-text"
-                dangerouslySetInnerHTML={{ __html: cardContent }}
+                dangerouslySetInnerHTML={{ __html: cardContent9 }}
               ></p>
             </div>
             {/* 顯示用戶選擇的卡片樣式與內容 */}

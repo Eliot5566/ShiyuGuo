@@ -97,7 +97,11 @@ export default function PlaceOrder() {
         shippingPrice: cart.shippingPrice,
         totalPrice: cart.totalPrice,
         selectedCard: state.selectedCard,
+        selectedCard6: state.selectedCard6,
+        selectedCard9: state.selectedCard9,
         cardContent: state.cardContent,
+        cardContent6: state.cardContent6,
+        cardContent9: state.cardContent9,
       };
 
       const { data } = await Axios.post('/api/orders', orderData, {
