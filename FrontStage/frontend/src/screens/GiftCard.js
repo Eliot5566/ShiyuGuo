@@ -11,17 +11,18 @@ import offWhiteColorBack from '../images/card/offwhite_card_back.jpg';
 import pinkCardBack from '../images/card/pink_card_back.jpg';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import MyProgress from '../components/MyProgress';
+import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal);
 
 const GiftCard = () => {
   const { state, dispatch } = useContext(Store); // 使用全局狀態和dispatch
   const [currentStep, setCurrentStep] = useState(2);
-  const { selectedCard, cardContent, isConfirmed, userInfo, selectedProducts } =
-    state;
+  const { selectedCard, cardContent, isConfirmed, userInfo, selectedProducts } = state;
   const [newSelectedCard, setNewSelectedCard] = useState(selectedCard);
   const [newCardContent, setNewCardContent] = useState(cardContent);
-  //取得以選擇的產品資訊
-
   const navigate = useNavigate();
   // 初始化第二張圖片的路徑為空字串
   const [secondImage, setSecondImage] = useState('');
@@ -54,10 +55,19 @@ const GiftCard = () => {
       setNewCardContent(content);
     } else {
       setNewCardContent(content.slice(0, maxContentLength));
+      
+      // 使用SweetAlert2彈出提示框
+      MySwal.fire({
+        title: '字數已達上限！',
+        icon: 'warning',
+        iconColor: '#e4849a',
+        confirmButtonColor: '#9a2540',
+        confirmButtonText: '確定',
+      });
     }
     dispatch({ type: 'UPDATE_CARD_CONTENT', payload: content });
   };
-
+  
   useEffect(() => {
     handleCardSelect('綠色');
   }, []);
@@ -125,10 +135,7 @@ const GiftCard = () => {
                 width={334}
                 height={250}
               />
-              <p
-                className="card-back-text"
-                dangerouslySetInnerHTML={{ __html: newCardContent }}
-              ></p>
+              <p className="card-back-text">{newCardContent}</p>
             </div>
           </Col>
           <Col md={6}>

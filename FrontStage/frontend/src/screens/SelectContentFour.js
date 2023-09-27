@@ -8,9 +8,11 @@ import transparent from '../images/transparent.png';
 import { Store } from '../Store';
 import MyProgress from '../components/MyProgress';
 import 'animate.css';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
+import withReactContent from 'sweetalert2-react-content';
 
+const MySwal = withReactContent(Swal);
 export default function SelectContentFour() {
   const { state, dispatch } = useContext(Store);
   const [currentStep, setCurrentStep] = useState(1);
@@ -41,22 +43,25 @@ export default function SelectContentFour() {
   const handleProductSelect = (product) => {
     //如果選擇商品已滿 顯示提式
     if (state.selectedProducts.length === 3) {
-      swal({
+      MySwal.fire({
         title: '已選滿四個商品！',
         icon: 'warning',
-        button: '確定',
+        iconColor: '#e4849a',
+        showConfirmButton: false, // 關閉按鈕
+        timer: 1000, // 自動關閉時間（1秒）
       });
+
     }
 
     if (state.selectedProducts.length >= 4) {
       // 已選擇的產品數量達到4個，顯示錯誤提示
-      swal({
-        title: '數量已達上限！',
+      MySwal.fire({
+        title: <strong>數量已達上限！</strong>,
         icon: 'warning',
-        button: '確定',
+        iconColor: '#e4849a',
+        confirmButtonColor: '#9a2540',
+        confirmButtonText: '確定',
       });
-
-      // alert('數量已達到上限！');
       return;
     }
 
@@ -82,18 +87,24 @@ export default function SelectContentFour() {
   const handleNextButtonClick = async () => {
     //如果商品尚未選滿四個，跳出警告
     if (state.selectedProducts.length < 4) {
-      swal({
+      MySwal.fire({
         title: '請選滿四個商品！',
         icon: 'warning',
-        button: '確定',
+        iconColor: '#e4849a',
+        confirmButtonColor: '#9a2540',
+        confirmButtonText: '確定',
       });
       return;
     }
 
-    const userResponse = await swal({
+    const userResponse = await MySwal.fire({
       title: '是否需要加入禮盒卡片？',
       icon: 'warning',
-      buttons: ['不需要', '需要'],
+      iconColor: '#e4849a',
+      confirmButtonColor: '#9a2540',
+      showCancelButton: true, // 顯示取消按鈕
+      confirmButtonText: '需要', // 確認按鈕文本
+      cancelButtonText: '不需要', // 取消按鈕文本
       dangerMode: true,
     });
     if (userResponse) {
