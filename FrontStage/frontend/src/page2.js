@@ -1,12 +1,12 @@
 import React from 'react';
 import './Try.css';
 import a from './images/最新消息1.png';
-import b from './images/包裝圖片.png';
+import b from './images/最新消息2.png';
 import c from './images/最新消息3.png';
 function page2() {
   return (
-    <>
-      <div className="container ">
+    <div className='background3'>
+      <div className="container bg-light bg-opacity-75 ">
         {/* <header className="hero os">
       <hgroup>
         <h2 className="textTry vintage">VINTAGE</h2>
@@ -27,16 +27,12 @@ function page2() {
               <img className="border border-5 " src={a} />
             </div>
             <div className="section-content">
-              <h3 className="">
+              <h3>
                 即日起和菓子
-                <br />
-                滿百免運活動!!!
+                滿百免運活動！
               </h3>
-              <p>
-                {/* Lorem Ipsum is not simply random text. It has roots in a piece of
-            classical Latin literature from 45 BC, making it over 2000 years old.
-            Richard McClintock, a Latin professor at Hampden-Sydney */}
-              </p>
+              <p>即日起，購買和菓子滿百免運活動！不要錯過這個絕佳的機會。獲得美味的和菓子，並享受免費送貨服務。快來品嘗各種美味！</p>
+             
             </div>
           </div>
         </section>
@@ -48,31 +44,27 @@ function page2() {
             </div>
             <div className="section-content">
               <h3 className="">禮盒服務快來製作自己喜歡禮盒組合吧～</h3>
-              <p>
-                {/* Lorem Ipsum is not simply random text. It has roots in a piece of
-            classical Latin literature from 45 BC, making it over 2000 years old.
-            Richard McClintock, a Latin professor at Hampden-Sydney */}
-              </p>
+                <p>打造獨一無二的禮盒，選擇您喜愛的組合！溫馨禮物，傳遞心意。立即選購吧！</p>
             </div>
           </div>
         </section>
         <section className="os">
           <div className="inner set-left">
             <div className="section-obj">
-              <img src={c} />
+              <img className="border border-5" src={c} />
             </div>
             <div className="section-content">
-              <h3 className="">最新門市開幕喽</h3>
+              <h3 className="">最新門市開幕</h3>
               <p>
-                {/* Lorem Ipsum is not simply random text. It has roots in a piece of
-            classical Latin literature from 45 BC, making it over 2000 years old.
-            Richard McClintock, a Latin professor at Hampden-Sydney */}
-              </p>
+                我們的最新門市已經開幕啦！歡迎光臨，品味新鮮美味。期待與您相見！</p>
+            
             </div>
           </div>
+
+        
         </section>
       </div>
-    </>
+    </div>
   );
 }
 

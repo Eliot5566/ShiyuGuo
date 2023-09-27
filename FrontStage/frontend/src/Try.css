@@ -165,9 +165,9 @@ section.os.animate {
   height: auto;
   box-shadow: 0 20px 50px -15px rgba(182, 50, 63, 0.7);
 }
-.section-content {
+.section-content1 {
   padding-top: 50px;
-  color: #ce4d5a;
+  color: #000000;
   transition: 500ms;
 }
 .set-left .section-content {

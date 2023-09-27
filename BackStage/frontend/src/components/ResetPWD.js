@@ -65,7 +65,7 @@ const ResetPWD = () => {
             {success ? (
                 <section className="container d-flex justify-content-center align-items-center vh-100">
                     <div className="text-center">
-                        <h2>重置成功!</h2>
+                        <h2>重置成功！</h2>
                         <Link className="btn btn-primary fs-5 mt-2" to="/">登入</Link>
                     </div>
                 </section>

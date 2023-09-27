@@ -53,38 +53,6 @@ export default function PlaceOrder() {
   //滿百免運
   cart.shippingPrice = cart.itemsPrice >= 100 ? round2(0) : round2(10);
 
-  // console.log(userInfo.token);
-
-  // const placeOrderHandler = async () => {
-  //   try {
-  //     dispatch({ type: 'CREATE_REQUEST' });
-
-  //     const { data } = await Axios.post(
-  //       '/api/orders',
-  //       {
-  //         orderItems: cart.cartItems,
-  //         shippingAddress: cart.shippingAddress,
-  //         paymentMethod: cart.paymentMethod,
-  //         itemsPrice: cart.itemsPrice,
-  //         shippingPrice: cart.shippingPrice,
-  //         totalPrice: cart.totalPrice,
-  //       },
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${userInfo.token}`,
-  //         },
-  //       }
-  //     );
-  //     ctxDispatch({ type: 'CART_CLEAR' });
-  //     dispatch({ type: 'CREATE_SUCCESS' });
-  //     localStorage.removeItem('cartItems');
-  //     navigate(`/order/${data.order._id}`);
-  //   } catch (err) {
-  //     dispatch({ type: 'CREATE_FAIL' });
-  //     toast.error(err.response.data.message);
-  //   }
-  // };
-
   const placeOrderHandler = async () => {
     try {
       dispatch({ type: 'CREATE_REQUEST' });
@@ -152,9 +120,6 @@ export default function PlaceOrder() {
           <Card className="mb-3">
             <Card.Body>
               <Card.Title>付款方式</Card.Title>
-              {/* <Card.Text>
-                <strong>{cart.paymentMethod}</strong>
-              </Card.Text> */}
               <img
                 src={cart.paymentMethod === 'PayPal' ? Paypal : LinePay}
                 alt="paypal"
@@ -211,12 +176,6 @@ export default function PlaceOrder() {
                     <Col>${cart.shippingPrice.toFixed(2)}</Col>
                   </Row>
                 </ListGroup.Item>
-                {/* <ListGroup.Item>
-                  <Row>
-                    <Col>Tax</Col>
-                    <Col>${cart.taxPrice.toFixed(2)}</Col>
-                  </Row>
-                </ListGroup.Item> */}
                 <ListGroup.Item>
                   <Row>
                     <Col>

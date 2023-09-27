@@ -26,7 +26,7 @@ const handleResetPWD = (req, res) => {
                         console.log(err);
                     } else {
                         // 執行成功
-                        res.status(201).json({ 'success': `${email} 密碼重置成功!` });
+                        res.status(201).json({ 'success': `${email} 密碼重置成功` });
                     }
                 });
             }

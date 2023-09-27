@@ -154,15 +154,11 @@ export default function OrderScreen() {
           };
         });
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
-        setIsLoading(false); // 在数据加载完成后设置 isLoading 为 false
+        setIsLoading(false);
         console.log(data);
-        // console.log(order);
-        //為甚麼這裡的order是空的 但是在上面的dispatch裡面的data是有值的 但是在這裡的order就是空的 這是為什麼
-        //因為這裡的order是一開始的order 一開始的order是空的 所以這裡的order就是空的
-        //payload: data 這裡的data是從後端傳過來的data 這裡的data是有值的
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
-        setIsLoading(false); // 在数据加载失败后设置 isLoading 为 false
+        setIsLoading(false);
       }
     };
 
@@ -191,13 +187,12 @@ export default function OrderScreen() {
             value: {
               'client-id':
                 'AYngKbWm4TYcnQURW3lDH60P0myyeMHowAHYDEz_oJ87IdUW71el5uPOt9FwbFTp5mPotEWGTOx0QxGm',
-              currency: 'TWD', // 設定貨幣
+              currency: 'TWD',
             },
           });
-          paypalDispatch({ type: 'setLoadingStatus', value: 'loaded' }); // 设置 PayPal 脚本为加载完成状态
+          paypalDispatch({ type: 'setLoadingStatus', value: 'loaded' });
         } catch (error) {
           console.error('Error loading PayPal script:', error);
-          // 处理加载失败的情况
           paypalDispatch({ type: 'setLoadingStatus', value: 'failed' });
         }
       };

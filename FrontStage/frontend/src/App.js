@@ -60,17 +60,14 @@ function App() {
   const [cartItemCount, setCartItemCount] = useState(0);
 
   useEffect(() => {
-    // 計算購物車數量
     const itemCount = cart.cartItems.reduce(
       (count, item) => count + (item.quantity || 0),
       0
     );
 
-    // 設定購物車數量
     setCartItemCount(itemCount);
   }, [cart, giftBoxQuantity]);
   const signoutHandler = () => {
-    //ctxDispatch是Store.js裡的dispatch function
     ctxDispatch({ type: 'USER_SIGNOUT' });
     localStorage.removeItem('userInfo');
 
@@ -94,8 +91,6 @@ function App() {
                 />
                 <Route path="/product/:_id" element={<Product />} />
                 <Route path="/cart" element={<CartScreen />} />
-                {/* <Route path="/signin" element={<SigninScreen />} /> */}
-                {/* <Route path="/signup" element={<SignupScreen />} /> */}
                 <Route path="/placeorder" element={<PlaceOrder />} />
                 <Route path="/order/:id" element={<OrderScreen />} />
 
@@ -106,7 +101,6 @@ function App() {
                 <Route path="/giftcard6" element={<GiftCard6 />} />
                 <Route path="/giftcard9" element={<GiftCard9 />} />
                 <Route path="/faq" element={<FAQ />} />
-                {/* <Route path="/sub" element={<Sub />} /> */}
 
                 <Route path="/cardboxdetail" element={<GiftBoxDetails />} />
                 <Route path="/cardboxdetail6" element={<GiftBoxDetails6 />} />
@@ -141,11 +135,7 @@ function App() {
             </Routes>
           </div>
         </main>
-        <>
-          {/* <Sub /> */}
-          {/* <Footer /> */}
-          {/* <div className="text-center">All rights reserved</div> */}
-        </>
+        <></>
       </div>
     </BrowserRouter>
   );

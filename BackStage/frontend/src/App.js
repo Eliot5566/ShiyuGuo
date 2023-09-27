@@ -12,7 +12,6 @@ import NewProduct from './components/NewProduct';
 import ForgetPWD from './components/ForgetPWD';
 import ResetPWD from './components/ResetPWD';
 import Layout from './layout/Layout';
-import BasicTable from './components/BasicTable';
 
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
@@ -53,10 +52,6 @@ function App() {
 
             <Route element={<RequireAuth allowedRoles={1} />}>
               <Route path="/orders/:_id" element={<Order />} />
-            </Route>
-
-            <Route element={<RequireAuth allowedRoles={1} />}>
-              <Route path="/table" element={<BasicTable />} />
             </Route>
 
             <Route element={<RequireAuth allowedRoles={1} />}>

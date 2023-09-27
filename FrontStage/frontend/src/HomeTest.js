@@ -1,10 +1,12 @@
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 
+
 import Page from './page';
 import Page2 from './page2';
 import Page3 from './page3';
 import Page4 from './page4';
-import Try from './Try';
+import Page5 from './page5';
+
 import './nav.css';
 import Test2 from './screens/Test2';
 import { Helmet } from 'react-helmet-async';
@@ -22,9 +24,12 @@ import Container from 'react-bootstrap/Container';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useContext } from 'react';
 import { Store } from './Store';
-
+import Footer from './screens/Footer';
 // import Transition from './components/Transition';
 import main1 from './images/專題2/品牌2.png';
+
+
+
 
 function HomeTest() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -60,7 +65,7 @@ function HomeTest() {
         <title>首頁 | 拾月菓</title>
         <meta name="description" content="拾月菓" />
       </Helmet>
-      <Parallax pages={6} style={{ top: '0', left: '0' }} className="animation">
+      <Parallax pages={5.6} style={{ top: '0', left: '0' }} className="animation backgroundMain">
         <ParallaxLayer offset={0} speed={0}>
           <div className="animation_layer parallax" id="block"></div>
         </ParallaxLayer>
@@ -170,25 +175,14 @@ function HomeTest() {
         </ParallaxLayer>
 
         <ParallaxLayer offset={1}>
+          <div className="pagesContainer text background  "></div>        
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={1} speed={0.5}>
           <Page />
         </ParallaxLayer>
 
-        <ParallaxLayer offset={1} speed={0.2}>
-          <div>
-            <h1 className=" text-center fw-bold animate__animated animate__bounce  ">
-              關於我們的故事
-            </h1>
-
-            <h2 className="text-center fw-bold ">「拾月菓」</h2>
-            <br></br>
-            <h4 className=" animate__fadeInDown  mx-5 fw-bold lh-3 ">
-              日式菓子專賣店創辦於2023年資策會前端班，
-              「十月」是我們學習了半年要結訓發表的月份，
-              我們的團隊熱愛日本文化，於是決定創建日式點心為主題的網站，
-              傳達品牌承襲日本文化、嚴選天然頂級原料的理念秉持著文化精髓中「不懈不怠、嚴謹專注」的職人精神。
-            </h4>
-          </div>
-        </ParallaxLayer>
+       
 
         <ParallaxLayer offset={2.2} speed={0.2}>
           <div className="background2  h-50 "></div>
@@ -198,14 +192,24 @@ function HomeTest() {
         </ParallaxLayer>
 
         <ParallaxLayer offset={3.1}>
+        
           <Page3 />
+          
         </ParallaxLayer>
 
         <ParallaxLayer offset={4.3}>
           <Page4 />
         </ParallaxLayer>
 
-        <ParallaxLayer>
+
+        
+        <ParallaxLayer offset={5.2}>
+          <Page5/>
+        </ParallaxLayer>
+
+        
+
+        <ParallaxLayer className='fixed-nav' >
           <Test2 />
         </ParallaxLayer>
       </Parallax>

@@ -59,7 +59,7 @@ function Try() {
               <img src="https://cl.ly/qR5L/section3.png" />
             </div>
             <div className="section-content">
-              <h3 className="">最新門市開幕喽</h3>
+              <h3 className="">最新門市開幕</h3>
               <p>
                 {/* Lorem Ipsum is not simply random text. It has roots in a piece of
             classical Latin literature from 45 BC, making it over 2000 years old.

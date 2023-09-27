@@ -65,7 +65,7 @@ const NewProduct = () => {
         }
     }
     // 上傳圖片的動作
-    const handleSubmit = async (e) =>{
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('name', productData.name);

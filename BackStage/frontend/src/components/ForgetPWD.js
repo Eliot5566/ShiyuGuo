@@ -19,14 +19,14 @@ const ForgetPWD = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post(FORGETPWD_URL,
+            const response = await axios.post(FORGETPWD_URL, // eslint-disable-line no-unused-vars
                 JSON.stringify({ email }),
                 {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
                 }
             );
-            console.log(JSON.stringify(response?.data));
+            // console.log(JSON.stringify(response?.data));
             setEmail('');
             navigate("/login", {replace:true});
         } catch (err) {

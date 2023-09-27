@@ -28,25 +28,12 @@ const reducer = (state, action) => {
   }
 };
 
-//useReducer是一個可以取代useState的hook
-//useReducer 負責管理 state，並且可以透過 dispatch 來發送 action
-//useReducer 接收兩個參數，第一個參數是 reducer，第二個參數是初始 state
-
-//useEffect 負責處理非同步的邏輯，例如：發送 API 請求、訂閱事件、設置 timeout 等等
-//useEffect 接收兩個參數，第一個參數是 callback function，第二個參數是 dependency array
-//如果第二個參數是空陣列，就只會在元件第一次 render 時執行
-//如果第二個參數是有值的陣列，就會在元件第一次 render 時執行，以及陣列中的值有改變時執行
-
-//以上兩個hook的組合，可以用來取得資料，並且把資料放到state中
-//這裡使用useReducer來取代useState，因為useReducer可以讓我們更好的管理state
-
 function HomeScreen() {
   const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
     products: [],
     loading: true,
     error: '',
   });
-  //   const [products, setProducts] = useState([]);
 
   //使用useEffect來取得資料
   useEffect(() => {

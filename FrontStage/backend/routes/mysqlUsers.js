@@ -423,58 +423,6 @@ userRouter.put(
   })
 );
 
-// userRouter.put(
-//   '/profile',
-//   isAuth,
-//   expressAsyncHandler(async (req, res) => {
-//     const { name, email, pwd } = req.body;
-
-//     try {
-//       const connection = await db.getConnection();
-
-//       // 確認重複信箱，但要排除当前用户
-//       const [existingUsers] = await connection.query(
-//         'SELECT * FROM users WHERE email = ? AND _id <> ?',
-//         [email, req.user.id]
-//       );
-
-//       if (existingUsers.length > 0) {
-//         res.status(400).send({ message: 'Email address already registered' });
-//         return;
-//       }
-
-//       // 使用 bcrypt 加密新密码
-//       const hashedPassword = await bcrypt.hash(pwd, 8);
-
-//       // 更新用户资料
-//       await connection.query(
-//         'UPDATE users SET name = ?, email = ?, pwd = ? WHERE _id = ?',
-//         [name, email, hashedPassword, req.user.id]
-//       );
-
-//       connection.release();
-
-//       // 获取更新后的用户资料
-//       const [updatedUser] = await connection.query(
-//         'SELECT * FROM users WHERE _id = ?',
-//         [req.user.id]
-//       );
-
-//       const token = generateToken(updatedUser[0]); // 生成 token 並反饋給前端
-//       res.send({
-//         _id: updatedUser[0].id,
-//         name: updatedUser[0].name,
-//         email: updatedUser[0].email,
-//         roles: updatedUser[0].roles,
-//         token: token,
-//       });
-//     } catch (error) {
-//       console.error(error);
-//       res.status(500).send({ message: 'Internal Server Error' });
-//     }
-//   })
-// );
-
 //定義一個路由，用來處理註冊請求
 
 userRouter.post(

@@ -18,8 +18,6 @@
 }
 
 .headlogo {
-  /* //目前LOGO 與背景顏色相近 如何修改 讓LOGO可以清晰可見 */
-
   background-color: rgba(240, 248, 255, 0.846);
   border-radius: 5px;
   box-shadow: 0 20px 50px -15px rgba(182, 50, 63, 0.7);

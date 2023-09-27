@@ -308,8 +308,7 @@ export default function GiftBoxDetails() {
         <Button
           className="btn-color  mb-3"
           onClick={() => {
-            // handleSubmit(); // 调用 handleSubmit 函数
-            addToCart(20); // 调用 addToCart 函数
+            addToCart(20);
           }}
         >
           加入購物車

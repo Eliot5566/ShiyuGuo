@@ -34,3 +34,16 @@ footer {
   text-align: center;
   font-size: 0.8rem;
 }
+/* ---------------------------- */
+/* 主頁 */
+.main5{
+  position: relative;
+  top: 10%
+}
+
+@media screen and (max-width: 768px) {
+  .main5{
+    position: relative;
+    top: -100px
+  }
+}

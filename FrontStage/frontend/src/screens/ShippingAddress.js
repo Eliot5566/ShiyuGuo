@@ -131,7 +131,6 @@ export default function ShippingAddress() {
           <div className="mb-3">
             <Button
               className="btn-color"
-              // variant="primary"
               type="submit"
               style={{ backgroundColor: '#9a2540' }}
             >

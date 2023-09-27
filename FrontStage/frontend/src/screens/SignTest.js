@@ -78,12 +78,6 @@ export default function SignTest() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    // if (!isNameValid || !isEmailValid || !isPwdValid || !isConfirmPwdValid) {
-    //   swal('請檢查您的資料', '確認是否正確', 'error');
-    //   // 如果任何一個驗證失敗，不執行提交
-    //   return;
-    // }
-    // 定義用於顯示錯誤的變數
     let errorMessage = '';
 
     if (!isNameValid) {
@@ -228,7 +222,7 @@ export default function SignTest() {
                     onChange={(e) => setPwd(e.target.value)}
                     placeholder="密碼"
                   />
-            
+
                   {/* <div className="checkbox">
                   <input className="signinput" type="checkbox" id="remember" />
                   <label htmlFor="remember">remember me</label>
@@ -283,7 +277,7 @@ export default function SignTest() {
                     required
                     onChange={(e) => handlePwdChange(e.target.value)}
                   />
-                    {pwd && <PasswordStrengthIndicator password={pwd} />}
+                  {pwd && <PasswordStrengthIndicator password={pwd} />}
                   {isPwdValid ? (
                     <span className="validation-check">&#10004;</span>
                   ) : (
@@ -306,7 +300,6 @@ export default function SignTest() {
                   <button className="signbutton signsubmit" type="submit">
                     確認
                   </button>
-                
                 </form>
               </div>
             )}

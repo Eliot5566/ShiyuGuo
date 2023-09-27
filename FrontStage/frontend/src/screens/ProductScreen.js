@@ -40,9 +40,6 @@ function ProductScreen() {
     loading: true,
     error: '',
   });
-  //   const [products, setProducts] = useState([]);
-
-  //使用useEffect來取得資料
   useEffect(() => {
     //定義一個async function，並且使用axios來取得資料
     const fetchData = async () => {

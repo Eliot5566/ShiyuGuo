@@ -6,8 +6,37 @@
 }
 @media (max-width: 768px) {
     .arrow
+    { 
+           /* display: none;        */
+    }
+
+    .arrow2
     {
-        transform: rotate(90deg); 
+        
+        transform: rotate(135deg); 
        
     }
   }
+
+.main4{
+    position: relative;
+    top: 30%;   
+}
+
+@media (max-width: 768px) {
+        
+    .main4{ position: relative;
+     top: 120px;
+    }
+
+    .img4{
+        display: none
+    }
+
+    .bbb{
+        position:relative;
+        top: -60px;
+       left: 80px;
+    }
+}
+
