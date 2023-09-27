@@ -24,15 +24,14 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const Products = () => {
-  // 顯示商品資料 用空陣列接json
+  // 商品資料 用空陣列接json
   const [products, setProducts] = useState([]);
   // 編輯商品資料
   const [editedProducts, setEditedProducts] = useState(null);
   // 排序的狀態
   const [sorting, setSorting] = useState([]);
-  // ???
+  // 使用攔截器
   const axiosPrivate = useAxiosPrivate();
-
 
   // 在第一次渲染時抓產品資料
   useEffect(() => {
@@ -86,7 +85,7 @@ const Products = () => {
   const handleConfirmEdit = async(e) =>{
       e.preventDefault();
       try {
-          const response = await axios.put("/products",
+          const response = await axios.put("/products", // eslint-disable-line no-unused-vars
               JSON.stringify({ editedProducts }),
               {
                   headers: { 'Content-Type': 'application/json' },
@@ -124,7 +123,7 @@ const Products = () => {
       e.preventDefault();
       try {
           editedProducts.onSale = !editedProducts.onSale;
-          const response = await axios.put("/products/onSale",
+          const response = await axios.put("/products/onSale", // eslint-disable-line no-unused-vars
               JSON.stringify({ editedProducts }),
               {
                   headers: { 'Content-Type': 'application/json' },
@@ -161,7 +160,7 @@ const Products = () => {
   const handleConfirmDelete = async(e) =>{
       e.preventDefault();
       try {
-          const response = await axios.delete("/products",
+          const response = await axios.delete("/products", // eslint-disable-line no-unused-vars
           // delete的資料傳送形式要跟其他的不一樣
           {
               data:JSON.stringify({ editedProducts }),
@@ -189,6 +188,7 @@ const Products = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const data = useMemo(() => products,[products]);
 
+  // thead的內容
   /** @type import('@tanstack/react-table').ColumnDef<any> */
   const columns = [
   {
@@ -281,6 +281,7 @@ const Products = () => {
   },
   ];
   
+  // react-table的custom Hook
   const table = useReactTable(
     {
       data,

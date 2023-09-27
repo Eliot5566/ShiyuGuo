@@ -14,7 +14,7 @@ const Home = () => {
     const [products, setProducts] = useState([]);
     const axiosPrivate = useAxiosPrivate();
 
-    // 抓訂單及商品資料
+    // 在第一次渲染時抓訂單及商品資料
     useEffect(() => {
         let isMounted = true;
         const controller = new AbortController();
@@ -65,30 +65,33 @@ const Home = () => {
 
     // 計算營收(每筆訂單的total_price加總)
     const totalPrices = orders.reduce((total, order) => {
-        // 將total_price轉換為浮點數並加到 total 中
-        return total + parseFloat(order.total_price || 0);
+        // 這邊的 total_price 保險一點可以用parseInt或parseFloat處理一下
+        return total + order.total_price;
     }, 0); // 0 是初始的 total 值
 
     // 計算已付款
     const isPaid = orders.filter((order) => order.is_paid === 1).length;
 
-    // 計算庫存 少於20
+    // 計算庫存過低
     const lowInStock = products.filter((product) => product.countInStock < 10).length;
 
-    // 計算已付款的所有訂單的總金額
+    // 計算「已付款」的所有訂單的總金額
     const totalPaidAmount = orders.filter((order) => order.is_paid === 1).reduce((total, order) => {
-        return total += parseFloat(order.total_price);
-    }, 0); // 0 是初始的 total 值
+        // 這邊的 total_price 保險一點可以用parseInt或parseFloat處理一下
+        return total += order.total_price;
+    }, 0);
 
-    // 數字動畫(已經包裝成組件了)
-    const Counter = ({ from, to, duration}) => {
+    // 數字漸變動畫(包裝成組件)
+    const Counter = ({ from, to, duration }) => {
         const count = useMotionValue(from);
         const rounded = useTransform(count, (latest) => Math.round(latest));
+
         useEffect(() => {
             const controls = animate(count, to, { duration: duration });
             return controls.stop;
         // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
+
         return <motion.h2 className='mb-0'>{rounded}</motion.h2>;
     };
 
@@ -97,71 +100,69 @@ const Home = () => {
             <Helmet>
                 <title>儀錶板</title>
             </Helmet>
-            <div className="p-3 bg-light">
-                <section className="contanier-fluid">
-                    <div className="row">
-                        <div className="col-12 col-sm-6 col-md-4 col-lg-3 p-3 bg-light">
-                            <div className="d-flex justify-content-around p-4 align-items-center bg-white border border-dark shadow-sm rounded-3 shadow">
-                                <FontAwesomeIcon icon={faSackDollar} className='fs-1 text-success'/>
-                                <div className='text-center'>
-                                    <p>營收</p>
-                                    <div className='d-flex'>
-                                        <Counter from={0} to={totalPaidAmount} duration={1.5}/>
-                                        <span className='ms-1 align-self-center'>元</span>
-                                    </div>
+            <section className="contanier-fluid p-3 bg-light">
+                <div className="row">
+                    <div className="col-12 col-md-6 col-lg-3 p-3">
+                        <div className="d-flex justify-content-around p-4 align-items-center bg-white border border-dark shadow shadow-sm rounded-3">
+                            <FontAwesomeIcon icon={faSackDollar} className='fs-1 text-success'/>
+                            <div className='text-center'>
+                                <p>營收</p>
+                                <div className='d-flex'>
+                                    <Counter from={0} to={totalPaidAmount} duration={1.5}/>
+                                    <span className='ms-1 align-self-center'>元</span>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-12 col-sm-6 col-md-4 col-lg-3 p-3 bg-light">
-                            <div className="d-flex justify-content-around p-4 align-items-center bg-white border border-dark shadow-sm rounded-3 shadow">
-                                <FontAwesomeIcon icon={faCartShopping} className='fs-1 text-info'/>
-                                <div className='text-center'>
-                                    <p>已付款</p>
-                                    <div className='d-flex'>
-                                        <Counter from={0} to={isPaid} duration={1.5} />
-                                        <span className='ms-1 align-self-center'>筆</span>
-                                    </div>
+                    </div>
+                    <div className="col-12 col-md-6 col-lg-3 p-3">
+                        <div className="d-flex justify-content-around p-4 align-items-center bg-white border border-dark shadow shadow-sm rounded-3">
+                            <FontAwesomeIcon icon={faCartShopping} className='fs-1 text-info'/>
+                            <div className='text-center'>
+                                <p>已付款</p>
+                                <div className='d-flex'>
+                                    <Counter from={0} to={isPaid} duration={1.5} />
+                                    <span className='ms-1 align-self-center'>筆</span>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-12 col-sm-6 col-md-4 col-lg-3 p-3 bg-light">
-                            <Link 
-                            className="d-flex justify-content-around p-4 align-items-center bg-white border border-dark shadow-sm rounded-3 shadow text-black"
+                    </div>
+                    <div className="col-12 col-md-6 col-lg-3 p-3">
+                        <Link 
+                            className="d-flex justify-content-around p-4 align-items-center bg-white border border-dark shadow shadow-sm rounded-3 text-black"
                             to="/products"
-                            >
-                                <FontAwesomeIcon icon={faArrowTrendDown} className='fs-1 text-danger'/>
-                                <div className='text-center'>
-                                    <p>庫存過低</p>
-                                    <div className='d-flex'>
-                                        <Counter from={0} to={lowInStock} duration={1.5} />
-                                        <span className='ms-1 align-self-center'>款</span>
-                                    </div>
+                        >
+                            <FontAwesomeIcon icon={faArrowTrendDown} className='fs-1 text-danger'/>
+                            <div className='text-center'>
+                                <p>庫存過低</p>
+                                <div className='d-flex justify-content-center'>
+                                    <Counter from={0} to={lowInStock} duration={1.5} />
+                                    <span className='ms-1 align-self-center'>款</span>
                                 </div>
-                            </Link>
-                        </div>
-                        <div className="col-12 col-sm-6 col-md-4 col-lg-3 p-3 bg-light">
-                            <div className="d-flex justify-content-around p-4 align-items-center bg-white border border-dark shadow-sm rounded-3 shadow">
-                                <FontAwesomeIcon icon={faReceipt} className='fs-1 text-warning'/>
-                                <div className='text-center'>
-                                    <p>訂單總價</p>
-                                    <div className='d-flex'>
-                                        <Counter from={0} to={totalPrices} duration={1.5} />
-                                        <span className='ms-1 align-self-center'>元</span>
-                                    </div>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="col-12 col-md-6 col-lg-3 p-3">
+                        <div className="d-flex justify-content-around p-4 align-items-center bg-white border border-dark shadow shadow-sm rounded-3">
+                            <FontAwesomeIcon icon={faReceipt} className='fs-1 text-warning'/>
+                            <div className='text-center'>
+                                <p>訂單總價</p>
+                                <div className='d-flex'>
+                                    <Counter from={0} to={totalPrices} duration={1.5} />
+                                    <span className='ms-1 align-self-center'>元</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-12 col-md-8 p-3">
-                            <LineChart/>
-                        </div>
-                        <div className="col-12 col-md-4 p-3">
-                            <PieChart/>
-                        </div>
+                </div>
+                <div className="row">
+                    <div className="col-12 col-md-8 p-3">
+                        <LineChart/>
                     </div>
-                </section>
-            </div>
+                    <div className="col-12 col-md-4 p-3">
+                        <PieChart/>
+                    </div>
+                </div>
+            </section>
         </Transition>
     )
 }

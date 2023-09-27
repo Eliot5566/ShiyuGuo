@@ -6,7 +6,6 @@ import useAuth from '../hooks/useAuth';
 const PersistLogin = () => {
     const [isLoading, setIsLoading] = useState(true);
     const refresh = useRefreshToken();
-    // const { auth } = useAuth();
     const { auth, persist } = useAuth();
 
     useEffect(() => {
@@ -32,17 +31,12 @@ const PersistLogin = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    // useEffect(() => {
-    //     console.log(`isLoading: ${isLoading}`)
-    //     console.log(`aT: ${JSON.stringify(auth?.accessToken)}`)
-    // }, [isLoading])
-
     return (
         <>
             {!persist
                 ? <Outlet />
                 : isLoading
-                    ? <p>Loading...</p>
+                    ? <div className="d-flex justify-content-around p-4 align-items-center min-vh-100"><p>正在加載中...</p></div>
                     : <Outlet />
             }
         </>

@@ -7,13 +7,16 @@ import axios from '../api/axios';
 const LOGIN_URL = '/auth';
 
 const Login = () => {
+    // 登入狀態
     const { setAuth, persist, setPersist } = useAuth();
+    // 跳轉到登入前的頁面 如果沒有 就跳轉到根路由
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
-
+    // 輸入的資料
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
+    // 錯誤訊息
     const [errMsg, setErrMsg] = useState('');
 
     useEffect(() => {
@@ -22,7 +25,6 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         try {
             const response = await axios.post(LOGIN_URL,
                 JSON.stringify({ email, pwd }),
@@ -51,12 +53,14 @@ const Login = () => {
             }
         }
     }
-
+    // 「信任此裝置」的按鈕
     const togglePersist = () => {
         setPersist(prev => !prev);
     }
 
     useEffect(() => {
+        // 把persist(第二個參數)儲存到名為persist(第一個參數)的本地儲存中
+        // 第二個參數就是第11行的persist
         localStorage.setItem("persist", persist);
     }, [persist])
 

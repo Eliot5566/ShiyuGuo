@@ -4,10 +4,6 @@ import { Line } from 'react-chartjs-2';
 import { useState, useEffect } from "react";
 import axios from "../api/axios";
 
-
-// const labels = ["9/1-9/7", "9/8-9/14", "9/15-9/21", "9/22-9/28", "9/29-9/30"];
-
-
 function LineChart() {
     const [orders, setOrders] = useState([]);
 
@@ -32,6 +28,7 @@ function LineChart() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
+    // 處理訂單中的日期
     const createdDates = orders.map((order) => order.created_at);
     const groupedDates = {};
     createdDates.forEach((dateString) => {
@@ -49,11 +46,13 @@ function LineChart() {
         
         groupedDates[formattedDate]++;
     });
+
     const startDate = new Date('2023-09-01'); // 開始日期
     const endDate = new Date('2023-09-30');   // 結束日期
     const oneDay = 24 * 60 * 60 * 1000;       // 一天的毫秒數
     const resultArray = [];
 
+    // 把日期推成陣列
     for (let date = startDate; date <= endDate; date.setTime(date.getTime() + oneDay)) {
         const year = date.getFullYear();
         const month = date.getMonth() + 1;
@@ -62,13 +61,15 @@ function LineChart() {
         
         resultArray.push(groupedDates[formattedDate] || 0); // 如果沒有資料，則設為0
     }
-    // console.log(resultArray);
+
+    // 顯示的欄位
     const labels = [
         "9/1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
         "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
         "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"
     ];
-    
+
+    // 資料
     const data = {
         labels:labels,
         datasets:[
@@ -80,6 +81,8 @@ function LineChart() {
             }
         ],
     }
+
+    // 除了資料外的設定
     const options = {
         animation: {
             duration:1500

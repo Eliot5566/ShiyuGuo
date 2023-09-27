@@ -7,14 +7,12 @@ import 'bootstrap/dist/js/bootstrap.bundle.js';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
 
-
-
 const Member = () => {
     // 顯示會員資料 用空陣列接json
     const [members, setMembers] = useState([]);
     // 編輯會員資料
     const [editedMember, setEditedMember] = useState(null);
-
+    // 使用攔截器
     const axiosPrivate = useAxiosPrivate();
 
     // 在第一次渲染時抓會員資料

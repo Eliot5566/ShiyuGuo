@@ -19,6 +19,7 @@ import {
     faAngleLeft,
     faAngleRight  
 } from '@fortawesome/free-solid-svg-icons';
+import moment from 'moment';
 
 const Order = () =>{
     const [orders, setOrders] = useState([]);
@@ -72,17 +73,22 @@ const Order = () =>{
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
+    moment.updateLocale('tw', {
+        /**/
+        weekdays : [
+            "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"
+        ]
+    });
     const formatDateTime = (dateTimeString) => {
         const options = {
             year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: false,
+            month: 'long', // 顯示月份的全名
+            day: 'numeric',
+            weekday: 'long', // 顯示星期的全名
+            hour: 'numeric',
+            minute: 'numeric',
         };
-        const formattedDate = new Date(dateTimeString).toLocaleString('zh-TW', options);
+        const formattedDate = moment(dateTimeString).format('YYYY年M月DD日 dddd HH:mm', options);
         return formattedDate;
     };
 
