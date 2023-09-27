@@ -1,15 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { Store } from '../Store';
 import { Helmet } from 'react-helmet-async';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './rabbit.css';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col, ListGroup, Button, Card } from 'react-bootstrap';
 import swal from 'sweetalert';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -21,9 +16,9 @@ export default function CartScreen() {
 
   // 在 CartScreen 組件中定義三種不同禮盒尺寸的卡片內容和樣式
 
-
   const navigate = useNavigate();
 
+  //dispatch是用來發送action的，這裡發送的是FETCH_REQUEST
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
     userInfo,
@@ -40,32 +35,38 @@ export default function CartScreen() {
     _id,
   } = state;
 
-
+  //cardContentMap 是一個對象，用來存儲卡片內容和樣式
   const cardContentMap = {
-    '4': {
+    4: {
       cardType: selectedCard,
       cardContent: cardContent,
     },
-    '6': {
+    6: {
       cardType: selectedCard6,
       cardContent: cardContent6,
     },
-    '9': {
+    9: {
       cardType: selectedCard9,
       cardContent: cardContent9,
     },
   };
-  
+
+  //根據禮盒尺寸選擇卡片內容
   const selectedCardContent = cardContentMap[selectedGiftBoxType];
 
-
+  //將產品 map 轉換為產品列表
   const productMap = selectedProducts.reduce((map, product) => {
+    //const{ _id, name } = product是解構賦值 用來獲取product的_id和name
     const { _id, name } = product;
+    //如果map[_id]不存在，則創建一個新的對象，並且把product的count設為0
     if (!map[_id]) {
+      //map[_id]是一個對象，用來存儲產品的數量 { 產品_id: 產品數量 }
       map[_id] = { ...product, count: 0 };
     }
+    //如果map[_id]存在，則把product的count加1
     map[_id].count += 1;
     return map;
+    //map是一個對象，用來存儲產品的數量 { 產品_id: 產品數量 } 這裡返回的是map , {}是初始值
   }, {});
 
   const productMap6 = selectedProducts6.reduce((map, product) => {
@@ -241,10 +242,10 @@ export default function CartScreen() {
                 <div className="rabbit"></div>
                 <br />
                 <div
-                  className="carp fs-4 fw-bold"
+                  className="carp  fw-bold"
                   style={{ color: 'rgb(78,78,78)' }}
                 >
-                  購物車目前空空的，快點去挑選喜歡的產品吧～
+                  <p>購物車目前空空的，快點去挑選喜歡的產品吧～</p>
                 </div>
               </div>
             ) : (
@@ -413,13 +414,10 @@ export default function CartScreen() {
                             );
                           })()}
                         </div>
-
-
-                        
-    <h4>卡片內容：</h4>
-    <p>樣式：{selectedCardContent.cardType}</p>
-    <p>內容：{selectedCardContent.cardContent}</p>
-  </div>
+                        <h4>卡片內容：</h4>
+                        <p>樣式：{selectedCardContent.cardType}</p>
+                        <p>內容：{selectedCardContent.cardContent}</p>
+                      </div>
                     )}
                   </ListGroup.Item>
                 ))}
@@ -446,7 +444,7 @@ export default function CartScreen() {
                         className="text-white fs-4 btn-color mt-2"
                         onClick={() => {
                           checkoutHandler();
-                          handleSubmit(); // 
+                          handleSubmit(); //
                         }}
                         type="button"
                         variant="primary"

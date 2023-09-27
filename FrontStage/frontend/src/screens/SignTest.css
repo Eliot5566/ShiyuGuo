@@ -358,7 +358,7 @@
   .signcontainer {
     width: 75%;
     height: 75%;
-    margin: auto;
+    margin: 0 0 0 10vw;
     padding: 0;
   }
   .welcome {
@@ -422,6 +422,17 @@
     margin-top: 70%;
   }
 
+  .flower {
+    width: 100%;
+    /* height: 100%; */
+  }
+  .leftpart {
+    margin-left: 2.1vw;
+  }
+
+  .carp p {
+    font-size: 12px;
+  }
   /* ///////////////////////////////// */
 
   /* //小視窗下點選註冊頁面的註冊按鈕後，註冊頁面消失，登入頁面出現 */

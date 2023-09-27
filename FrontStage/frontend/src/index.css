@@ -241,7 +241,7 @@ a.nav-link {
   display: flex;
   justify-content: center;
   align-items: center;
-  color:#9a2540;
+  color: #9a2540;
   transform: scale(1);
   transition: all 0.3s ease-in-out;
   font-size: 1rem;
@@ -356,7 +356,7 @@ Button.btn-color,
 
 Button.btn-color:hover,
 .category-buttons .btn-color:hover {
-  background-color: #b33f5a!important;
+  background-color: #b33f5a !important;
 }
 Button.btn-color:active {
   background-color: #c97689 !important;
@@ -696,7 +696,13 @@ Button.btn-color:active {
   color: white;
   background-color: #e08685;
 }
-a.active.dropdown-item{
+a.active.dropdown-item {
   background-color: #e08685;
 }
 /* 導覽列-會員-下拉選單 */
+
+.carp p {
+  /* 字體大小設為21px */
+
+  font-size: 1.5rem;
+}

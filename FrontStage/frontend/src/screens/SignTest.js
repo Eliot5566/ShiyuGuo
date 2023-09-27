@@ -23,6 +23,7 @@ export default function SignTest() {
 
   const toggleForm = () => {
     setIsSignIn(!isSignIn);
+
     //當視窗為小畫面@media (max-width: 768px)時，點擊登入或註冊按鈕後，會自動跳轉到另一個表單
     if (window.innerWidth < 768) {
       window.scrollTo(0, 0);
@@ -45,6 +46,13 @@ export default function SignTest() {
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
+
+  /* 當視窗為小畫面時，自動點擊一次切換按鈕 */
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      toggleForm();
+    }
+  }, []);
 
   const validatePassword = (password) => {
     // 檢查密碼是否包含大小寫字母並且至少 6 個字符長
@@ -316,7 +324,7 @@ export default function SignTest() {
             <img
               className="flower smaller"
               src={signimg}
-              alt="1357d638624297b"
+              alt="兔兔"
               border={0}
             />
             <p id="signp" className="signaccount">
@@ -328,13 +336,13 @@ export default function SignTest() {
           </div>
           <div className="rightbox">
             <h2 className="signtitle">
-              <span className="signspan">Japanes</span>&amp;
+              <span className="signspan leftpart">Japanes</span>&amp;
               <br />
               Sweets
             </h2>
-            <p id="signp" className="signdesc">
+            <p id="signp" className="signdesc leftpart">
               {' '}
-              Satisfy your <span className="signspan">taste buds</span>
+              Satisfy your <span className="signspan leftpart">taste buds</span>
             </p>
             <img className="flower" src={signimg2} alt="" />
             <p id="signp" className="signaccount">
@@ -346,6 +354,8 @@ export default function SignTest() {
           </div>
         </div>
         {/* 當視窗為小畫面@media (max-width: 768px) 新增一個按鈕來切換登入註冊*/}
+        {/* 當視窗為小畫面時，自動點擊一次切換按鈕 */}
+
         {window.innerWidth < 768 && (
           <div className="toggle-btn signbutton2">
             <button className="signbutton" onClick={toggleForm}>
@@ -353,6 +363,8 @@ export default function SignTest() {
             </button>
           </div>
         )}
+
+        {window.innerWidth}
       </div>
     </>
   );
