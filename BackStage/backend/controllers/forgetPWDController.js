@@ -1,4 +1,3 @@
-// ???
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const myDBconn = require('../config/db');

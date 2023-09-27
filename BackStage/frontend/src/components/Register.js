@@ -13,8 +13,11 @@ const PHONE_REGEX = /^(09\d{8})$/;
 const REGISTER_URL = '/register';
 
 const Register = () => {
+    // 值
     const [name, setName] = useState('');
+    // 驗證值(用來顯示是否符合regex)
     const [validName, setValidName] = useState(false);
+    // 輸入欄位的focus(用來顯示應該輸入什麼內容才符合regex的框)
     const [nameFocus, setNameFocus] = useState(false);
 
     const [pwd, setPwd] = useState('');
@@ -33,7 +36,9 @@ const Register = () => {
     const [validMatch, setValidMatch] = useState(false);
     const [matchFocus, setMatchFocus] = useState(false);
 
+    // 錯誤訊息
     const [errMsg, setErrMsg] = useState('');
+    // 登入成功的狀態
     const [success, setSuccess] = useState(false);
 
 

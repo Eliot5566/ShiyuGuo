@@ -413,6 +413,9 @@ export default function CartScreen() {
                             );
                           })()}
                         </div>
+
+
+                        
     <h4>卡片內容：</h4>
     <p>樣式：{selectedCardContent.cardType}</p>
     <p>內容：{selectedCardContent.cardContent}</p>

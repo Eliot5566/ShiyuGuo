@@ -73,16 +73,18 @@ body {
 /* ---------------------------------垂直文字 */
 .vertical-text {
   position: fixed;
-  top: 13%;
+  top: 10%;
   left: 75%;
-  font-size: 28px;
+
+  font-size: 30px;
 }
 
 .vertical-text2 {
   position: fixed;
   top: 15%;
   left: 65%;
-  font-size: 28px;
+
+  font-size: 30px;
 }
 
 .vertical-text div {
@@ -95,15 +97,17 @@ body {
 @media (max-width: 768px) {
   .vertical-text {
     position: fixed;
-    top: 15%;
+    top: 8%;
     left: 65%;
+
     font-size: 18px;
   }
 
   .vertical-text2 {
     position: fixed;
-    top: 18%;
+    top: 10%;
     left: 35%;
+  
     font-size: 18px;
   }
 }

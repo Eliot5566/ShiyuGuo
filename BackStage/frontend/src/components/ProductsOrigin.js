@@ -16,7 +16,7 @@ function Products() {
     // 翻頁功能
     const [currentPage, setCurrentPage] = useState(1);
     const [productsPerPage] = useState(10);
-    // ???
+    // 使用攔截器
     const axiosPrivate = useAxiosPrivate();
 
 

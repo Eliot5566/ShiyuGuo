@@ -5,9 +5,9 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function Page3() {
   return (
-    <div className="flex-container background3 ">
+    <div className="flex-container  bg-light bg-opacity-75">
       <div className="aaa">
-        <h1 className="VerticalText fw-bold">商品種類</h1>
+        <h1 className="VerticalText fw-bold m-2">商品種類</h1>
       </div>
       <div className="spinner">
         <p>
