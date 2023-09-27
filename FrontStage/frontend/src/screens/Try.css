@@ -166,7 +166,7 @@ section.os.animate {
 }
 .section-content {
   padding-top: 50px;
-  color: #ce4d5a;
+  color: #000000;
   transition: 500ms;
 }
 .set-left .section-content {
