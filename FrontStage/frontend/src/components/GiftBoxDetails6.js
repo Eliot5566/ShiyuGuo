@@ -248,44 +248,53 @@ export default function GiftBoxDetails6() {
       <hr />
       <div>
         {/* 顯示用戶選擇的卡片樣式與內容 */}
-        <div
-          className="text-center mt-5 mb-3 fs-4 fw-bolder"
-          style={{ color: '#9A2540' }}
-        >
-          選擇的卡片樣式
-        </div>
+       {/* 沒有選擇卡片時 不顯示以下內容  */}
+       {selectedCard6 === '' ? (null) :
+         <div
+         className="text-center mt-5 mb-3 fs-4 fw-bolder"
+         style={{ color: '#9A2540' }}
+       >
+         選擇的卡片樣式
+       </div>}
+    
+      
         {/* <p>{selectedCard}</p> */}
         <div className=" d-flex justify-content-center">
           <Col md={6} className="d-flex justify-content-center">
-            <div className="card-back-img mb-3">
-              {/* 所選卡片對應的圖片 */}
-              {selectedCard6 === '綠色' ? (
-                <img
-                  src={greenCardBack}
-                  alt={selectedCard6}
-                  width={334}
-                  height={250}
-                />
-              ) : selectedCard6 === '米白' ? (
-                <img
-                  src={offWhiteColorBack}
-                  alt={selectedCard6}
-                  width={334}
-                  height={250}
-                />
-              ) : selectedCard6 === '粉色' ? (
-                <img
-                  src={pinkCardBack}
-                  alt={selectedCard6}
-                  width={334}
-                  height={250}
-                />
-              ) : null}
-              <p
-                className="card-back-text"
-                dangerouslySetInnerHTML={{ __html: cardContent6 }}
-              ></p>
-            </div>
+    {/* 沒有選擇卡片時 不顯示卡片樣式 內容 */}
+            {selectedCard6 === '' ? (null
+              
+            ) :  <div className="card-back-img mb-3">
+            {/* 所選卡片對應的圖片 */}
+            {selectedCard6 === '綠色' ? (
+              <img
+                src={greenCardBack}
+                alt={selectedCard6}
+                width={334}
+                height={250}
+              />
+            ) : selectedCard6 === '米白' ? (
+              <img
+                src={offWhiteColorBack}
+                alt={selectedCard6}
+                width={334}
+                height={250}
+              />
+            ) : selectedCard6 === '粉色' ? (
+              <img
+                src={pinkCardBack}
+                alt={selectedCard6}
+                width={334}
+                height={250}
+              />
+            ) : null}
+            <p
+              className="card-back-text"
+              dangerouslySetInnerHTML={{ __html: cardContent6 }}
+            ></p>
+          </div>}
+            {/* 顯示選擇的卡片樣式 內容 */}
+           
             {/* 顯示用戶選擇的卡片樣式與內容 */}
           </Col>
         </div>
