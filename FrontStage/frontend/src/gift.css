@@ -1,13 +1,13 @@
 
-.arrow{
-    background-image: url('./images/專題2/箭頭.png');
+/*.number{
+     background-image: url('./images/專題2/箭頭.png');
     width: 100%;
     height: 100%;
 }
 @media (max-width: 768px) {
     .arrow
     { 
-           /* display: none;        */
+           /* display: none;        
     }
 
     .arrow2
@@ -17,7 +17,7 @@
        
     }
   }
-
+  */
 .main4{
     position: relative;
     top: 30%;   
