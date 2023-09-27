@@ -445,6 +445,8 @@ Button.btn-color:active {
   width: 310px;
   height: 230px;
   font-size: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 /* 卡片-end */
 /* 客製禮盒樣式-end */
