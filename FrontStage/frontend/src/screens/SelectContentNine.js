@@ -1,7 +1,7 @@
 // 第二步 九格禮盒 選擇商品
 import React, { useState, useEffect, useContext } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import GiftProducts from '../components/GiftProducts';
 import transparent from '../images/transparent.png';
@@ -17,8 +17,6 @@ export default function SelectContentNine() {
   const { state, dispatch } = useContext(Store);
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState('all');
-  // 待確認刪除-boxType
-  const { boxType } = useParams();
   const [isNextButtonVisible, setNextButtonVisible] = useState(false);
   const navigate = useNavigate();
 
@@ -99,14 +97,6 @@ export default function SelectContentNine() {
       });
       return;
     }
-
-    // const userResponse = window.confirm('是否需要加入禮盒卡片？');
-    // const userResponse = swal({
-    //   title: "是否需要加入禮盒卡片？",
-    //   icon: "warning",
-    //   // buttons: true,
-    //   dangerMode: true,
-    // });
 
     const userResponse = await MySwal.fire({
       title: '是否需要加入禮盒卡片？',
@@ -198,7 +188,7 @@ export default function SelectContentNine() {
         </Col>
       </Row>
 
-      <div className="category-buttons m-3 text-center">
+      <div className="category-buttons mt-5 text-center">
         {/* 隨機加入產品 */}
 
         <button

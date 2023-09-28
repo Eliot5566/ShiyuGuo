@@ -188,7 +188,7 @@ export default function SelectContentSix() {
           </div>
         </Col>
       </Row>
-      <div className="category-buttons m-3 text-center">
+      <div className="category-buttons mt-5 text-center">
         {/* 隨機加入產品 */}
 
         <button

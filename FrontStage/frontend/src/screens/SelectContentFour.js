@@ -1,7 +1,7 @@
 // 第二步 四格禮盒 選擇商品
 import React, { useState, useEffect, useContext } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import GiftProducts from '../components/GiftProducts';
 import transparent from '../images/transparent.png';
@@ -17,8 +17,6 @@ export default function SelectContentFour() {
   const { state, dispatch } = useContext(Store);
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState('all');
-  // 待確認刪除-boxType
-  const { boxType } = useParams();
   const [isNextButtonVisible, setNextButtonVisible] = useState(false);
   const navigate = useNavigate();
 
@@ -186,7 +184,7 @@ export default function SelectContentFour() {
           </div>
         </Col>
       </Row>
-      <div className="category-buttons m-3 text-center">
+      <div className="category-buttons mt-5 text-center">
         {/* 隨機加入產品 */}
 
         <button

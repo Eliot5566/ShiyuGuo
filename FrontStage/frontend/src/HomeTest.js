@@ -65,7 +65,7 @@ function HomeTest() {
         <title>首頁 | 拾月菓</title>
         <meta name="description" content="拾月菓" />
       </Helmet>
-      <Parallax pages={5.6} style={{ top: '0', left: '0' }} className="animation backgroundMain">
+      <Parallax pages={5.565} style={{ top: '0', left: '0' }} className="animation backgroundMain">
         <ParallaxLayer offset={0} speed={0}>
           <div className="animation_layer parallax" id="block"></div>
         </ParallaxLayer>

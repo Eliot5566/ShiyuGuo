@@ -396,32 +396,32 @@ Button.btn-color:active {
 
 .selected-product-image {
   border-radius: 5%;
-  margin-top: 8px;
-  margin-left: 9px;
-  width: 150px;
-  height: 150px;
+  margin-top: 9px;
+  margin-left: 8px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
 }
 
 .selected-four-box {
-  width: 330px;
-  height: 330px;
+  width: 230px;
+  height: 230px;
   cursor: pointer;
   background-image: url('./images/four_boxBodyIn_0.png');
   background-repeat: no-repeat;
   background-size: contain;
 }
 .selected-six-box {
-  width: 480px;
-  height: 330px;
+  width: 330px;
+  height: 230px;
   cursor: pointer;
   background-image: url('./images/six_boxBodyIn_0.png');
   background-repeat: no-repeat;
   background-size: contain;
 }
 .selected-nine-box {
-  width: 480px;
-  height: 480px;
+  width: 330px;
+  height: 330px;
   cursor: pointer;
   background-image: url('./images/nine_boxBodyIn_0.png');
   background-repeat: no-repeat;
