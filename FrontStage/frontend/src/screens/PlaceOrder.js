@@ -15,6 +15,8 @@ import Axios from 'axios';
 import LoadingBox from '../components/LoadingBox';
 import Paypal from '../images/paypal.svg';
 import LinePay from '../images/LinePay.png';
+import axios from 'axios';
+
 // import { useState } from 'react';
 
 const reducer = (state, action) => {
@@ -32,6 +34,8 @@ const reducer = (state, action) => {
 export default function PlaceOrder() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
+  const { order } = state;
+
   const navigate = useNavigate();
 
   const [{ loading }, dispatch] = useReducer(reducer, {
@@ -42,6 +46,32 @@ export default function PlaceOrder() {
   cart.itemsPrice = round2(
     cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
   );
+
+  //送出訂單後,自動寄信給使用者 傳送訂單資料
+
+  const orderItems = cart.cartItems.map((item) => {
+    return {
+      name: item.name,
+      quantity: item.quantity,
+      price: item.price,
+    };
+  });
+  const itemsPrice = orderItems.reduce((a, c) => a + c.price * c.quantity, 0);
+  const shippingPrice = itemsPrice > 1000 ? 0 : 100;
+  const taxPrice = 0.05 * itemsPrice;
+  const totalPrice = itemsPrice + shippingPrice + taxPrice;
+
+  const orderDetail = {
+    orderItems,
+    shipping_address: cart.shippingAddress,
+    payment_method: cart.paymentMethod,
+    items_price: itemsPrice,
+    shipping_price: shippingPrice,
+    tax_price: taxPrice,
+    total_price: totalPrice,
+  };
+  console.log(orderDetail);
+
   //   cart.taxPrice = round2(0.15 * cart.itemsPrice);
   //晚點改回來
   //晚點改回來
@@ -72,21 +102,45 @@ export default function PlaceOrder() {
         cardContent9: state.cardContent9,
       };
 
-      const { data } = await Axios.post('/api/orders', orderData, {
-        headers: {
-          Authorization: `Bearer ${userInfo.token}`,
-        },
-      });
+      const { data: orderResponse } = await Axios.post(
+        '/api/orders',
+        orderData,
+        {
+          headers: {
+            Authorization: `Bearer ${userInfo.token}`,
+          },
+        }
+      );
 
       ctxDispatch({ type: 'CART_CLEAR' });
       dispatch({ type: 'CREATE_SUCCESS' });
       localStorage.removeItem('cartItems');
-      navigate(`/order/${data.order._id}`);
+      sendOrderDetail(orderResponse.order._id); // 將訂單ID作為參數傳遞
+      toast.success('訂單已送出');
+
+      //簡訊發送成功後再跳轉頁面
+
+      navigate(`/order/${orderResponse.order._id}`);
     } catch (err) {
       dispatch({ type: 'CREATE_FAIL' });
       toast.error(err.response.data.message);
     }
   };
+
+  async function sendOrderDetail(orderId) {
+    try {
+      const { data } = await axios.post(
+        `/api/orders/${orderId}/send`,
+        orderDetail,
+        {
+          headers: { authorization: `Bearer ${userInfo.token}` },
+        }
+      );
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   useEffect(() => {
     if (!cart.paymentMethod) {
@@ -191,6 +245,7 @@ export default function PlaceOrder() {
                     <Button
                       type="button"
                       className="btn-color"
+                      // onClick={placeOrderHandler}
                       onClick={placeOrderHandler}
                       style={{ backgroundColor: '#9a2540' }}
                       disabled={cart.cartItems.length === 0}

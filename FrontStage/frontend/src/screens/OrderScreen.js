@@ -67,7 +67,7 @@ export default function OrderScreen() {
   console.log(orderId);
   const navigate = useNavigate();
   //
-  const [isLoading, setIsLoading] = useState(true); // 新增 isLoading 状态
+  const [isLoading, setIsLoading] = useState(true);
 
   const [{ loading, error, order, successPay, loadingPay }, dispatch] =
     useReducer(reducer, {
