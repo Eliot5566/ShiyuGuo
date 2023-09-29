@@ -139,7 +139,7 @@ const GiftCard9 = () => {
           </Col>
           <Col md={6}>
             <div>
-              <p>
+              <p className="text-center">
                 *卡片預覽 <br /> <span>*超出文字將會被截斷</span>
               </p>
               <textarea

@@ -52,7 +52,7 @@ function ContactUs() {
         <meta name="description" content="拾月菓" />
       </Helmet>
       <h2>基本資訊</h2>
-      <div className="container contact-items">
+      <div className="container contact-items shadow">
         <Container>
           <Row>
             <Col lg={4}>
