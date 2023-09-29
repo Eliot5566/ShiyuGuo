@@ -265,3 +265,18 @@ section.os.animate {
   font-size: 1.2rem;
   /* font-weight: bold; */
 }
+
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* 其他樣式 */
+}
+
+/* .mobile-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+
+} */

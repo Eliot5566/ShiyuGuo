@@ -1,6 +1,5 @@
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 
-
 import Page from './page';
 import Page2 from './page2';
 import Page3 from './page3';
@@ -27,9 +26,6 @@ import { Store } from './Store';
 import Footer from './screens/Footer';
 // import Transition from './components/Transition';
 import main1 from './images/專題2/品牌2.png';
-
-
-
 
 function HomeTest() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -65,7 +61,11 @@ function HomeTest() {
         <title>首頁 | 拾月菓</title>
         <meta name="description" content="拾月菓" />
       </Helmet>
-      <Parallax pages={5.565} style={{ top: '0', left: '0' }} className="animation backgroundMain">
+      <Parallax
+        pages={5.565}
+        style={{ top: '0', left: '0' }}
+        className="animation backgroundMain"
+      >
         <ParallaxLayer offset={0} speed={0}>
           <div className="animation_layer parallax" id="block"></div>
         </ParallaxLayer>
@@ -175,14 +175,12 @@ function HomeTest() {
         </ParallaxLayer>
 
         <ParallaxLayer offset={1}>
-          <div className="pagesContainer text background  "></div>        
+          <div className="pagesContainer text background  "></div>
         </ParallaxLayer>
 
         <ParallaxLayer offset={1} speed={0.5}>
           <Page />
         </ParallaxLayer>
-
-       
 
         <ParallaxLayer offset={2.2} speed={0.2}>
           <div className="background2  h-50 "></div>
@@ -192,24 +190,18 @@ function HomeTest() {
         </ParallaxLayer>
 
         <ParallaxLayer offset={3.1}>
-        
           <Page3 />
-          
         </ParallaxLayer>
 
         <ParallaxLayer offset={4.3}>
           <Page4 />
         </ParallaxLayer>
 
-
-        
         <ParallaxLayer offset={5.2}>
-          <Page5/>
+          <Page5 />
         </ParallaxLayer>
 
-        
-
-        <ParallaxLayer className='fixed-nav' >
+        <ParallaxLayer className="fixed-nav">
           <Test2 />
         </ParallaxLayer>
       </Parallax>

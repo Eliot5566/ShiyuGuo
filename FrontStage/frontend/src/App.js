@@ -7,6 +7,7 @@ import {
   Switch,
   useLocation,
 } from 'react-router-dom';
+import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import { useEffect, useState } from 'react';
 
@@ -53,11 +54,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import ForgotPassword from './screens/ForgotPassword';
 import ResetPassword from './screens/ResetPassword';
+import Loading from './components/Loading';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo, giftBoxQuantity } = state;
   const [cartItemCount, setCartItemCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(true); // 載入狀態
 
   useEffect(() => {
     const itemCount = cart.cartItems.reduce(
@@ -66,7 +69,13 @@ function App() {
     );
 
     setCartItemCount(itemCount);
-  }, [cart, giftBoxQuantity]);
+
+    // 模擬載入時間
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, [cart, giftBoxQuantity, isLoading, setIsLoading]);
+
   const signoutHandler = () => {
     ctxDispatch({ type: 'USER_SIGNOUT' });
     localStorage.removeItem('userInfo');
@@ -75,66 +84,84 @@ function App() {
     localStorage.removeItem('paymentMethod');
     window.location.href = '/signin';
   };
+
   return (
     <BrowserRouter>
       <div className="d-flex flex-column site-container">
-        <ToastContainer position="bottom-center" limit={1} />
-        <main>
-          <div className="">
-            <Routes>
-              <Route path="/" element={<HomeTest />} />
-              <Route path="/" element={<Layout />}>
-                <Route path="/category" element={<CategoryPage />} />
-                <Route
-                  path="/category/:categoryName"
-                  element={<CategoryPage />}
-                />
-                <Route path="/product/:_id" element={<Product />} />
-                <Route path="/cart" element={<CartScreen />} />
-                <Route path="/placeorder" element={<PlaceOrder />} />
-                <Route path="/order/:id" element={<OrderScreen />} />
-
-                <Route path="/shipping" element={<ShippingAddress />} />
-                <Route path="/payment" element={<PaymentMethod />} />
-                <Route path="/giftbox" element={<CustomizedGiftBox />} />
-                <Route path="/giftcard" element={<GiftCard />} />
-                <Route path="/giftcard6" element={<GiftCard6 />} />
-                <Route path="/giftcard9" element={<GiftCard9 />} />
-                <Route path="/faq" element={<FAQ />} />
-
-                <Route path="/cardboxdetail" element={<GiftBoxDetails />} />
-                <Route path="/cardboxdetail6" element={<GiftBoxDetails6 />} />
-                <Route path="/cardboxdetail9" element={<GiftBoxDetails9 />} />
-                <Route path="/orderhistory" element={<OrderHistory />} />
-                <Route path="/profile" element={<ProfileScreen />} />
-                <Route path="/userpage" element={<UserPage />} />
-                <Route path="/signin" element={<SignTest />} />
-                <Route path="/forgotpassword" element={<ForgotPassword />} />
-
-                <Route
-                  path="/resetpassword/:resetToken"
-                  element={<ResetPassword />}
-                />
-                <Route path="/contact" element={<ContactUs />} />
-
-                <Route path="/test" element={<HomeScreen />} />
-                <Route
-                  path="/select-content/four"
-                  element={<SelectContentFour />}
-                />
-                <Route
-                  path="/select-content/six"
-                  element={<SelectContentSix />}
-                />
-                <Route
-                  path="/select-content/nine"
-                  element={<SelectContentNine />}
-                />
-                <Route path="/test2" element={<Test2 />} />
-              </Route>
-            </Routes>
+        {isLoading ? (
+          <div className="d-flex justify-content-center align-items-center h-100">
+            <Loading />
           </div>
-        </main>
+        ) : (
+          <>
+            <ToastContainer position="bottom-center" limit={1} />
+            <main>
+              <div className="">
+                <Routes>
+                  <Route path="/" element={<HomeTest />} />
+                  <Route path="/" element={<Layout />}>
+                    <Route path="/category" element={<CategoryPage />} />
+                    <Route
+                      path="/category/:categoryName"
+                      element={<CategoryPage />}
+                    />
+                    <Route path="/product/:_id" element={<Product />} />
+                    <Route path="/cart" element={<CartScreen />} />
+                    <Route path="/placeorder" element={<PlaceOrder />} />
+                    <Route path="/order/:id" element={<OrderScreen />} />
+
+                    <Route path="/shipping" element={<ShippingAddress />} />
+                    <Route path="/payment" element={<PaymentMethod />} />
+                    <Route path="/giftbox" element={<CustomizedGiftBox />} />
+                    <Route path="/giftcard" element={<GiftCard />} />
+                    <Route path="/giftcard6" element={<GiftCard6 />} />
+                    <Route path="/giftcard9" element={<GiftCard9 />} />
+                    <Route path="/faq" element={<FAQ />} />
+
+                    <Route path="/cardboxdetail" element={<GiftBoxDetails />} />
+                    <Route
+                      path="/cardboxdetail6"
+                      element={<GiftBoxDetails6 />}
+                    />
+                    <Route
+                      path="/cardboxdetail9"
+                      element={<GiftBoxDetails9 />}
+                    />
+                    <Route path="/orderhistory" element={<OrderHistory />} />
+                    <Route path="/profile" element={<ProfileScreen />} />
+                    <Route path="/userpage" element={<UserPage />} />
+                    <Route path="/signin" element={<SignTest />} />
+                    <Route
+                      path="/forgotpassword"
+                      element={<ForgotPassword />}
+                    />
+
+                    <Route
+                      path="/resetpassword/:resetToken"
+                      element={<ResetPassword />}
+                    />
+                    <Route path="/contact" element={<ContactUs />} />
+
+                    <Route path="/test" element={<HomeScreen />} />
+                    <Route
+                      path="/select-content/four"
+                      element={<SelectContentFour />}
+                    />
+                    <Route
+                      path="/select-content/six"
+                      element={<SelectContentSix />}
+                    />
+                    <Route
+                      path="/select-content/nine"
+                      element={<SelectContentNine />}
+                    />
+                    <Route path="/test2" element={<Test2 />} />
+                  </Route>
+                </Routes>
+              </div>
+            </main>
+          </>
+        )}
         <></>
       </div>
     </BrowserRouter>

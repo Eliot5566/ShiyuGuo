@@ -291,6 +291,7 @@ import { useContext } from 'react';
 import { Store } from '../Store';
 import { Container } from 'react-bootstrap';
 import '../screens/Try.css';
+import animated from 'animate.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -327,7 +328,7 @@ function Header() {
     return () => {
       document.removeEventListener('click', handleOutsideClick, true);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHamburgerOpen]);
 
   useEffect(() => {
@@ -444,7 +445,8 @@ function Header() {
           {device === 'mobile' && (
             <div className={`mobile-menu ${isHamburgerOpen ? 'active' : ''} `}>
               {/* 漢堡圖 */}
-              <Link className="mobile-menu-item" to="/">
+              {/* 讓文字添加動畫效果 從右邊飛出來 */}
+              <Link className="mobile-menu-item " to="/">
                 首頁
               </Link>
               <Link className="mobile-menu-item" to="/category">
@@ -456,7 +458,7 @@ function Header() {
               <Link className="mobile-menu-item" to="/faq">
                 常見問題
               </Link>
-              <Link className="mobile-menu-item" to="/contact">
+              <Link className="mobile-menu-item " to="/contact">
                 聯絡我們
               </Link>
             </div>
