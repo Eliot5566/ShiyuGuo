@@ -50,6 +50,9 @@ function page2() {
         </section>
         <section className="os">
           <div className="inner set-left">
+            <div className="section-obj">
+              <img className="border border-5" src={c} />
+            </div>
             <div className="section-content">
               <h3>🎉 第一家門市盛大開幕！🎉</h3>
               <p>
