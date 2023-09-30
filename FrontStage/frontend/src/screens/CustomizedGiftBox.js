@@ -5,7 +5,7 @@ import fourBoxImage from '../images/four_boxBodyIn_0.png';
 import sixBoxImage from '../images/six_boxBodyIn_0.png';
 import nineBoxImage from '../images/nine_boxBodyIn_0.png';
 import { Store } from '../Store';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import MyProgress from '../components/MyProgress';
 import 'animate.css';
 import { Helmet } from 'react-helmet-async';

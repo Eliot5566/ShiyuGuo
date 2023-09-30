@@ -7,7 +7,7 @@ function Page3() {
   return (
     <div className="flex-container  bg-light bg-opacity-75">
       <div className="aaa">
-        <h1 className="VerticalText fw-bold m-2">商品種類</h1>
+        <h1 className="VerticalText fw-bold mt-5">商品種類</h1>
       </div>
       <div className="spinner">
         <p>

@@ -27,12 +27,12 @@ function page2() {
               <img className="border border-5 " src={a} />
             </div>
             <div className="section-content">
-              <h3>
-                即日起和菓子
-                滿百免運活動！
-              </h3>
-              <p>即日起，購買和菓子滿百免運活動！不要錯過這個絕佳的機會。獲得美味的和菓子，並享受免費送貨服務。快來品嘗各種美味！</p>
-             
+              <h4>🎉 滿百免運！即日起至12月底 🎉</h4>
+              <p>
+                親愛的顧客們， <br />
+                自即日起直到今年12月底為止，我們將推出「滿百免運活動」，
+                無論您是購買自己所需的商品，還是送給家人朋友，現在都是最佳時機！
+              </p>
             </div>
           </div>
         </section>
@@ -43,8 +43,12 @@ function page2() {
               <img className="border border-5" src={b} />
             </div>
             <div className="section-content">
-              <h3 className="">禮盒服務快來製作自己喜歡禮盒組合吧～</h3>
-                <p>打造獨一無二的禮盒，選擇您喜愛的組合！溫馨禮物，傳遞心意。立即選購吧！</p>
+              <h3>🎁 客製禮盒服務 🎁</h3>
+              <p>
+                親愛的顧客們， <br />
+                我們的客製禮盒服務現已正式啟動，為您帶來一個全新的購物體驗！
+                現在，您可以輕鬆打造獨一無二的禮盒，選擇您喜愛的產品組合，並將您的心意送給親朋好友。
+              </p>
             </div>
           </div>
         </section>
@@ -54,14 +58,17 @@ function page2() {
               <img className="border border-5" src={c} />
             </div>
             <div className="section-content">
-              <h3 className="">最新門市開幕</h3>
+              <h3>🎉 第一家門市盛大開幕！🎉</h3>
               <p>
-                我們的最新門市已經開幕啦！歡迎光臨，品味新鮮美味。期待與您相見！</p>
-            
+                親愛的顧客們，
+                <br />
+                我們的第一家門市現已隆重開幕，為我們帶來了一個重要的里程碑！
+                我們誠摯地邀請您和您的家人朋友一同參加我們這個特別的開幕活動，共同慶祝這個重要時刻。
+              </p>
             </div>
           </div>
 
-        
+
         </section>
       </div>
     </div>
