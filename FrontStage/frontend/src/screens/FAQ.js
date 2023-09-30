@@ -28,6 +28,7 @@ function FAQ() {
         常見問題&nbsp;FAQ
       </div>
       <div
+        data-aos="flip-right"
         className="container rounded-3 p-5"
         style={{
           backgroundColor: 'rgba(255, 255, 255, 0.3)',

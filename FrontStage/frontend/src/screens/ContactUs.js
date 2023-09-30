@@ -13,6 +13,8 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { Helmet } from 'react-helmet-async';
+import AOS from 'aos';
+
 function ContactUs() {
   const { handleSubmit, control, reset } = useForm();
 
@@ -45,6 +47,15 @@ function ContactUs() {
       console.error('發送請求時出現錯誤', error);
     }
   };
+
+  AOS.init({
+    duration: 2000,
+    once: false,
+  });
+
+  //AOS.refresh是重新整理的意思 這邊是重新整理AOS的動畫 這樣才會有動畫
+  AOS.refresh();
+
   return (
     <div className="contactus" style={{ marginTop: '15vh' }}>
       <Helmet>
@@ -52,7 +63,7 @@ function ContactUs() {
         <meta name="description" content="拾月菓" />
       </Helmet>
       <h2>基本資訊</h2>
-      <div className="container contact-items">
+      <div className="container contact-items shadow">
         <Container>
           <Row>
             <Col lg={4}>
@@ -63,7 +74,7 @@ function ContactUs() {
                   style={{ color: '#ffffff', margin: '2px' }}
                 />
                 <h4>聯絡信箱</h4>
-                <p>octmoon@octmoon.com</p>
+                <p>eliotworkmail@gmail.com</p>
               </div>
             </Col>
 
@@ -75,7 +86,7 @@ function ContactUs() {
                   style={{ color: '#ffffff', margin: '2px' }}
                 />
                 <h4>客服電話</h4>
-                <p>03-11112222</p>
+                <p>03-7415761</p>
               </div>
             </Col>
 
@@ -102,15 +113,20 @@ function ContactUs() {
               <Row className="mb-5 ">
                 <Col lg={6} className="text-center">
                   <div>
-                    <img className="shop1" src={shop1} alt="店面圖" />
+                    <img
+                      data-aos="fade-up"
+                      className="shop1"
+                      src={shop1}
+                      alt="店面圖"
+                    />
                   </div>
                 </Col>
 
                 <Col lg={6} className="in">
                   <div>
                     <ul>
-                      <li>室內舒適座位</li>
-                      <li>
+                      <li data-aos="fade-up">室內舒適座位</li>
+                      <li data-aos="fade-up">
                         充滿日本風情的座位區，營造寧靜、放鬆的氛圍，適合品茶閱讀或聊天
                       </li>
                     </ul>
@@ -122,8 +138,8 @@ function ContactUs() {
                 <Col lg={6} className="col1">
                   <div>
                     <ul>
-                      <li>美麗山景座位</li>
-                      <li>
+                      <li data-aos="fade-up">美麗山景座位</li>
+                      <li data-aos="fade-up">
                         吃著和菓子，欣賞一年四季不同的壯麗風景，感受大自然的美妙
                       </li>
                     </ul>
@@ -132,19 +148,24 @@ function ContactUs() {
 
                 <Col lg={6} className="col2 text-center">
                   <div>
-                    <img className="shop2" src={shop2} alt="店面圖" />
+                    <img
+                      data-aos="fade-up"
+                      className="shop2"
+                      src={shop2}
+                      alt="店面圖"
+                    />
                   </div>
                 </Col>
               </Row>
 
               <Row>
-                <Col lg={6} className="text-center">
+                <Col lg={6} className="text-center" data-aos="fade-up">
                   <div>
                     <img className="shop1" src={shop3} alt="店面圖" />
                   </div>
                 </Col>
                 <Col lg={6} className="in">
-                  <div>
+                  <div data-aos="fade-up">
                     <ul>
                       <li>日系廊台</li>
                       <li>日系建築和自然的融合，體驗日本文化與自然和諧生活</li>
@@ -157,12 +178,12 @@ function ContactUs() {
         </div>
       </div>
 
-      <div className="googlemap">
+      <div className="googlemap" data-aos="fade-up">
         <GoogleMap />
       </div>
 
       {/* ///表單 */}
-      <div className="contactForm container mt-5 mb-5">
+      <div className="contactForm container mt-5 mb-5 " data-aos="zoom-in">
         <h2>聯絡我們</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-group">

@@ -13,7 +13,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import MyProgress from '../components/MyProgress';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
-import withReactContent from 'sweetalert2-react-content'
+import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
 
@@ -55,7 +55,7 @@ const GiftCard9 = () => {
       setNewCardContent(content);
     } else {
       setNewCardContent(content.slice(0, maxContentLength));
-      
+
       // 使用SweetAlert2彈出提示框
       MySwal.fire({
         title: '字數已達上限！',
@@ -94,6 +94,8 @@ const GiftCard9 = () => {
           <Col md={4} className="text-center">
             <img
               src={greenCardFront}
+              data-aos="flip-left"
+              data-aos-duration="1500"
               onClick={() => handleCardSelect('綠色')}
               width={200}
               height={150}
@@ -104,6 +106,8 @@ const GiftCard9 = () => {
           <Col md={4} className="text-center">
             <img
               src={offWhiteColorFront}
+              data-aos="flip-left"
+              data-aos-duration="1500"
               onClick={() => handleCardSelect('米白')}
               width={200}
               height={150}
@@ -114,6 +118,8 @@ const GiftCard9 = () => {
           <Col md={4} className=" text-center">
             <img
               src={pinkCardFront}
+              data-aos="flip-left"
+              data-aos-duration="1500"
               onClick={() => handleCardSelect('粉色')}
               width={200}
               height={150}
@@ -139,7 +145,7 @@ const GiftCard9 = () => {
           </Col>
           <Col md={6}>
             <div>
-              <p>
+              <p className="text-center">
                 *卡片預覽 <br /> <span>*超出文字將會被截斷</span>
               </p>
               <textarea
