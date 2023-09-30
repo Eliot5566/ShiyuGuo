@@ -5,7 +5,7 @@ import b from './images/最新消息2.png';
 import c from './images/最新消息3.png';
 function page2() {
   return (
-    <div className='background3'>
+    <div className="background3">
       <div className="container bg-light bg-opacity-75 ">
         {/* <header className="hero os">
       <hgroup>
@@ -24,7 +24,7 @@ function page2() {
             </div>
             <br />
             <div className="section-obj ">
-              <img className="border border-5 " src={a} />
+              <img className="border border-5 " src={a} alt="" />
             </div>
             <div className="section-content">
               <h4>🎉 滿百免運！即日起至12月底 🎉</h4>
@@ -38,7 +38,7 @@ function page2() {
         <section className="os">
           <div className="inner set-right">
             <div className="section-obj">
-              <img className="border border-5" src={b} />
+              <img className="border border-5" src={b} alt="" />
             </div>
             <div className="section-content">
               <h3>🎁 客製禮盒服務 🎁</h3>
@@ -51,7 +51,7 @@ function page2() {
         <section className="os">
           <div className="inner set-left">
             <div className="section-obj">
-              <img className="border border-5" src={c} />
+              <img className="border border-5" src={c} alt="" />
             </div>
             <div className="section-content">
               <h3>🎉 第一家門市盛大開幕！🎉</h3>
@@ -60,8 +60,6 @@ function page2() {
               </p>
             </div>
           </div>
-
-
         </section>
       </div>
     </div>

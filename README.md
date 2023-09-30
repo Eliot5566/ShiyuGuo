@@ -1,62 +1,83 @@
-# MERN shopping site
+# 電子商務網站
 
-# Lessons
+## 描述
 
-1. Introduction
-2. Install Tools
-3. Create React App
-4. Create Git Reopsitory
+- 拾月菓
+- 一個日式和菓子電子商務網站，包括前端和後端開發。
+- 前端使用 React 框架開發，後端由 Node.js 和 Express.js 提供支持，無縫連接到 MySQL 資料庫。
 
-5. List Products
+## 特徵
 
-   1. create products array
-   2. add product images
-   3. render products
-   4. style products
+- 功能齊全的購物車
+- 支援 PayPal 金流付款
+- 會員管理
+- 有效的庫存控制
 
-6. Add routing
+## 使用的技術
 
-   1. npm i react-router-dom
-   2. create route for home screen
-   3. cerate router for product screen
+- 前端：React
+- 後端：Node.js 和 Express.js
+- 資料庫：MySQL
 
-7. 創建 Node.js 伺服器 8. 執行 npm init in root folder 9. 更新 package.json set type: module 將類型設置為 moudle 因為要使用 import 而非 require for 導入包 10. 新增 .js to imports 11. npm install express 12. create server.js 13. add start command as node backend/server.js 14. require express 15. create route for / return backend is ready 16. move products.js from frontend to backend 17. create route for /api/products 18. return products 19. run npm start
+## 截圖
 
-8. Fetch Products From Backend
+## 安裝
 
-   1. set proxy in packge.json
-   2. npm install axios
-   3. use state hook
-   4. use effect hook
-   5. use reducer hook
+1. 克隆儲存庫：
 
-9. Add bootstrap UI Framework
-10. npm install react-bootstrap bootstrap
-11. update App.js
+   ```bash
+   git clone https://github.com/yourusername/your-project.git
+   ```
 
-12. Create Loading and Message Component
-13. create loading component
-14. use spinner component
-15. cerate message component
-16. create utils.js to define getError function
+2. 導航到項目目錄：
 
-17. 加入購物車
-18. 創建 React Context
-19. define reducer
-20. 創建 store provider
-21. implement add to catr burron click handler
+cd backend
 
-22. 創建購物車頁面
-23. 創建 2 columns
-24. display items list
-25. create action column
-26. 創建結帳頁面
-27. 創建地址填入表單
-28. 保存地址
-29.
+- npm install
+- node mysqlserver.js
 
-30. 創建註冊系統
+cd frontend
 
-31. 更新付款選項
-32. 新增訂單明細
-33. 訂單功能
+- npm insall
+- npm start
+
+# E-Commerce-Website
+
+## Description
+
+This project is an E-Commerce website that I independently designed and implemented, encompassing both front-end and back-end development. The front-end was developed using the React framework, while the back-end was powered by Node.js with Express.js, seamlessly connected to a MySQL database.
+
+## Features
+
+- Fully functional shopping cart
+- Streamlined payment processing
+- Membership management
+- Efficient inventory control
+
+## Technologies Used
+
+- Front-end: React
+- Back-end: Node.js with Express.js
+- Database: MySQL
+
+## Screenshots
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/your-project.git
+   ```
+
+2.Navigate to the project directory:
+
+cd backend
+
+- npm install
+- node mysqlserver.js
+
+cd frontend
+
+- npm insall
+- npm start
