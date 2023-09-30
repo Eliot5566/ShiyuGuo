@@ -13,7 +13,7 @@ import step4 from './images/專題2/logo圖標.png';
 function page4() {
   return (
     <div>
-      <div className='GiftBoxes main4 mt-5'>
+      <div className="GiftBoxes main4 mt-1">
         <h1 className="card-title fw-bold">客製化禮物盒</h1>
 
         <div className="container-fluid ">
@@ -28,7 +28,6 @@ function page4() {
             <div className="col-md-7  d-flex justify-content-center ">
               <div className="row align-items-center">
                 <div className="col ">
-
                   <img
                     className=" m-2 img-fluid"
                     src={step1}
@@ -95,11 +94,8 @@ function page4() {
                   </div>
                 </div>
               </div>
-
             </div>
-
           </div>
-
         </div>
       </div>
     </div>
