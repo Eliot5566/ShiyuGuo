@@ -3,12 +3,14 @@ import React, { useContext, useEffect, useReducer } from 'react';
 import { Helmet } from 'react-helmet-async';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import LoadingBox from '../components/LoadingBox';
+
 import MessageBox from '../components/MessageBox';
 import { Store } from '../Store';
+import Loading from '../components/Loading';
 // import { getError } from '../utils';
 import { Container, Button } from 'react-bootstrap';
 
+// 轉換日期格式
 function formatDateTime(dateTimeString) {
   const options = {
     year: 'numeric',
@@ -23,10 +25,13 @@ function formatDateTime(dateTimeString) {
 
   return new Date(dateTimeString).toLocaleString(undefined, options);
 }
-
+//reducer是一個function 用來更新state
 const reducer = (state, action) => {
+  //action是一個物件 有兩個屬性 type和payload
   switch (action.type) {
+    // 這裡的type是自己定義的 FETCH_REQUEST FETCH_SUCCESS FETCH_FAIL
     case 'FETCH_REQUEST':
+      // return { ...state, loading: true }; 這裡的...state是把原本的state複製一份 loading: true是更新state loading的值
       return { ...state, loading: true };
     case 'FETCH_SUCCESS':
       return { ...state, orders: action.payload, loading: false };
@@ -76,7 +81,7 @@ export default function OrderHistory() {
 
       <h1>訂單查詢</h1>
       {loading ? (
-        <LoadingBox></LoadingBox>
+        <Loading></Loading>
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (

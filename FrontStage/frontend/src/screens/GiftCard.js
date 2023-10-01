@@ -49,6 +49,7 @@ const GiftCard = () => {
     dispatch({ type: 'UPDATE_SELECTED_CARD', payload: card });
   };
 
+  //設定卡片內容 (限制字數)
   const handleContentChange = (event) => {
     const content = event.target.value;
     // 檢查是否超過最大字數限制，如果超過，則截斷內容
@@ -69,6 +70,7 @@ const GiftCard = () => {
     dispatch({ type: 'UPDATE_CARD_CONTENT', payload: content });
   };
 
+  //預設卡片樣式
   useEffect(() => {
     handleCardSelect('綠色');
     // eslint-disable-next-line react-hooks/exhaustive-deps

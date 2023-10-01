@@ -19,15 +19,18 @@ import axios from 'axios';
 
 // import { useState } from 'react';
 
+//這裡的reducer是用來更新state的 這個頁面的state
 const reducer = (state, action) => {
   switch (action.type) {
     case 'CREATE_REQUEST':
+      // return { ...state, loading: true }; 這裡的...state是把原本的state複製一份 loading: true是更新state loading的值
       return { ...state, loading: true };
     case 'CREATE_SUCCESS':
       return { ...state, loading: false };
     case 'CREATE_FAIL':
       return { ...state, loading: false };
     default:
+      //如果沒有符合的type 就回傳原本的state
       return state;
   }
 };
@@ -102,17 +105,22 @@ export default function PlaceOrder() {
         cardContent9: state.cardContent9,
       };
 
+      // 下面這行是用來發送訂單資料的 API 請求
+      //orderResponse是後端回傳的資料 data是後端回傳的資料裡面的一個屬性
       const { data: orderResponse } = await Axios.post(
         '/api/orders',
+        //orderData是要傳送的資料
         orderData,
         {
+          //headers是要傳送的資料的格式 這裡是json格式 這裡的token是從userInfo裡面取得 來自於登入時的資料
           headers: {
             Authorization: `Bearer ${userInfo.token}`,
           },
         }
       );
-
+      //ctxDispatch是Store.js裡的dispatch function 用來更新state
       ctxDispatch({ type: 'CART_CLEAR' });
+      //dispatch是這個頁面的dispatch function 用來更新state 來自於useReducer
       dispatch({ type: 'CREATE_SUCCESS' });
       localStorage.removeItem('cartItems');
       sendOrderDetail(orderResponse.order._id); // 將訂單ID作為參數傳遞

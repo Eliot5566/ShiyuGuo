@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-import LoadingBox from '../components/LoadingBox';
+import Loading from '../components/Loading';
 import MessageBox from '../components/MessageBox';
 import { Store } from '../Store';
 import { useState } from 'react';
@@ -66,10 +66,12 @@ export default function OrderScreen() {
   const { id: orderId } = params;
   console.log(orderId);
   const navigate = useNavigate();
-  //
+
   const [isLoading, setIsLoading] = useState(true);
 
+  //設定初始值
   const [{ loading, error, order, successPay, loadingPay }, dispatch] =
+    //useReducer是一個function 用來更新state 這裡的reducer是一個function 上面有定義
     useReducer(reducer, {
       loading: true,
       order: {},
@@ -77,26 +79,36 @@ export default function OrderScreen() {
       successPay: false,
       loadingPay: false,
     });
-
+  //usePayPalScriptReducer是一個function 用來更新state 來自@paypal/react-paypal-js
+  //isPending是一個布林值 用來判斷是否正在載入
   const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
 
+  //createOrder是一個function 用來創建訂單 來自@paypal/react-paypal-js data是一個物件 用來傳遞訂單資訊 actions是一個物件 用來創建訂單
   function createOrder(data, actions) {
-    return actions.order
-      .create({
-        purchase_units: [
-          {
-            amount: {
-              value: order.total_price,
+    return (
+      actions.order
+        //create是一個function 用來創建訂單 來自@paypal/react-paypal-js
+        .create({
+          //purchase_units是一個陣列 用來傳遞訂單資訊
+          purchase_units: [
+            {
+              //amount是一個物件 用來傳遞訂單金額
+              amount: {
+                //value是一個數字 用來傳遞訂單金額
+                value: order.total_price,
+              },
             },
-          },
-        ],
-      })
-      .then((orderID) => {
-        return orderID;
-      });
+          ],
+        })
+        //then是一個function 用來傳遞訂單id  來自@paypal/react-paypal-js
+        .then((orderID) => {
+          return orderID;
+        })
+    );
   }
-
+  //onApprove是一個function 用來傳遞訂單資訊 來自@paypal/react-paypal-js
   function onApprove(data, actions) {
+    //actions.order.capture().then代表當訂單被捕獲時執行以下程式碼
     return actions.order.capture().then(async function (details) {
       try {
         dispatch({ type: 'PAY_REQUEST' });
@@ -127,17 +139,21 @@ export default function OrderScreen() {
   }
 
   useEffect(() => {
+    //fetchOrder是一個function 用來獲取訂單資訊 來自@paypal/react-paypal-js
     const fetchOrder = async () => {
       try {
+        //dispatch是一個function 用來更新state 這裡的dispatch是一個function 上面有定義
         dispatch({ type: 'FETCH_REQUEST' });
         //改
         const { data } = await axios.get(`/api/orders/${orderId}`, {
           headers: { authorization: `Bearer ${userInfo.token}` },
         });
+        //data.order_items是一個字串 用來傳遞訂單商品資訊
         data.order_items = JSON.parse(data.order_items);
         data.shipping_address = JSON.parse(data.shipping_address);
         console.log(data.shipping_address);
 
+        //data.order_items是一個陣列 用來傳遞訂單商品資訊
         data.orderItems = data.order_items.map((item) => {
           return {
             _id: item._id,
@@ -162,6 +178,7 @@ export default function OrderScreen() {
       }
     };
 
+    //userInfo是一個物件 用來傳遞使用者資訊
     if (!userInfo) {
       navigate('/login');
     }
@@ -209,15 +226,19 @@ export default function OrderScreen() {
     order.id,
   ]);
 
+  // 如果載入中，顯示Loading
   return loading ? (
-    <LoadingBox></LoadingBox>
-  ) : error ? (
+    <Loading></Loading>
+  ) : // 如果載入失敗，顯示錯誤訊息
+  error ? (
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
+    // 如果載入成功，顯示訂單資訊
     <Container className="small-container mb-5">
       <Helmet>
         <title>訂單 | 拾月菓 {orderId}</title>
       </Helmet>
+      {/* //PayPalScriptProvider是一個function 用來載入PayPal script 來自@paypal/react-paypal-js */}
       <PayPalScriptProvider options={{ 'client-id': clientId }}>
         <h1 className="my-3">訂單編號 {orderId}</h1>
         <Row>
@@ -329,7 +350,7 @@ export default function OrderScreen() {
                   {!order.is_paid && (
                     <ListGroup.Item>
                       {isPending ? (
-                        <LoadingBox />
+                        <Loading />
                       ) : (
                         <div>
                           <PayPalButtons
@@ -339,7 +360,7 @@ export default function OrderScreen() {
                           ></PayPalButtons>
                         </div>
                       )}
-                      {loadingPay && <LoadingBox></LoadingBox>}
+                      {loadingPay && <Loading></Loading>}
                     </ListGroup.Item>
                   )}
                 </ListGroup>

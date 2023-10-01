@@ -4,15 +4,6 @@ function Try() {
   return (
     <>
       <div className="container ">
-        {/* <header className="hero os">
-      <hgroup>
-        <h2 className="textTry vintage">VINTAGE</h2>
-        <h2 className="textTry illustration">ILLUSTRATION</h2>
-        <h2 className="textTry nature">NATURE</h2>
-        <div className="flowerTry" />
-        <div className="frame" />
-      </hgroup>
-    </header> */}
         <section className="os">
           <div className="inner set-left align-items-center">
             <br />

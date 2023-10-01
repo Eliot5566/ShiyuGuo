@@ -31,9 +31,12 @@ export default function PaymentMethod() {
     setPaymentMethod(newMethod);
   };
 
+  // 這裡的type是自己定義的 SAVE_PAYMENT_METHOD
   const submitHandler = (e) => {
     e.preventDefault();
+    // 用來更新state paymentMethod的值
     ctxDispatch({ type: 'SAVE_PAYMENT_METHOD', payload: paymentMethodName });
+    // 把paymentMethod的值存到localStorage
     localStorage.setItem('paymentMethod', paymentMethodName);
     navigate('/placeorder');
   };

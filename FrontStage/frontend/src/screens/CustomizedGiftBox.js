@@ -65,7 +65,7 @@ export default function CustomizedGiftBox() {
       <Row>
         <Col className="text-center mb-3">
           <p>四格小資組合</p>
-          <p>NT$480</p>
+          <p>NT$ 480</p>
           <label>
             <div className="d-flex flex-column align-items-center mt-3">
               <img
@@ -93,7 +93,7 @@ export default function CustomizedGiftBox() {
         </Col>
         <Col className="text-center mb-3">
           <p>六格家庭組合</p>
-          <p>NT$680</p>
+          <p>NT$ 680</p>
           <label>
             <div className="d-flex flex-column align-items-center mt-3">
               <img
@@ -121,7 +121,7 @@ export default function CustomizedGiftBox() {
         </Col>
         <Col className="text-center mb-3">
           <p>九格派對組合</p>
-          <p>NT$980</p>
+          <p>NT$ 980</p>
           <label>
             <div className="d-flex flex-column align-items-center mt-3">
               <img

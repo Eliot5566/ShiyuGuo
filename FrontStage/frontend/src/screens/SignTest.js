@@ -35,8 +35,13 @@ export default function SignTest() {
     }
   };
   const navigate = useNavigate();
+  //useLocation()是react-router-dom提供的一個hook 可以獲取當前頁面的url search是一個字串 例如: ?redirect=/shipping 代表要導向的頁面是/shipping
+  //search代表網址中?後面的部分 useLocation()用來獲取當前頁面的url ?後面的部分  甚麼時候會有? 例如: /signin?redirect=/shipping
   const { search } = useLocation();
+  // redirectInUrl是一個字串 例如: redirect=/shipping
+  // new URLSearchParams(search) 會把search這個字串轉成一個物件 {redirect: "/shipping"}
   const redirectInUrl = new URLSearchParams(search).get('redirect');
+  // redirect是一個字串 例如: /shipping  如果沒有redirectInUrl 就導向首頁
   const redirect = redirectInUrl ? redirectInUrl : '/';
 
   const [name, setName] = useState('');

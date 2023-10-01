@@ -87,7 +87,9 @@ export default function CartScreen() {
     return map;
   }, {});
 
+  //切換展開的禮盒
   const toggleProductContent = (itemId, giftBoxType) => {
+    //判斷是否展開 如果展開則關閉，如果沒有展開則展開
     if (expandedProduct === itemId) {
       setExpandedProduct(null);
     } else {
@@ -96,7 +98,9 @@ export default function CartScreen() {
     }
   };
 
+  //更新購物車產品數量 這裡的item是從CartScreen.js中的updateCartHandler(item, quantity)傳過來的
   const updateCartHandler = async (item, quantity) => {
+    //如果產品數量小於1，則從購物車中刪除產品
     const { data } = await axios.get(`/api/products/${item._id}`);
     if (data.countInStock < quantity) {
       // swal({
@@ -147,7 +151,9 @@ export default function CartScreen() {
 
   const plus = (item) => {
     if (!MaxHandler(item)) {
+      //這裡的setInput是用來更新input的值 這裡的input是用來顯示產品數量的
       setInput(parseInt(input) + 1);
+      //這裡的updateCartHandler是用來更新購物車產品數量的
       updateCartHandler(item, item.quantity + 1);
     }
     if (item.quantity === 0) {
@@ -174,6 +180,9 @@ export default function CartScreen() {
       updateCartHandler(item, item.quantity - 1);
     }
   };
+  //判斷是否登入 未登入則跳轉到登入頁面
+  //判斷是否登入 未登入則跳轉到登入頁面
+  //判斷是否登入 未登入則跳轉到登入頁面
   const checkoutHandler = () => {
     navigate('/signin?redirect=/shipping');
   };
@@ -391,11 +400,15 @@ export default function CartScreen() {
                                 ? productMap6
                                 : productMap9;
 
+                            //這裡的Object.entries()是用來返回一個給定物件自身可枚舉屬性的鍵值對數組 這裡的productCounts是一個對象 { 產品_id: 產品數量 }
+                            //詳細解釋Object.entries() https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
                             return Object.entries(productCounts).map(
                               ([productId, product]) => {
+                                //這裡的 product.count是產品的數量
                                 const count = product.count;
 
                                 return (
+                                  //如果產品的數量大於0，則顯示產品的圖片和數量
                                   count > 0 && (
                                     <div
                                       key={productId}
@@ -406,6 +419,7 @@ export default function CartScreen() {
                                         alt={`selected product ${productId}`}
                                         className="selected-product-image"
                                       />
+                                      {/* //這裡的product.slug是產品的名稱 */}
                                       <span className="ms-3 fs-5">{`${product.slug} x ${count}`}</span>
                                     </div>
                                   )
@@ -433,6 +447,8 @@ export default function CartScreen() {
                       className="text-center fw-bold"
                       style={{ color: 'rgb(78,78,78)' }}
                     >
+                      {/* //這裡的cartItems.reduce((a, c) => a + c.quantity, 0)是用來計算購物車中產品的數量 */}
+                      {/* cartItems.reduce((a, c) => a + c.quantity, 0) 件商品 做法是先把購物車中的產品數量加起來，然後再加上當前產品的數量 */}
                       商品數量 ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
                       件) : NT$&nbsp;
                       {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
