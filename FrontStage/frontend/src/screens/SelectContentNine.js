@@ -8,9 +8,10 @@ import transparent from '../images/transparent.png';
 import { Store } from '../Store';
 import MyProgress from '../components/MyProgress';
 import 'animate.css';
+import swal from 'sweetalert';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
-import withReactContent from 'sweetalert2-react-content'
+import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
 export default function SelectContentNine() {
@@ -98,14 +99,10 @@ export default function SelectContentNine() {
       return;
     }
 
-    const userResponse = await MySwal.fire({
+    const userResponse = await swal({
       title: '是否需要加入禮盒卡片？',
       icon: 'warning',
-      iconColor: '#e4849a',
-      confirmButtonColor: '#9a2540',
-      showCancelButton: true, // 顯示取消按鈕
-      confirmButtonText: '需要', // 確認按鈕文本
-      cancelButtonText: '不需要', // 取消按鈕文本
+      buttons: ['不需要', '需要'],
       dangerMode: true,
     });
     if (userResponse) {
@@ -114,6 +111,22 @@ export default function SelectContentNine() {
       navigate(`/cardboxdetail9`);
     }
   };
+  //   const userResponse = await MySwal.fire({
+  //     title: '是否需要加入禮盒卡片？',
+  //     icon: 'warning',
+  //     iconColor: '#e4849a',
+  //     confirmButtonColor: '#9a2540',
+  //     showCancelButton: true, // 顯示取消按鈕
+  //     confirmButtonText: '需要', // 確認按鈕文本
+  //     cancelButtonText: '不需要', // 取消按鈕文本
+  //     dangerMode: true,
+  //   });
+  //   if (userResponse) {
+  //     navigate(`/giftcard9`);
+  //   } else {
+  //     navigate(`/cardboxdetail9`);
+  //   }
+  // };
 
   useEffect(() => {
     const selectedProductsTotalPrice = state.selectedProducts.reduce(
