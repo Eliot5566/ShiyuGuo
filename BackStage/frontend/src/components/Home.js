@@ -19,11 +19,17 @@ import jsPDF from 'jspdf';
 
 const exportToPDF = () => {
   const content = document.getElementById('report-content');
-  const pdf = new jsPDF();
+  //   const pdf = new jsPDF();
+  const pdf = new jsPDF({
+    orientation: 'landscape', // 設置為橫向
+  });
 
   html2canvas(content).then((canvas) => {
     const imgData = canvas.toDataURL('image/png');
-    pdf.addImage(imgData, 'PNG', 10, 10, 190, 0);
+    //10 10 190 0 代表的是圖片的位置和大小，可以自己設定
+
+    // pdf.addImage(imgData, 'PNG', 10, 10, 190, 0);
+    pdf.addImage(imgData, 'PNG', 10, 10, 0, 130);
     pdf.save('report.pdf');
   });
 };
