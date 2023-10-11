@@ -9,6 +9,18 @@ const { isAuth, generateToken } = require('../utils.js'); // 請確保 utils.js 
 const nodemailer = require('nodemailer');
 const emailValidator = require('email-validator');
 
+////如何處理cors 跨域問題
+// const cors = require('cors');
+// const corsOptions = {
+//   origin: 'http://localhost:3000',
+// headers是設置後端的伺服器允許接受來自於哪個頭部的請求
+// credentials是設置後端的伺服器允許接受來自於哪個端口的請求
+//   credentials: true,
+//optionsSuccessStatus是設置後端的伺服器允許接受來自於哪個狀態的請求
+//   optionSuccessStatus: 200,
+// };
+// userRouter.use(cors(corsOptions));
+
 // 請根據你的 MySQL 連接設定進行修改
 const db = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',

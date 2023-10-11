@@ -14,12 +14,22 @@ const mysqlOrderRouter = require('./routes/orderRoute.js');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const swal = require('sweetalert');
+//如何處理 跨域問題 這裡使用cors
+// const cors = require('cors');
 
 const nodemailer = require('nodemailer');
 const emailValidator = require('email-validator');
 
 const app = express();
 app.use(cors());
+//app.use(cors()) 這個中介軟體會讓 Express 伺服器在處理請求時，自動加上 CORS 標頭，讓瀏覽器知道這個伺服器允許跨域請求。
+//所以加上後 會讓前端可以跨域請求後端的資料 這樣就不會出現錯誤訊息
+//其他域名的網頁，要想請求這個伺服器的資源，就必須要加上 CORS 標頭，告訴瀏覽器這個伺服器允許跨域請求。
+//舉例來說 如果前端網頁是 http://localhost:3000，而後端伺服器是 http://localhost:5000，那麼前端網頁就必須要加上 CORS 標頭，才能請求後端伺服器的資源。
+//其他網域的範例
+// Access-Control-Allow-Origin: http://localhost:3122
+// Access-Control-Allow-Origin 要加在哪裡呢？它是一個 HTTP 標頭，所以要加在 HTTP 回應的標頭中。
+//舉例來說，如果你使用 Express，可以使用 res.header() 方法加上這個標頭。// res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
 app.use(bodyParser.json());
 
 //訂閱
